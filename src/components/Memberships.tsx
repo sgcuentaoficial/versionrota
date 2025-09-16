@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Crown, Star, Check, Zap, Target, Users, Award, Calendar, Gift, ArrowRight, Sparkles } from 'lucide-react';
+import { Crown, Star, Check, Target, Users, Award, Calendar, Gift, ArrowRight, Sparkles } from 'lucide-react';
 
 const Memberships = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -25,106 +25,84 @@ const Memberships = () => {
   const plans = [
     {
       name: "Básica",
-      subtitle: "Perfecto para empezar",
-      price: "89",
-      originalPrice: null,
+      subtitle: "Para empezar",
+      price: "297",
       period: "/mes",
-      duration: "1 mes",
-      totalPrice: "89€",
       popular: false,
       icon: Target,
+      color: "gray",
       features: [
         "Plan de entrenamiento personalizado",
         "Guía nutricional básica",
-        "Acceso a la app móvil",
         "Soporte por email",
-        "Videos explicativos",
-        "Seguimiento básico"
+        "Seguimiento mensual",
+        "Acceso a la comunidad"
       ]
     },
     {
-      name: "Trimestral",
+      name: "Estándar",
       subtitle: "Más popular",
-      price: "84.67",
-      originalPrice: "89",
+      price: "497",
       period: "/mes",
-      duration: "3 meses",
-      totalPrice: "254€",
       popular: true,
       icon: Calendar,
+      color: "blue",
       features: [
-        "Todo lo del plan Básico",
-        "Plan nutricional avanzado",
+        "Todo del plan Básico",
         "Seguimiento semanal",
-        "Ajustes mensuales",
-        "Acceso a webinars exclusivos",
-        "Comunidad privada",
-        "Recetas personalizadas"
+        "Plan nutricional avanzado",
+        "Llamadas grupales mensuales",
+        "Soporte prioritario",
+        "Acceso a masterclasses"
       ]
     },
     {
-      name: "Semestral",
-      subtitle: "Mejor valor",
-      price: "79.83",
-      originalPrice: "89",
+      name: "Premium",
+      subtitle: "Máximo valor",
+      price: "997",
       period: "/mes",
-      duration: "6 meses",
-      totalPrice: "479€",
       popular: false,
       icon: Gift,
+      color: "purple",
       features: [
-        "Todo lo del plan Trimestral",
-        "Llamadas grupales mensuales",
-        "Plan de suplementación",
-        "Análisis de progreso detallado",
-        "Acceso a masterclasses",
-        "Soporte prioritario",
-        "Certificado de finalización"
-      ]
-    },
-    {
-      name: "Anual Premium",
-      subtitle: "1 mes gratis",
-      price: "81.58",
-      originalPrice: "89",
-      period: "/mes",
-      duration: "12 meses",
-      totalPrice: "979€",
-      popular: false,
-      icon: Award,
-      features: [
-        "Todo lo del plan Semestral",
-        "Llamada 1:1 trimestral con Sergi",
-        "Plan de entrenamiento avanzado",
+        "Todo del plan Estándar",
+        "Llamadas 1:1 mensuales",
+        "Plan de suplementación personalizado",
+        "Análisis corporal detallado",
         "Coaching mental incluido",
-        "Acceso a eventos exclusivos",
-        "Material descargable premium",
-        "Garantía extendida"
+        "Acceso a eventos exclusivos"
       ]
     },
     {
       name: "VIP Elite",
-      subtitle: "Experiencia exclusiva",
-      price: "416.67",
-      originalPrice: null,
+      subtitle: "Exclusivo",
+      price: "2.997",
       period: "/mes",
-      duration: "12 meses",
-      totalPrice: "5.000€",
       popular: false,
       vip: true,
       icon: Crown,
+      color: "gold",
       features: [
-        "Todo lo del plan Anual Premium",
+        "Todo del plan Premium",
         "Acceso directo a Sergi 24/7",
         "Llamadas 1:1 semanales",
-        "Plan 100% personalizado",
-        "Análisis corporal profesional",
-        "Visita presencial incluida",
-        "Mentoría empresarial",
-        "Acceso de por vida"
+        "Programa 100% personalizado",
+        "Visita presencial (España)",
+        "Mentoría completa",
+        "Solo 12 plazas anuales"
       ]
     }
   ];
+
+  const getButtonStyles = (plan: any) => {
+    if (plan.vip) {
+      return "bg-gradient-to-r from-gold to-yellow-400 hover:from-yellow-400 hover:to-gold text-black shadow-lg hover:shadow-gold/30";
+    }
+    if (plan.popular) {
+      return "bg-gray-900 hover:bg-gray-800 text-white shadow-lg";
+    }
+    return "bg-white hover:bg-gray-50 text-gray-900 border-2 border-gray-200 hover:border-gray-300 shadow-lg";
+  };
 
   return (
     <section ref={sectionRef} className="py-32 bg-white relative overflow-hidden">
@@ -156,31 +134,29 @@ const Memberships = () => {
           </div>
 
           {/* Plans Grid */}
-          <div className="grid lg:grid-cols-5 md:grid-cols-2 gap-8 mb-20">
+          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8 mb-20">
             {plans.map((plan, index) => (
               <div 
                 key={index}
                 className={`transition-all duration-700 ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 } ${
-                  plan.popular ? 'lg:scale-105 lg:-translate-y-4 z-10' : ''
-                } ${
-                  plan.vip ? 'lg:scale-105 lg:-translate-y-4' : ''
+                  plan.popular || plan.vip ? 'lg:scale-105 lg:-translate-y-4 z-10' : ''
                 }`}
                 style={{ transitionDelay: `${index * 0.1}s` }}
               >
                 <div className={`relative h-full flex flex-col bg-white rounded-3xl p-8 transition-all duration-500 hover:shadow-2xl border-2 ${
                   plan.vip 
-                    ? 'border-gold/30 shadow-xl shadow-gold/10 hover:shadow-gold/20 ring-2 ring-gold/20'
+                    ? 'border-gold/50 shadow-xl shadow-gold/20 ring-2 ring-gold/30'
                     : plan.popular
-                    ? 'border-gray-300 shadow-xl hover:shadow-gray-500/20 ring-2 ring-gray-300'
+                    ? 'border-gray-400 shadow-xl hover:shadow-gray-500/20 ring-2 ring-gray-400'
                     : 'border-gray-200 shadow-lg hover:shadow-gray-500/10'
                 } hover:scale-105`}>
                   
                   {/* Popular Badge */}
                   {plan.popular && (
                     <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                      <div className="bg-gray-900 text-white px-6 py-2 rounded-full font-bold text-xs shadow-lg">
+                      <div className="bg-gray-900 text-white px-6 py-2 rounded-full font-bold text-sm shadow-lg">
                         MÁS POPULAR
                       </div>
                     </div>
@@ -189,7 +165,7 @@ const Memberships = () => {
                   {/* VIP Badge */}
                   {plan.vip && (
                     <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                      <div className="bg-gradient-to-r from-gold to-yellow-500 text-black px-6 py-2 rounded-full font-bold text-xs shadow-lg">
+                      <div className="bg-gradient-to-r from-gold to-yellow-400 text-black px-6 py-2 rounded-full font-bold text-sm shadow-lg">
                         EXCLUSIVO
                       </div>
                     </div>
@@ -199,11 +175,13 @@ const Memberships = () => {
                   <div className="text-center mb-8">
                     <div className={`w-20 h-20 rounded-3xl flex items-center justify-center mx-auto mb-6 ${
                       plan.vip 
-                        ? 'bg-gold/10 border border-gold/30'
-                        : 'bg-gray-100 border border-gray-200'
+                        ? 'bg-gradient-to-br from-gold/20 to-yellow-400/20 border border-gold/40'
+                        : plan.popular
+                        ? 'bg-gray-100 border border-gray-300'
+                        : 'bg-gray-50 border border-gray-200'
                     }`}>
                       <plan.icon className={`w-10 h-10 ${
-                        plan.vip ? 'text-gold' : 'text-gray-600'
+                        plan.vip ? 'text-gold' : plan.popular ? 'text-gray-700' : 'text-gray-600'
                       }`} />
                     </div>
                     
@@ -212,22 +190,10 @@ const Memberships = () => {
                     
                     {/* Pricing */}
                     <div className="mb-6">
-                      {plan.originalPrice && (
-                        <div className="text-lg text-gray-400 line-through mb-2">€{plan.originalPrice}/mes</div>
-                      )}
                       <div className="flex items-baseline justify-center mb-4">
-                        <span className="text-4xl font-black text-gray-900">€{plan.price}</span>
+                        <span className={`text-4xl font-black ${plan.vip ? 'text-gold' : 'text-gray-900'}`}>€{plan.price}</span>
                         <span className="text-gray-600 text-lg ml-1">{plan.period}</span>
                       </div>
-                    </div>
-                    
-                    <div className={`rounded-2xl p-4 mb-6 border ${
-                      plan.vip 
-                        ? 'bg-gold/5 border-gold/20'
-                        : 'bg-gray-50 border-gray-200'
-                    }`}>
-                      <div className="text-sm text-gray-600 mb-1">{plan.duration}</div>
-                      <div className="font-black text-gray-900 text-xl">{plan.totalPrice} total</div>
                     </div>
                   </div>
 
@@ -248,13 +214,7 @@ const Memberships = () => {
                   </ul>
 
                   {/* CTA Button */}
-                  <button className={`w-full py-4 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center group ${
-                    plan.vip 
-                      ? 'bg-gradient-to-r from-gold to-yellow-500 hover:from-yellow-500 hover:to-gold text-black shadow-gold/30'
-                      : plan.popular 
-                      ? 'bg-gray-900 hover:bg-gray-800 text-white'
-                      : 'bg-white hover:bg-gray-50 text-gray-900 border-2 border-gray-200 hover:border-gray-300'
-                  }`}>
+                  <button className={`w-full py-4 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex items-center justify-center group ${getButtonStyles(plan)}`}>
                     <span>Seleccionar Plan</span>
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </button>
@@ -266,9 +226,9 @@ const Memberships = () => {
           {/* Value Proposition */}
           <div className="grid md:grid-cols-3 gap-8 mb-20">
             {[
-              { icon: Zap, title: "Resultados Garantizados", desc: "98% de tasa de éxito comprobada" },
+              { icon: Award, title: "Resultados Garantizados", desc: "98% de tasa de éxito comprobada" },
               { icon: Users, title: "Comunidad Exclusiva", desc: "Acceso a +500 miembros exitosos" },
-              { icon: Award, title: "Método Científico", desc: "15+ años de experiencia IFBB Pro" }
+              { icon: Star, title: "Método Científico", desc: "15+ años de experiencia IFBB Pro" }
             ].map((item, index) => (
               <div key={index} className="text-center group">
                 <div className="bg-white w-24 h-24 rounded-3xl flex items-center justify-center mx-auto mb-6 border border-gray-200 group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
