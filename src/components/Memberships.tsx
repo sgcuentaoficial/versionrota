@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Star, Quote } from 'lucide-react';
+import { Crown, Star, Check, X, Zap, Target, Users, Award } from 'lucide-react';
 
-const Testimonials = () => {
+const Memberships = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -22,140 +22,227 @@ const Testimonials = () => {
     return () => observer.disconnect();
   }, []);
 
-  const testimonials = [
+  const plans = [
     {
-      name: "Carlos M.",
-      age: "34 años",
-      profession: "Ejecutivo",
-      duration: "6 meses",
-      result: "-18kg de grasa, +8kg de músculo",
-      quote: "Sergi no solo transformó mi físico, cambió completamente mi mentalidad. Su método es científico, personalizado y, sobre todo, sostenible. Los resultados hablan por sí solos.",
-      beforeImage: "https://images.pexels.com/photos/1431282/pexels-photo-1431282.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop",
-      afterImage: "https://images.pexels.com/photos/1229356/pexels-photo-1229356.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop"
+      name: "COACHING ESTÁNDAR",
+      subtitle: "Para comenzar tu transformación",
+      price: "297",
+      period: "/mes",
+      popular: false,
+      icon: Target,
+      color: "gray",
+      features: [
+        { text: "Plan de entrenamiento personalizado", included: true },
+        { text: "Plan nutricional básico", included: true },
+        { text: "Seguimiento mensual", included: true },
+        { text: "Acceso a la app móvil", included: true },
+        { text: "Soporte por email", included: true },
+        { text: "Llamadas 1:1 con Sergi", included: false },
+        { text: "Ajustes semanales", included: false },
+        { text: "Acceso VIP a contenido exclusivo", included: false },
+        { text: "Soporte 24/7", included: false }
+      ],
+      cta: "COMENZAR AHORA",
+      description: "Perfecto para quienes buscan una transformación guiada con los fundamentos del método Sergi Constance."
     },
     {
-      name: "Ana R.",
-      age: "28 años",
-      profession: "Médica",
-      duration: "4 meses",
-      result: "-12kg, definición muscular",
-      quote: "Como médica, aprecio el enfoque científico de Sergi. Cada recomendación tiene fundamento, cada ajuste tiene propósito. Es coaching de verdad, no improvisación.",
-      beforeImage: "https://images.pexels.com/photos/3768916/pexels-photo-3768916.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop",
-      afterImage: "https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop"
+      name: "COACHING VIP",
+      subtitle: "Transformación completa y personalizada",
+      price: "997",
+      period: "/mes",
+      popular: true,
+      icon: Crown,
+      color: "gold",
+      features: [
+        { text: "Todo lo del plan Estándar", included: true },
+        { text: "Llamadas 1:1 semanales con Sergi", included: true },
+        { text: "Ajustes semanales del programa", included: true },
+        { text: "Plan nutricional avanzado", included: true },
+        { text: "Soporte 24/7 prioritario", included: true },
+        { text: "Acceso VIP a contenido exclusivo", included: true },
+        { text: "Análisis corporal detallado", included: true },
+        { text: "Coaching mental personalizado", included: true },
+        { text: "Garantía de resultados", included: true }
+      ],
+      cta: "SOLICITAR PLAZA VIP",
+      description: "La experiencia completa con acceso directo a Sergi. Solo 12 plazas disponibles por trimestre.",
+      badge: "MÁS POPULAR"
     },
     {
-      name: "Miguel S.",
-      age: "42 años",
-      profession: "Empresario",
-      duration: "8 meses",
-      result: "Transformación completa",
-      quote: "A los 42 pensé que era tarde para cambiar. Sergi me demostró que nunca es tarde cuando tienes el método correcto y la guía adecuada. Mejor forma física de mi vida.",
-      beforeImage: "https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop",
-      afterImage: "https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop"
+      name: "COACHING ELITE",
+      subtitle: "Para atletas y competidores",
+      price: "1997",
+      period: "/mes",
+      popular: false,
+      icon: Award,
+      color: "black",
+      features: [
+        { text: "Todo lo del plan VIP", included: true },
+        { text: "Llamadas diarias con Sergi", included: true },
+        { text: "Preparación para competición", included: true },
+        { text: "Plan de suplementación avanzado", included: true },
+        { text: "Análisis de laboratorio incluido", included: true },
+        { text: "Coaching de posing (culturismo)", included: true },
+        { text: "Estrategia de competición", included: true },
+        { text: "Acceso a eventos exclusivos", included: true },
+        { text: "Mentoría empresarial", included: true }
+      ],
+      cta: "APLICAR PARA ELITE",
+      description: "Para atletas serios que buscan competir o alcanzar el máximo nivel físico posible.",
+      badge: "SOLO ATLETAS"
     }
   ];
 
   return (
-    <section ref={sectionRef} className="py-32 bg-gray-900">
-      <div className="container mx-auto px-4">
+    <section ref={sectionRef} className="py-32 bg-gray-900 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900"></div>
+        <div className="absolute top-0 left-0 w-full h-full opacity-10">
+          <div className="absolute top-20 left-20 w-96 h-96 bg-vip-gold rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-20 w-72 h-72 bg-vip-gold rounded-full blur-3xl"></div>
+        </div>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className={`max-w-7xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           
           {/* Header */}
           <div className="text-center mb-20">
-            <h2 className="text-5xl font-black mb-8 text-gray-900 leading-tight">
-              <span className="text-white">Resultados</span>
-              <span className="block text-vip-gold">reales</span>
+            <div className="inline-flex items-center bg-vip-gold/10 border border-vip-gold/30 rounded-full px-6 py-3 mb-8">
+              <Crown className="w-5 h-5 text-vip-gold mr-3" />
+              <span className="text-vip-gold font-bold text-sm tracking-wider">PROGRAMAS EXCLUSIVOS</span>
+            </div>
+            
+            <h2 className="text-5xl lg:text-6xl font-black mb-8 text-white leading-tight">
+              <span className="block">Elige tu</span>
+              <span className="text-vip-gold">Transformación</span>
             </h2>
+            
             <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Estas son transformaciones reales de clientes reales. 
-              Sin trucos, sin filtros, solo trabajo duro y método correcto.
+              Tres niveles de coaching diseñados para diferentes objetivos y niveles de compromiso. 
+              Todos incluyen mi método probado y garantía de resultados.
             </p>
           </div>
 
-          {/* Testimonials Grid */}
-          <div className="space-y-20">
-            {testimonials.map((testimonial, index) => (
+          {/* Plans Grid */}
+          <div className="grid lg:grid-cols-3 gap-8 mb-16">
+            {plans.map((plan, index) => (
               <div 
                 key={index}
                 className={`transition-all duration-700 ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                } ${
+                  plan.popular ? 'lg:scale-105 lg:-translate-y-4' : ''
                 }`}
-                style={{ transitionDelay: `${index * 0.3}s` }}
+                style={{ transitionDelay: `${index * 0.2}s` }}
               >
-                <div className="grid lg:grid-cols-2 gap-16 items-center">
+                <div className={`relative bg-white rounded-3xl p-8 border-2 transition-all duration-300 hover:shadow-2xl ${
+                  plan.popular 
+                    ? 'border-vip-gold shadow-2xl shadow-vip-gold/20' 
+                    : 'border-gray-200 hover:border-vip-gold/50'
+                }`}>
                   
-                  {/* Before/After Images */}
-                  <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
-                    <div className="grid grid-cols-2 gap-8">
-                      {/* Before */}
-                      <div className="relative">
-                        <img
-                          src={testimonial.beforeImage}
-                          alt={`${testimonial.name} antes`}
-                          className="w-full h-80 object-cover rounded-none shadow-lg"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                        <div className="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 rounded-none text-sm font-bold">
-                          ANTES
-                        </div>
+                  {/* Popular Badge */}
+                  {plan.badge && (
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                      <div className="bg-vip-gold text-black px-6 py-2 rounded-full font-bold text-sm">
+                        {plan.badge}
                       </div>
-                      
-                      {/* After */}
-                      <div className="relative">
-                        <img
-                          src={testimonial.afterImage}
-                          alt={`${testimonial.name} después`}
-                          className="w-full h-80 object-cover rounded-none shadow-lg"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                        <div className="absolute top-4 left-4 bg-green-600 text-white px-3 py-1 rounded-none text-sm font-bold">
-                          DESPUÉS
-                        </div>
-                      </div>
+                    </div>
+                  )}
+
+                  {/* Header */}
+                  <div className="text-center mb-8">
+                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 ${
+                      plan.popular ? 'bg-vip-gold/20' : 'bg-gray-100'
+                    }`}>
+                      <plan.icon className={`w-8 h-8 ${
+                        plan.popular ? 'text-vip-gold' : 'text-gray-600'
+                      }`} />
                     </div>
                     
-                    {/* Results */}
-                    <div className="mt-6 text-center">
-                      <div className="text-2xl font-black text-vip-gold mb-2">{testimonial.result}</div>
-                      <div className="text-gray-400">en {testimonial.duration}</div>
+                    <h3 className="text-2xl font-black text-gray-900 mb-2">{plan.name}</h3>
+                    <p className="text-gray-600 mb-6">{plan.subtitle}</p>
+                    
+                    <div className="mb-6">
+                      <span className="text-5xl font-black text-gray-900">€{plan.price}</span>
+                      <span className="text-gray-600">{plan.period}</span>
                     </div>
+                    
+                    <p className="text-sm text-gray-600 leading-relaxed">{plan.description}</p>
                   </div>
 
-                  {/* Testimonial Content */}
-                  <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
-                    <div className="relative">
-                      <Quote className="w-12 h-12 text-gold/20 mb-6" />
-                      
-                      <blockquote className="text-2xl text-gray-700 mb-8 leading-relaxed italic">
-                        "{testimonial.quote}"
-                      </blockquote>
-                      
-                      <div className="border-l-4 border-gold pl-6">
-                        <div className="font-bold text-xl text-gray-900 mb-1">{testimonial.name}</div>
-                        <div className="text-gray-600 mb-1">{testimonial.age} • {testimonial.profession}</div>
-                        <div className="flex items-center">
-                          {[...Array(5)].map((_, i) => (
-                            <Star key={i} className="w-5 h-5 text-gold fill-current" />
-                          ))}
-                          <span className="ml-2 text-gray-600 text-sm">Programa VIP</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  {/* Features */}
+                  <ul className="space-y-4 mb-8">
+                    {plan.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-center">
+                        {feature.included ? (
+                          <Check className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
+                        ) : (
+                          <X className="w-5 h-5 text-gray-300 mr-3 flex-shrink-0" />
+                        )}
+                        <span className={`text-sm ${
+                          feature.included ? 'text-gray-900' : 'text-gray-400'
+                        }`}>
+                          {feature.text}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* CTA */}
+                  <button className={`w-full py-4 rounded-xl font-bold text-lg transition-all duration-300 ${
+                    plan.popular
+                      ? 'bg-vip-gold text-black hover:bg-yellow-400'
+                      : 'bg-gray-900 text-white hover:bg-gray-800'
+                  }`}>
+                    {plan.cta}
+                  </button>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Disclaimer */}
-          <div className="mt-16 pt-8 border-t border-gray-200">
-            <p className="text-center text-gray-500 text-sm max-w-4xl mx-auto leading-relaxed">
-              * Los resultados pueden variar según el individuo. Estas transformaciones son el resultado 
-              de seguir el programa completo, mantener la disciplina nutricional y realizar el entrenamiento 
-              según las indicaciones. No se garantizan resultados específicos.
-            </p>
+          {/* Guarantee Section */}
+          <div className="bg-black/50 backdrop-blur-sm border border-vip-gold/30 rounded-3xl p-12 text-center">
+            <div className={`transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <div className="bg-vip-gold/20 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-8">
+                <Star className="w-10 h-10 text-vip-gold" />
+              </div>
+              
+              <h3 className="text-3xl font-black text-white mb-6">Garantía de Satisfacción 100%</h3>
+              <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+                Estoy tan seguro de que mi método funcionará para ti, que ofrezco una garantía completa 
+                de satisfacción de 30 días. Si no estás completamente satisfecho, te devuelvo el 100% de tu dinero.
+              </p>
+              
+              <div className="grid md:grid-cols-3 gap-8 mt-12">
+                <div className="text-center">
+                  <div className="bg-vip-gold/10 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <Zap className="w-8 h-8 text-vip-gold" />
+                  </div>
+                  <h4 className="font-bold text-white mb-2">Resultados Rápidos</h4>
+                  <p className="text-gray-400 text-sm">Verás cambios en las primeras 2 semanas</p>
+                </div>
+                
+                <div className="text-center">
+                  <div className="bg-vip-gold/10 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <Users className="w-8 h-8 text-vip-gold" />
+                  </div>
+                  <h4 className="font-bold text-white mb-2">500+ Éxitos</h4>
+                  <p className="text-gray-400 text-sm">Más de 500 transformaciones exitosas</p>
+                </div>
+                
+                <div className="text-center">
+                  <div className="bg-vip-gold/10 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <Award className="w-8 h-8 text-vip-gold" />
+                  </div>
+                  <h4 className="font-bold text-white mb-2">98% Satisfacción</h4>
+                  <p className="text-gray-400 text-sm">Tasa de satisfacción comprobada</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -163,4 +250,4 @@ const Testimonials = () => {
   );
 };
 
-export default Testimonials;
+export default Memberships;

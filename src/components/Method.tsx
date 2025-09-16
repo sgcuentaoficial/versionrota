@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Star, Quote } from 'lucide-react';
+import { Target, Brain, Dumbbell, Apple, BarChart, Users, CheckCircle, ArrowRight } from 'lucide-react';
 
-const Testimonials = () => {
+const Method = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [activeStep, setActiveStep] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -22,140 +23,207 @@ const Testimonials = () => {
     return () => observer.disconnect();
   }, []);
 
-  const testimonials = [
+  useEffect(() => {
+    if (isVisible) {
+      const interval = setInterval(() => {
+        setActiveStep((prev) => (prev + 1) % 4);
+      }, 3000);
+      return () => clearInterval(interval);
+    }
+  }, [isVisible]);
+
+  const methodSteps = [
     {
-      name: "Carlos M.",
-      age: "34 años",
-      profession: "Ejecutivo",
-      duration: "6 meses",
-      result: "-18kg de grasa, +8kg de músculo",
-      quote: "Sergi no solo transformó mi físico, cambió completamente mi mentalidad. Su método es científico, personalizado y, sobre todo, sostenible. Los resultados hablan por sí solos.",
-      beforeImage: "https://images.pexels.com/photos/1431282/pexels-photo-1431282.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop",
-      afterImage: "https://images.pexels.com/photos/1229356/pexels-photo-1229356.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop"
+      icon: Target,
+      title: "Análisis Personalizado",
+      subtitle: "Evaluación Completa 360°",
+      description: "Análisis detallado de tu composición corporal, historial médico, objetivos y estilo de vida para crear un plan 100% personalizado.",
+      features: ["Evaluación corporal completa", "Análisis de objetivos", "Historial médico", "Estilo de vida"]
     },
     {
-      name: "Ana R.",
-      age: "28 años",
-      profession: "Médica",
-      duration: "4 meses",
-      result: "-12kg, definición muscular",
-      quote: "Como médica, aprecio el enfoque científico de Sergi. Cada recomendación tiene fundamento, cada ajuste tiene propósito. Es coaching de verdad, no improvisación.",
-      beforeImage: "https://images.pexels.com/photos/3768916/pexels-photo-3768916.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop",
-      afterImage: "https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop"
+      icon: Dumbbell,
+      title: "Entrenamiento Científico",
+      subtitle: "Método Probado",
+      description: "Rutinas de entrenamiento basadas en ciencia deportiva, adaptadas a tu nivel y progresando semana a semana hacia tus objetivos.",
+      features: ["Rutinas personalizadas", "Progresión científica", "Técnica perfecta", "Adaptación constante"]
     },
     {
-      name: "Miguel S.",
-      age: "42 años",
-      profession: "Empresario",
-      duration: "8 meses",
-      result: "Transformación completa",
-      quote: "A los 42 pensé que era tarde para cambiar. Sergi me demostró que nunca es tarde cuando tienes el método correcto y la guía adecuada. Mejor forma física de mi vida.",
-      beforeImage: "https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop",
-      afterImage: "https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop"
+      icon: Apple,
+      title: "Nutrición Estratégica",
+      subtitle: "Plan Nutricional Exacto",
+      description: "Plan nutricional calculado al gramo, con recetas deliciosas y flexibilidad para tu estilo de vida, sin dietas extremas.",
+      features: ["Macros calculados", "Recetas incluidas", "Flexibilidad total", "Sin restricciones extremas"]
+    },
+    {
+      icon: Brain,
+      title: "Coaching Mental",
+      subtitle: "Mentalidad de Campeón",
+      description: "Desarrollo de la mentalidad correcta, gestión de la motivación y creación de hábitos sostenibles para el éxito a largo plazo.",
+      features: ["Mentalidad ganadora", "Gestión emocional", "Hábitos sostenibles", "Motivación constante"]
+    }
+  ];
+
+  const pillars = [
+    {
+      icon: BarChart,
+      title: "Seguimiento Continuo",
+      description: "Monitoreo semanal de progreso con ajustes en tiempo real"
+    },
+    {
+      icon: Users,
+      title: "Soporte 24/7",
+      description: "Acceso directo a mí y mi equipo para resolver cualquier duda"
+    },
+    {
+      icon: CheckCircle,
+      title: "Garantía de Resultados",
+      description: "98% de tasa de éxito con garantía de satisfacción total"
     }
   ];
 
   return (
-    <section ref={sectionRef} className="py-32 bg-gray-900">
-      <div className="container mx-auto px-4">
+    <section ref={sectionRef} className="py-32 bg-gray-50 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-gold rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gold rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className={`max-w-7xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           
           {/* Header */}
           <div className="text-center mb-20">
-            <h2 className="text-5xl font-black mb-8 text-gray-900 leading-tight">
-              <span className="text-white">Resultados</span>
-              <span className="block text-vip-gold">reales</span>
+            <div className="inline-flex items-center bg-gold/10 border border-gold/30 rounded-full px-6 py-3 mb-8">
+              <Target className="w-5 h-5 text-gold mr-3" />
+              <span className="text-gold font-bold text-sm tracking-wider">MÉTODO EXCLUSIVO</span>
+            </div>
+            
+            <h2 className="text-5xl lg:text-6xl font-black mb-8 text-gray-900 leading-tight">
+              <span className="block">El Método</span>
+              <span className="text-gold">Sergi Constance</span>
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Estas son transformaciones reales de clientes reales. 
-              Sin trucos, sin filtros, solo trabajo duro y método correcto.
+            
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Un sistema científico de 4 pilares que ha transformado más de 500 vidas. 
+              No es solo entrenamiento, es una transformación completa.
             </p>
           </div>
 
-          {/* Testimonials Grid */}
-          <div className="space-y-20">
-            {testimonials.map((testimonial, index) => (
-              <div 
-                key={index}
-                className={`transition-all duration-700 ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}
-                style={{ transitionDelay: `${index * 0.3}s` }}
-              >
-                <div className="grid lg:grid-cols-2 gap-16 items-center">
-                  
-                  {/* Before/After Images */}
-                  <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
-                    <div className="grid grid-cols-2 gap-8">
-                      {/* Before */}
-                      <div className="relative">
-                        <img
-                          src={testimonial.beforeImage}
-                          alt={`${testimonial.name} antes`}
-                          className="w-full h-80 object-cover rounded-none shadow-lg"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                        <div className="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 rounded-none text-sm font-bold">
-                          ANTES
-                        </div>
+          {/* Method Steps */}
+          <div className="mb-20">
+            <div className="grid lg:grid-cols-4 gap-8">
+              {methodSteps.map((step, index) => (
+                <div 
+                  key={index}
+                  className={`transition-all duration-700 ${
+                    isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                  } ${
+                    activeStep === index ? 'transform scale-105' : ''
+                  }`}
+                  style={{ transitionDelay: `${index * 0.2}s` }}
+                >
+                  <div className={`bg-white rounded-3xl p-8 border-2 transition-all duration-500 ${
+                    activeStep === index 
+                      ? 'border-gold shadow-2xl shadow-gold/20' 
+                      : 'border-gray-200 hover:border-gold/50'
+                  }`}>
+                    
+                    {/* Step Number */}
+                    <div className="flex items-center justify-between mb-6">
+                      <div className={`w-12 h-12 rounded-2xl flex items-center justify-center transition-colors ${
+                        activeStep === index ? 'bg-gold text-white' : 'bg-gold/10 text-gold'
+                      }`}>
+                        <step.icon className="w-6 h-6" />
                       </div>
-                      
-                      {/* After */}
-                      <div className="relative">
-                        <img
-                          src={testimonial.afterImage}
-                          alt={`${testimonial.name} después`}
-                          className="w-full h-80 object-cover rounded-none shadow-lg"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                        <div className="absolute top-4 left-4 bg-green-600 text-white px-3 py-1 rounded-none text-sm font-bold">
-                          DESPUÉS
-                        </div>
+                      <div className={`text-2xl font-black transition-colors ${
+                        activeStep === index ? 'text-gold' : 'text-gray-300'
+                      }`}>
+                        0{index + 1}
                       </div>
                     </div>
                     
-                    {/* Results */}
-                    <div className="mt-6 text-center">
-                      <div className="text-2xl font-black text-vip-gold mb-2">{testimonial.result}</div>
-                      <div className="text-gray-400">en {testimonial.duration}</div>
-                    </div>
-                  </div>
-
-                  {/* Testimonial Content */}
-                  <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
-                    <div className="relative">
-                      <Quote className="w-12 h-12 text-gold/20 mb-6" />
-                      
-                      <blockquote className="text-2xl text-gray-700 mb-8 leading-relaxed italic">
-                        "{testimonial.quote}"
-                      </blockquote>
-                      
-                      <div className="border-l-4 border-gold pl-6">
-                        <div className="font-bold text-xl text-gray-900 mb-1">{testimonial.name}</div>
-                        <div className="text-gray-600 mb-1">{testimonial.age} • {testimonial.profession}</div>
-                        <div className="flex items-center">
-                          {[...Array(5)].map((_, i) => (
-                            <Star key={i} className="w-5 h-5 text-gold fill-current" />
-                          ))}
-                          <span className="ml-2 text-gray-600 text-sm">Programa VIP</span>
-                        </div>
-                      </div>
-                    </div>
+                    {/* Content */}
+                    <h3 className="text-xl font-black text-gray-900 mb-2">{step.title}</h3>
+                    <p className="text-gold font-bold text-sm mb-4">{step.subtitle}</p>
+                    <p className="text-gray-600 leading-relaxed mb-6">{step.description}</p>
+                    
+                    {/* Features */}
+                    <ul className="space-y-2">
+                      {step.features.map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-center text-sm text-gray-600">
+                          <CheckCircle className="w-4 h-4 text-gold mr-2 flex-shrink-0" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
+              ))}
+            </div>
+
+            {/* Progress Indicator */}
+            <div className="flex justify-center mt-12">
+              <div className="flex space-x-2">
+                {methodSteps.map((_, index) => (
+                  <div
+                    key={index}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      activeStep === index ? 'bg-gold w-8' : 'bg-gray-300'
+                    }`}
+                  ></div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
 
-          {/* Disclaimer */}
-          <div className="mt-16 pt-8 border-t border-gray-200">
-            <p className="text-center text-gray-500 text-sm max-w-4xl mx-auto leading-relaxed">
-              * Los resultados pueden variar según el individuo. Estas transformaciones son el resultado 
-              de seguir el programa completo, mantener la disciplina nutricional y realizar el entrenamiento 
-              según las indicaciones. No se garantizan resultados específicos.
-            </p>
+          {/* Supporting Pillars */}
+          <div className="bg-white rounded-3xl p-12 border border-gold/20 shadow-xl">
+            <div className="text-center mb-12">
+              <h3 className="text-3xl font-black text-gray-900 mb-4">Pilares de Soporte</h3>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Además del método principal, estos pilares garantizan tu éxito y transformación completa.
+              </p>
+            </div>
+
+            <div className="grid lg:grid-cols-3 gap-8">
+              {pillars.map((pillar, index) => (
+                <div 
+                  key={index}
+                  className={`transition-all duration-500 ${
+                    isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+                  }`}
+                  style={{ transitionDelay: `${0.8 + index * 0.1}s` }}
+                >
+                  <div className="text-center group">
+                    <div className="bg-gold/10 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-gold/20 transition-colors">
+                      <pillar.icon className="w-8 h-8 text-gold" />
+                    </div>
+                    <h4 className="text-xl font-black text-gray-900 mb-4">{pillar.title}</h4>
+                    <p className="text-gray-600 leading-relaxed">{pillar.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA Section */}
+          <div className="mt-20 text-center">
+            <div className={`transition-all duration-1000 delay-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <h3 className="text-3xl font-black text-gray-900 mb-6">
+                ¿Listo para experimentar el método que funciona?
+              </h3>
+              <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                Solo quedan 12 plazas disponibles para el programa VIP de este trimestre.
+              </p>
+              <a 
+                href="#apply" 
+                className="inline-flex items-center bg-gold text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-gold-dark transition-all duration-300 group"
+              >
+                SOLICITAR MI PLAZA VIP
+                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -163,4 +231,4 @@ const Testimonials = () => {
   );
 };
 
-export default Testimonials;
+export default Method;

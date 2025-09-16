@@ -1,9 +1,17 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Star, Quote } from 'lucide-react';
+import { Crown, Star, Play, ArrowRight } from 'lucide-react';
 
-const Testimonials = () => {
+const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [currentStat, setCurrentStat] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
+
+  const stats = [
+    { number: "500+", label: "Transformaciones Exitosas" },
+    { number: "15+", label: "Años de Experiencia" },
+    { number: "98%", label: "Tasa de Éxito" },
+    { number: "12", label: "Plazas Disponibles" }
+  ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -22,145 +30,177 @@ const Testimonials = () => {
     return () => observer.disconnect();
   }, []);
 
-  const testimonials = [
-    {
-      name: "Carlos M.",
-      age: "34 años",
-      profession: "Ejecutivo",
-      duration: "6 meses",
-      result: "-18kg de grasa, +8kg de músculo",
-      quote: "Sergi no solo transformó mi físico, cambió completamente mi mentalidad. Su método es científico, personalizado y, sobre todo, sostenible. Los resultados hablan por sí solos.",
-      beforeImage: "https://images.pexels.com/photos/1431282/pexels-photo-1431282.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop",
-      afterImage: "https://images.pexels.com/photos/1229356/pexels-photo-1229356.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop"
-    },
-    {
-      name: "Ana R.",
-      age: "28 años",
-      profession: "Médica",
-      duration: "4 meses",
-      result: "-12kg, definición muscular",
-      quote: "Como médica, aprecio el enfoque científico de Sergi. Cada recomendación tiene fundamento, cada ajuste tiene propósito. Es coaching de verdad, no improvisación.",
-      beforeImage: "https://images.pexels.com/photos/3768916/pexels-photo-3768916.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop",
-      afterImage: "https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop"
-    },
-    {
-      name: "Miguel S.",
-      age: "42 años",
-      profession: "Empresario",
-      duration: "8 meses",
-      result: "Transformación completa",
-      quote: "A los 42 pensé que era tarde para cambiar. Sergi me demostró que nunca es tarde cuando tienes el método correcto y la guía adecuada. Mejor forma física de mi vida.",
-      beforeImage: "https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop",
-      afterImage: "https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop"
-    }
-  ];
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentStat((prev) => (prev + 1) % stats.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <section ref={sectionRef} className="py-32 bg-gray-900">
-      <div className="container mx-auto px-4">
-        <div className={`max-w-7xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          
-          {/* Header */}
-          <div className="text-center mb-20">
-            <h2 className="text-5xl font-black mb-8 text-gray-900 leading-tight">
-              <span className="text-white">Resultados</span>
-              <span className="block text-vip-gold">reales</span>
-            </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Estas son transformaciones reales de clientes reales. 
-              Sin trucos, sin filtros, solo trabajo duro y método correcto.
-            </p>
-          </div>
+    <section 
+      ref={sectionRef}
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black"
+    >
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img
+          src="https://images.pexels.com/photos/1229356/pexels-photo-1229356.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
+          alt="Sergi Constance"
+          className="w-full h-full object-cover"
+          loading="eager"
+          decoding="async"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/50"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+      </div>
 
-          {/* Testimonials Grid */}
-          <div className="space-y-20">
-            {testimonials.map((testimonial, index) => (
-              <div 
-                key={index}
-                className={`transition-all duration-700 ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}
-                style={{ transitionDelay: `${index * 0.3}s` }}
-              >
-                <div className="grid lg:grid-cols-2 gap-16 items-center">
-                  
-                  {/* Before/After Images */}
-                  <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
-                    <div className="grid grid-cols-2 gap-8">
-                      {/* Before */}
-                      <div className="relative">
-                        <img
-                          src={testimonial.beforeImage}
-                          alt={`${testimonial.name} antes`}
-                          className="w-full h-80 object-cover rounded-none shadow-lg"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                        <div className="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 rounded-none text-sm font-bold">
-                          ANTES
-                        </div>
-                      </div>
-                      
-                      {/* After */}
-                      <div className="relative">
-                        <img
-                          src={testimonial.afterImage}
-                          alt={`${testimonial.name} después`}
-                          className="w-full h-80 object-cover rounded-none shadow-lg"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                        <div className="absolute top-4 left-4 bg-green-600 text-white px-3 py-1 rounded-none text-sm font-bold">
-                          DESPUÉS
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Results */}
-                    <div className="mt-6 text-center">
-                      <div className="text-2xl font-black text-vip-gold mb-2">{testimonial.result}</div>
-                      <div className="text-gray-400">en {testimonial.duration}</div>
-                    </div>
+      {/* Content */}
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            
+            {/* Left Content */}
+            <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+              
+              {/* VIP Badge */}
+              <div className="inline-flex items-center bg-vip-gold/20 border border-vip-gold/50 rounded-full px-6 py-3 mb-8">
+                <Crown className="w-5 h-5 text-vip-gold mr-3" />
+                <span className="text-vip-gold font-bold text-sm tracking-wider">COACHING VIP EXCLUSIVO</span>
+              </div>
+
+              {/* Main Headline */}
+              <h1 className="text-5xl lg:text-7xl font-black mb-8 leading-tight">
+                <span className="text-white">Transforma tu</span>
+                <span className="block text-vip-gold">FÍSICO</span>
+                <span className="block text-white">para siempre</span>
+              </h1>
+
+              {/* Subheadline */}
+              <p className="text-xl lg:text-2xl text-gray-300 mb-8 leading-relaxed max-w-2xl">
+                Coaching personalizado con <strong className="text-vip-gold">Sergi Constance</strong>, 
+                IFBB Pro y Actor de Hollywood (Zeus en Justice League). 
+                <span className="block mt-2 text-vip-gold font-semibold">Solo 12 plazas disponibles.</span>
+              </p>
+
+              {/* Social Proof */}
+              <div className="flex items-center mb-10">
+                <div className="flex -space-x-2 mr-4">
+                  {[1,2,3,4,5].map((i) => (
+                    <img
+                      key={i}
+                      src={`https://images.pexels.com/photos/${1000000 + i}/pexels-photo-${1000000 + i}.jpeg?auto=compress&cs=tinysrgb&w=60&h=60&fit=crop&crop=face`}
+                      alt={`Cliente ${i}`}
+                      className="w-12 h-12 rounded-full border-2 border-vip-gold object-cover"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  ))}
+                </div>
+                <div>
+                  <div className="flex items-center mb-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 text-vip-gold fill-current" />
+                    ))}
+                    <span className="text-vip-gold font-bold ml-2">5.0</span>
                   </div>
+                  <p className="text-gray-400 text-sm">+500 transformaciones exitosas</p>
+                </div>
+              </div>
 
-                  {/* Testimonial Content */}
-                  <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
-                    <div className="relative">
-                      <Quote className="w-12 h-12 text-gold/20 mb-6" />
-                      
-                      <blockquote className="text-2xl text-gray-700 mb-8 leading-relaxed italic">
-                        "{testimonial.quote}"
-                      </blockquote>
-                      
-                      <div className="border-l-4 border-gold pl-6">
-                        <div className="font-bold text-xl text-gray-900 mb-1">{testimonial.name}</div>
-                        <div className="text-gray-600 mb-1">{testimonial.age} • {testimonial.profession}</div>
-                        <div className="flex items-center">
-                          {[...Array(5)].map((_, i) => (
-                            <Star key={i} className="w-5 h-5 text-gold fill-current" />
-                          ))}
-                          <span className="ml-2 text-gray-600 text-sm">Programa VIP</span>
-                        </div>
-                      </div>
-                    </div>
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 mb-12">
+                <a 
+                  href="#apply" 
+                  className="bg-vip-gold text-black px-8 py-4 rounded-xl font-bold text-lg hover:bg-yellow-400 transition-all duration-300 flex items-center justify-center group"
+                >
+                  SOLICITAR PLAZA VIP
+                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                </a>
+                
+                <button className="border-2 border-vip-gold text-vip-gold px-8 py-4 rounded-xl font-bold text-lg hover:bg-vip-gold hover:text-black transition-all duration-300 flex items-center justify-center group">
+                  <Play className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+                  VER TRANSFORMACIONES
+                </button>
+              </div>
+
+              {/* Animated Stats */}
+              <div className="bg-black/50 backdrop-blur-sm border border-vip-gold/30 rounded-2xl p-6">
+                <div className="text-center">
+                  <div className="text-4xl font-black text-vip-gold mb-2">
+                    {stats[currentStat].number}
+                  </div>
+                  <div className="text-gray-300 font-medium">
+                    {stats[currentStat].label}
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
 
-          {/* Disclaimer */}
-          <div className="mt-16 pt-8 border-t border-gray-200">
-            <p className="text-center text-gray-500 text-sm max-w-4xl mx-auto leading-relaxed">
-              * Los resultados pueden variar según el individuo. Estas transformaciones son el resultado 
-              de seguir el programa completo, mantener la disciplina nutricional y realizar el entrenamiento 
-              según las indicaciones. No se garantizan resultados específicos.
-            </p>
+            {/* Right Content - Additional Visual Elements */}
+            <div className={`transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+              
+              {/* Achievement Cards */}
+              <div className="space-y-6">
+                <div className="bg-black/60 backdrop-blur-sm border border-vip-gold/30 rounded-2xl p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="bg-vip-gold/20 p-3 rounded-full mr-4">
+                      <Crown className="w-6 h-6 text-vip-gold" />
+                    </div>
+                    <div>
+                      <h3 className="text-white font-bold text-lg">IFBB Pro</h3>
+                      <p className="text-gray-400">Competidor Profesional</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-300 text-sm">
+                    Más de 15 años compitiendo al más alto nivel internacional
+                  </p>
+                </div>
+
+                <div className="bg-black/60 backdrop-blur-sm border border-vip-gold/30 rounded-2xl p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="bg-vip-gold/20 p-3 rounded-full mr-4">
+                      <Star className="w-6 h-6 text-vip-gold" />
+                    </div>
+                    <div>
+                      <h3 className="text-white font-bold text-lg">Actor de Hollywood</h3>
+                      <p className="text-gray-400">Zeus en Justice League</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-300 text-sm">
+                    Experiencia en producciones de Warner Bros y DC Comics
+                  </p>
+                </div>
+
+                <div className="bg-black/60 backdrop-blur-sm border border-vip-gold/30 rounded-2xl p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="bg-vip-gold/20 p-3 rounded-full mr-4">
+                      <Crown className="w-6 h-6 text-vip-gold" />
+                    </div>
+                    <div>
+                      <h3 className="text-white font-bold text-lg">Coach Elite</h3>
+                      <p className="text-gray-400">500+ Transformaciones</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-300 text-sm">
+                    98% de tasa de éxito en transformaciones corporales
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
+        </div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="w-6 h-10 border-2 border-vip-gold rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-vip-gold rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
     </section>
   );
 };
 
-export default Testimonials;
+export default Hero;
