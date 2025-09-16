@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS Variables */
+:root {
+  --vip-gold: #fbbf24;
+  --vip-gold-light: #fde047;
+  --vip-gold-dark: #f59e0b;
+}
+
+/* Performance Optimizations */
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Font Loading Optimization */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-display: swap;
+}
+
+/* Animation Performance */
+.animate-pulse,
+.transition-all,
+.transition-transform,
+.transition-colors {
+  will-change: transform, opacity, background-color;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Custom utility classes */
+.text-vip-gold {
+  color: var(--vip-gold);
+}
+
+.bg-vip-gold {
+  background-color: var(--vip-gold);
+}
+
+.border-vip-gold {
+  border-color: var(--vip-gold);
+}
+
+.from-vip-gold {
+  --tw-gradient-from: var(--vip-gold);
+}
+
+.to-vip-gold-light {
+  --tw-gradient-to: var(--vip-gold-light);
+}
