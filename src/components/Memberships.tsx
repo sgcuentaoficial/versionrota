@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Crown, Star, Check, Zap, Target, Users, Award, Calendar, Gift, ArrowRight, Sparkles } from 'lucide-react';
+import { Crown, Star, Check, Zap, Target, Users, Award, Calendar, Gift, ArrowRight, Sparkles, CheckCircle } from 'lucide-react';
 
 const Memberships = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -33,6 +33,7 @@ const Memberships = () => {
       totalPrice: "89€",
       popular: false,
       icon: Target,
+      color: "gray",
       features: [
         "Plan de entrenamiento personalizado",
         "Guía nutricional básica",
@@ -52,6 +53,7 @@ const Memberships = () => {
       totalPrice: "254€",
       popular: true,
       icon: Calendar,
+      color: "blue",
       features: [
         "Todo lo del plan Básico",
         "Plan nutricional avanzado",
@@ -72,6 +74,7 @@ const Memberships = () => {
       totalPrice: "479€",
       popular: false,
       icon: Gift,
+      color: "emerald",
       features: [
         "Todo lo del plan Trimestral",
         "Llamadas grupales mensuales",
@@ -92,6 +95,7 @@ const Memberships = () => {
       totalPrice: "979€",
       popular: false,
       icon: Award,
+      color: "purple",
       features: [
         "Todo lo del plan Semestral",
         "Llamada 1:1 trimestral con Sergi",
@@ -112,6 +116,7 @@ const Memberships = () => {
       totalPrice: "5.000€",
       popular: false,
       icon: Crown,
+      color: "gold",
       features: [
         "Todo lo del plan Anual Premium",
         "Acceso directo a Sergi 24/7",
@@ -125,6 +130,41 @@ const Memberships = () => {
     }
   ];
 
+  const getColorClasses = (color: string, type: 'bg' | 'border' | 'text' | 'gradient') => {
+    const colorMap = {
+      gray: {
+        bg: 'bg-gray-50',
+        border: 'border-gray-200',
+        text: 'text-gray-600',
+        gradient: 'from-gray-600 to-gray-700'
+      },
+      blue: {
+        bg: 'bg-blue-50',
+        border: 'border-blue-200',
+        text: 'text-blue-600',
+        gradient: 'from-blue-600 to-blue-700'
+      },
+      emerald: {
+        bg: 'bg-emerald-50',
+        border: 'border-emerald-200',
+        text: 'text-emerald-600',
+        gradient: 'from-emerald-600 to-emerald-700'
+      },
+      purple: {
+        bg: 'bg-purple-50',
+        border: 'border-purple-200',
+        text: 'text-purple-600',
+        gradient: 'from-purple-600 to-purple-700'
+      },
+      gold: {
+        bg: 'bg-yellow-50',
+        border: 'border-yellow-300',
+        text: 'text-yellow-600',
+        gradient: 'from-yellow-500 to-yellow-600'
+      }
+    };
+    return colorMap[color as keyof typeof colorMap]?.[type] || colorMap.gray[type];
+  };
   return (
     <section ref={sectionRef} className="py-32 bg-white relative overflow-hidden">
       {/* Background */}
@@ -158,146 +198,75 @@ const Memberships = () => {
           </div>
 
           {/* Plans Grid */}
-          <div className="grid lg:grid-cols-5 md:grid-cols-2 gap-8 mb-20">
+          <div className="grid lg:grid-cols-5 md:grid-cols-2 gap-6 mb-20">
             {plans.map((plan, index) => (
               <div 
                 key={index}
                 className={`transition-all duration-700 ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 } ${
-                  plan.popular ? 'lg:scale-110 lg:-translate-y-8 z-10' : ''
-                } ${
-                  plan.name === 'VIP Elite' ? 'lg:scale-105 lg:-translate-y-4' : ''
+                  plan.popular ? 'lg:scale-105 z-10' : ''
                 }`}
                 style={{ transitionDelay: `${index * 0.1}s` }}
               >
-                <div className={`relative h-full flex flex-col rounded-3xl p-8 transition-all duration-500 hover:shadow-2xl ${
-                  plan.name === 'VIP Elite' 
-                    ? 'bg-gradient-to-br from-amber-50 via-yellow-50 to-gold/10 border-2 border-gold/30 shadow-xl shadow-gold/10 hover:shadow-gold/20'
-                    : plan.popular
-                    ? 'bg-gradient-to-br from-blue-50 via-indigo-50 to-blue-100/50 border-2 border-blue-300/50 shadow-xl shadow-blue-500/10 hover:shadow-blue-500/20'
-                    : plan.name === 'Semestral'
-                    ? 'bg-gradient-to-br from-emerald-50 via-green-50 to-emerald-100/50 border-2 border-emerald-200/50 shadow-lg hover:shadow-emerald-500/10'
-                    : plan.name === 'Anual Premium'
-                    ? 'bg-gradient-to-br from-purple-50 via-violet-50 to-purple-100/50 border-2 border-purple-200/50 shadow-lg hover:shadow-purple-500/10'
-                    : 'bg-gradient-to-br from-gray-50 via-white to-gray-100/50 border-2 border-gray-200/50 shadow-lg hover:shadow-gray-500/10'
-                } hover:scale-105`}>
+                <div className={`relative h-full flex flex-col rounded-2xl p-6 transition-all duration-300 hover:shadow-xl bg-white border-2 ${getColorClasses(plan.color, 'border')} hover:scale-105 ${
+                  plan.popular ? 'ring-2 ring-blue-500/20 shadow-lg' : ''
+                } ${
+                  plan.color === 'gold' ? 'ring-2 ring-yellow-500/20 shadow-lg' : ''
+                }`}>
                   
                   {/* Popular Badge */}
                   {plan.popular && (
                     <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                      <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-2 rounded-full font-bold text-xs shadow-lg">
+                      <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-2 rounded-full font-bold text-xs shadow-lg">
                         MÁS POPULAR
                       </div>
                     </div>
                   )}
 
-                  {/* VIP Badge */}
-                  {plan.name === 'VIP Elite' && (
+                  {/* Elite Badge */}
+                  {plan.color === 'gold' && (
                     <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                      <div className="bg-gradient-to-r from-gold to-yellow-500 text-black px-6 py-2 rounded-full font-bold text-xs shadow-lg">
+                      <div className="bg-gradient-to-r from-yellow-500 to-yellow-600 text-white px-4 py-2 rounded-full font-bold text-xs shadow-lg">
                         EXCLUSIVO
                       </div>
                     </div>
                   )}
 
-                  {/* Discount Badge */}
-                  {plan.originalPrice && !plan.popular && plan.name !== 'VIP Elite' && (
-                    <div className="absolute -top-4 right-4">
-                      <div className={`px-4 py-2 rounded-full font-bold text-xs shadow-lg ${
-                        plan.name === 'Semestral'
-                          ? 'bg-gradient-to-r from-emerald-600 to-green-600 text-white'
-                          : 'bg-gradient-to-r from-purple-600 to-violet-600 text-white'
-                      }`}>
-                        {plan.name === 'Semestral' ? '10% AHORRO' : '1 MES GRATIS'}
-                      </div>
-                    </div>
-                  )}
-
                   {/* Plan Header */}
-                  <div className="text-center mb-8">
-                    <div className={`w-20 h-20 rounded-3xl flex items-center justify-center mx-auto mb-6 ${
-                      plan.name === 'VIP Elite' 
-                        ? 'bg-gradient-to-br from-gold/20 to-yellow-500/20 border border-gold/30'
-                        : plan.popular 
-                        ? 'bg-gradient-to-br from-blue-500/20 to-indigo-500/20 border border-blue-300/30'
-                        : plan.name === 'Semestral' 
-                        ? 'bg-gradient-to-br from-emerald-500/20 to-green-500/20 border border-emerald-300/30'
-                        : plan.name === 'Anual Premium' 
-                        ? 'bg-gradient-to-br from-purple-500/20 to-violet-500/20 border border-purple-300/30'
-                        : 'bg-gradient-to-br from-gray-500/20 to-gray-600/20 border border-gray-300/30'
-                    }`}>
-                      <plan.icon className={`w-10 h-10 ${
-                        plan.name === 'VIP Elite' ? 'text-gold' :
-                        plan.popular ? 'text-blue-600' :
-                        plan.name === 'Semestral' ? 'text-emerald-600' :
-                        plan.name === 'Anual Premium' ? 'text-purple-600' :
-                        'text-gray-600'
-                      }`} />
+                  <div className="text-center mb-6">
+                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 ${getColorClasses(plan.color, 'bg')}`}>
+                      <plan.icon className={`w-8 h-8 ${getColorClasses(plan.color, 'text')}`} />
                     </div>
                     
-                    <h3 className="text-2xl font-black text-gray-900 mb-2">{plan.name}</h3>
-                    <p className="text-gray-600 font-semibold mb-6">{plan.subtitle}</p>
+                    <h3 className="text-xl font-bold text-gray-900 mb-1">{plan.name}</h3>
+                    <p className="text-gray-600 text-sm mb-4">{plan.subtitle}</p>
                     
                     {/* Pricing */}
-                    <div className="mb-6">
+                    <div className="mb-4">
                       {plan.originalPrice && (
-                        <div className="text-lg text-gray-400 line-through mb-2">€{plan.originalPrice}/mes</div>
+                        <div className="text-sm text-gray-400 line-through mb-1">€{plan.originalPrice}/mes</div>
                       )}
-                      <div className="flex items-baseline justify-center mb-4">
-                        <span className="text-4xl font-black text-gray-900">€{plan.price}</span>
-                        <span className="text-gray-600 text-lg ml-1">{plan.period}</span>
+                      <div className="flex items-baseline justify-center mb-2">
+                        <span className="text-3xl font-bold text-gray-900">€{plan.price}</span>
+                        <span className="text-gray-600 ml-1">{plan.period}</span>
                       </div>
-                    </div>
-                    
-                    <div className={`rounded-2xl p-4 mb-6 border ${
-                      plan.name === 'VIP Elite' 
-                        ? 'bg-gold/10 border-gold/20'
-                        : plan.popular 
-                        ? 'bg-blue-500/10 border-blue-300/20'
-                        : 'bg-white/60 border-gray-200/40'
-                    } backdrop-blur-sm`}>
-                      <div className="text-sm text-gray-600 mb-1">{plan.duration}</div>
-                      <div className="font-black text-gray-900 text-xl">{plan.totalPrice} total</div>
+                      <div className="text-sm text-gray-600">{plan.totalPrice} total</div>
                     </div>
                   </div>
 
                   {/* Features */}
-                  <ul className="space-y-4 mb-8 flex-grow">
+                  <ul className="space-y-3 mb-6 flex-grow">
                     {plan.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-start">
-                        <div className={`w-6 h-6 rounded-full flex items-center justify-center mr-3 flex-shrink-0 mt-0.5 ${
-                          plan.name === 'VIP Elite' ? 'bg-gold/20 border border-gold/30' :
-                          plan.popular ? 'bg-blue-500/20 border border-blue-300/30' :
-                          plan.name === 'Semestral' ? 'bg-emerald-500/20 border border-emerald-300/30' :
-                          plan.name === 'Anual Premium' ? 'bg-purple-500/20 border border-purple-300/30' :
-                          'bg-gray-500/20 border border-gray-300/30'
-                        }`}>
-                          <Check className={`w-4 h-4 ${
-                            plan.name === 'VIP Elite' ? 'text-gold' :
-                            plan.popular ? 'text-blue-600' :
-                            plan.name === 'Semestral' ? 'text-emerald-600' :
-                            plan.name === 'Anual Premium' ? 'text-purple-600' :
-                            'text-gray-600'
-                          }`} />
-                        </div>
-                        <span className="text-gray-700 font-medium leading-relaxed text-sm">{feature}</span>
+                        <CheckCircle className={`w-4 h-4 mr-2 flex-shrink-0 mt-0.5 ${getColorClasses(plan.color, 'text')}`} />
+                        <span className="text-gray-700 text-sm leading-relaxed">{feature}</span>
                       </li>
                     ))}
                   </ul>
 
                   {/* CTA Button */}
-                  <button className={`w-full py-4 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center group ${
-                    plan.name === 'VIP Elite' 
-                      ? 'bg-gradient-to-r from-gold to-yellow-500 hover:from-yellow-500 hover:to-gold text-black'
-                      : plan.popular 
-                      ? 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white'
-                      : plan.name === 'Semestral' 
-                      ? 'bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white'
-                      : plan.name === 'Anual Premium' 
-                      ? 'bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white'
-                      : 'bg-gray-900 hover:bg-gray-800 text-white'
-                  }`}>
+                  <button className={`w-full py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105 flex items-center justify-center group bg-gradient-to-r ${getColorClasses(plan.color, 'gradient')} text-white shadow-lg hover:shadow-xl`}>
                     <span>Seleccionar Plan</span>
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </button>
@@ -307,37 +276,37 @@ const Memberships = () => {
           </div>
 
           {/* Value Proposition */}
-          <div className="grid md:grid-cols-3 gap-8 mb-20">
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
             {[
               { icon: Zap, title: "Resultados Garantizados", desc: "98% de tasa de éxito comprobada", color: "text-yellow-600" },
               { icon: Users, title: "Comunidad Exclusiva", desc: "Acceso a +500 miembros exitosos", color: "text-blue-600" },
               { icon: Award, title: "Método Científico", desc: "15+ años de experiencia IFBB Pro", color: "text-purple-600" }
             ].map((item, index) => (
               <div key={index} className="text-center group">
-                <div className="bg-gradient-to-br from-white to-gray-50 w-24 h-24 rounded-3xl flex items-center justify-center mx-auto mb-6 border border-gray-100 group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
-                  <item.icon className={`w-12 h-12 ${item.color}`} />
+                <div className="bg-white w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-gray-200 group-hover:shadow-lg transition-all duration-300 group-hover:scale-105">
+                  <item.icon className={`w-8 h-8 ${item.color}`} />
                 </div>
-                <h4 className="font-black text-gray-900 mb-3 text-xl">{item.title}</h4>
+                <h4 className="font-bold text-gray-900 mb-2">{item.title}</h4>
                 <p className="text-gray-600 leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
 
           {/* Guarantee */}
-          <div className="bg-gradient-to-r from-gold/10 via-yellow-50 to-gold/10 border-2 border-gold/30 rounded-3xl p-12 text-center shadow-2xl backdrop-blur-sm">
+          <div className="bg-gradient-to-r from-yellow-50 to-yellow-100 border border-yellow-200 rounded-2xl p-8 text-center">
             <div className={`transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <div className="bg-gradient-to-br from-gold/20 to-yellow-500/20 w-24 h-24 rounded-3xl flex items-center justify-center mx-auto mb-8 border border-gold/30">
-                <Star className="w-12 h-12 text-gold" />
+              <div className="bg-yellow-100 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Star className="w-8 h-8 text-yellow-600" />
               </div>
               
-              <h3 className="text-4xl font-black text-gray-900 mb-6">Garantía de Satisfacción</h3>
-              <p className="text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Garantía de Satisfacción</h3>
+              <p className="text-gray-700 mb-6 max-w-2xl mx-auto leading-relaxed">
                 Si no estás completamente satisfecho con tu progreso en los primeros 30 días, 
-                te devolvemos el <span className="font-black text-gold">100% de tu dinero</span>. Sin preguntas.
+                te devolvemos el <span className="font-bold text-yellow-600">100% de tu dinero</span>. Sin preguntas.
               </p>
               
-              <div className="inline-flex items-center bg-white/60 backdrop-blur-sm border border-gold/20 rounded-full px-6 py-3">
-                <Check className="w-5 h-5 text-gold mr-2" />
+              <div className="inline-flex items-center bg-white border border-yellow-200 rounded-full px-4 py-2">
+                <Check className="w-4 h-4 text-yellow-600 mr-2" />
                 <span className="text-gray-700 font-semibold">30 días de garantía total</span>
               </div>
             </div>
