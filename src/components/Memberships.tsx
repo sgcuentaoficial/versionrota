@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Crown, Star, Check, X, Zap, Target, Users, Award } from 'lucide-react';
+import { Crown, Star, Check, Zap, Target, Users, Award, Calendar, Gift } from 'lucide-react';
 
 const Memberships = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [billingCycle, setBillingCycle] = useState('monthly');
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -24,72 +25,124 @@ const Memberships = () => {
 
   const plans = [
     {
-      name: "COACHING ESTÁNDAR",
-      subtitle: "Para comenzar tu transformación",
-      price: "297",
+      name: "BÁSICA MENSUAL",
+      subtitle: "Perfecto para empezar",
+      price: "89",
+      originalPrice: null,
       period: "/mes",
+      duration: "1 mes",
+      totalPrice: "89€",
       popular: false,
       icon: Target,
       color: "gray",
+      discount: null,
       features: [
-        { text: "Plan de entrenamiento personalizado", included: true },
-        { text: "Plan nutricional básico", included: true },
-        { text: "Seguimiento mensual", included: true },
-        { text: "Acceso a la app móvil", included: true },
-        { text: "Soporte por email", included: true },
-        { text: "Llamadas 1:1 con Sergi", included: false },
-        { text: "Ajustes semanales", included: false },
-        { text: "Acceso VIP a contenido exclusivo", included: false },
-        { text: "Soporte 24/7", included: false }
+        "Plan de entrenamiento personalizado",
+        "Guía nutricional básica",
+        "Acceso a la app móvil",
+        "Soporte por email",
+        "Videos explicativos",
+        "Seguimiento básico"
       ],
       cta: "COMENZAR AHORA",
-      description: "Perfecto para quienes buscan una transformación guiada con los fundamentos del método Sergi Constance."
+      description: "Ideal para quienes quieren probar el método Sergi Constance sin compromiso a largo plazo."
     },
     {
-      name: "COACHING VIP",
-      subtitle: "Transformación completa y personalizada",
-      price: "997",
+      name: "TRIMESTRAL",
+      subtitle: "Ahorra un 5%",
+      price: "84.67",
+      originalPrice: "89",
       period: "/mes",
+      duration: "3 meses",
+      totalPrice: "254€",
       popular: true,
-      icon: Crown,
-      color: "gold",
+      icon: Calendar,
+      color: "blue",
+      discount: "5% DESCUENTO",
       features: [
-        { text: "Todo lo del plan Estándar", included: true },
-        { text: "Llamadas 1:1 semanales con Sergi", included: true },
-        { text: "Ajustes semanales del programa", included: true },
-        { text: "Plan nutricional avanzado", included: true },
-        { text: "Soporte 24/7 prioritario", included: true },
-        { text: "Acceso VIP a contenido exclusivo", included: true },
-        { text: "Análisis corporal detallado", included: true },
-        { text: "Coaching mental personalizado", included: true },
-        { text: "Garantía de resultados", included: true }
+        "Todo lo del plan Básico",
+        "Plan nutricional avanzado",
+        "Seguimiento semanal",
+        "Ajustes mensuales",
+        "Acceso a webinars exclusivos",
+        "Comunidad privada",
+        "Recetas personalizadas"
       ],
-      cta: "SOLICITAR PLAZA VIP",
-      description: "La experiencia completa con acceso directo a Sergi. Solo 12 plazas disponibles por trimestre.",
-      badge: "MÁS POPULAR"
+      cta: "AHORRAR 5%",
+      description: "El plan más popular. Tiempo suficiente para ver resultados reales con descuento incluido."
     },
     {
-      name: "COACHING ELITE",
-      subtitle: "Para atletas y competidores",
-      price: "1997",
+      name: "SEMESTRAL",
+      subtitle: "Ahorra un 10%",
+      price: "79.83",
+      originalPrice: "89",
       period: "/mes",
+      duration: "6 meses",
+      totalPrice: "479€",
+      popular: false,
+      icon: Gift,
+      color: "green",
+      discount: "10% DESCUENTO",
+      features: [
+        "Todo lo del plan Trimestral",
+        "Llamadas grupales mensuales",
+        "Plan de suplementación",
+        "Análisis de progreso detallado",
+        "Acceso a masterclasses",
+        "Soporte prioritario",
+        "Certificado de finalización"
+      ],
+      cta: "AHORRAR 10%",
+      description: "Para transformaciones profundas y duraderas. El tiempo ideal para cambios permanentes."
+    },
+    {
+      name: "ANUAL PREMIUM",
+      subtitle: "1 mes GRATIS",
+      price: "81.58",
+      originalPrice: "89",
+      period: "/mes",
+      duration: "12 meses",
+      totalPrice: "979€",
       popular: false,
       icon: Award,
-      color: "black",
+      color: "purple",
+      discount: "1 MES GRATIS",
       features: [
-        { text: "Todo lo del plan VIP", included: true },
-        { text: "Llamadas diarias con Sergi", included: true },
-        { text: "Preparación para competición", included: true },
-        { text: "Plan de suplementación avanzado", included: true },
-        { text: "Análisis de laboratorio incluido", included: true },
-        { text: "Coaching de posing (culturismo)", included: true },
-        { text: "Estrategia de competición", included: true },
-        { text: "Acceso a eventos exclusivos", included: true },
-        { text: "Mentoría empresarial", included: true }
+        "Todo lo del plan Semestral",
+        "Llamada 1:1 trimestral con Sergi",
+        "Plan de entrenamiento avanzado",
+        "Coaching mental incluido",
+        "Acceso a eventos exclusivos",
+        "Material descargable premium",
+        "Garantía extendida"
       ],
-      cta: "APLICAR PARA ELITE",
-      description: "Para atletas serios que buscan competir o alcanzar el máximo nivel físico posible.",
-      badge: "SOLO ATLETAS"
+      cta: "1 MES GRATIS",
+      description: "El compromiso completo con el máximo ahorro. Transformación garantizada en 12 meses."
+    },
+    {
+      name: "VIP ELITE",
+      subtitle: "Experiencia exclusiva",
+      price: "416.67",
+      originalPrice: null,
+      period: "/mes",
+      duration: "12 meses",
+      totalPrice: "5.000€",
+      popular: false,
+      icon: Crown,
+      color: "gold",
+      discount: "EXCLUSIVO",
+      features: [
+        "Todo lo del plan Anual Premium",
+        "Acceso directo a Sergi 24/7",
+        "Llamadas 1:1 semanales",
+        "Plan 100% personalizado",
+        "Análisis corporal profesional",
+        "Visita presencial incluida",
+        "Mentoría empresarial",
+        "Acceso de por vida"
+      ],
+      cta: "SOLICITAR PLAZA VIP",
+      description: "La experiencia más exclusiva. Solo para clientes VIP que buscan el máximo nivel de atención."
     }
   ];
 
@@ -111,22 +164,22 @@ const Memberships = () => {
           <div className="text-center mb-20">
             <div className="inline-flex items-center bg-vip-gold/10 border border-vip-gold/30 rounded-full px-6 py-3 mb-8">
               <Crown className="w-5 h-5 text-vip-gold mr-3" />
-              <span className="text-vip-gold font-bold text-sm tracking-wider">PROGRAMAS EXCLUSIVOS</span>
+              <span className="text-vip-gold font-bold text-sm tracking-wider">PLANES DE MEMBRESÍA</span>
             </div>
             
             <h2 className="text-5xl lg:text-6xl font-black mb-8 text-white leading-tight">
               <span className="block">Elige tu</span>
-              <span className="text-vip-gold">Transformación</span>
+              <span className="text-vip-gold">Membresía</span>
             </h2>
             
             <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Tres niveles de coaching diseñados para diferentes objetivos y niveles de compromiso. 
+              Cinco opciones diseñadas para diferentes presupuestos y objetivos. 
               Todos incluyen mi método probado y garantía de resultados.
             </p>
           </div>
 
           {/* Plans Grid */}
-          <div className="grid lg:grid-cols-3 gap-8 mb-16">
+          <div className="grid lg:grid-cols-5 md:grid-cols-2 gap-6 mb-16">
             {plans.map((plan, index) => (
               <div 
                 key={index}
@@ -134,67 +187,81 @@ const Memberships = () => {
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 } ${
                   plan.popular ? 'lg:scale-105 lg:-translate-y-4' : ''
+                } ${
+                  plan.name === 'VIP ELITE' ? 'md:col-span-2 lg:col-span-1' : ''
                 }`}
-                style={{ transitionDelay: `${index * 0.2}s` }}
+                style={{ transitionDelay: `${index * 0.1}s` }}
               >
-                <div className={`relative bg-white rounded-3xl p-8 border-2 transition-all duration-300 hover:shadow-2xl ${
+                <div className={`relative bg-white rounded-3xl p-6 border-2 transition-all duration-300 hover:shadow-2xl h-full flex flex-col ${
                   plan.popular 
                     ? 'border-vip-gold shadow-2xl shadow-vip-gold/20' 
+                    : plan.name === 'VIP ELITE'
+                    ? 'border-vip-gold bg-gradient-to-br from-white to-vip-gold/5'
                     : 'border-gray-200 hover:border-vip-gold/50'
                 }`}>
                   
-                  {/* Popular Badge */}
-                  {plan.badge && (
-                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                      <div className="bg-vip-gold text-black px-6 py-2 rounded-full font-bold text-sm">
-                        {plan.badge}
+                  {/* Discount Badge */}
+                  {plan.discount && (
+                    <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                      <div className={`px-4 py-1 rounded-full font-bold text-xs ${
+                        plan.name === 'VIP ELITE' 
+                          ? 'bg-vip-gold text-black'
+                          : plan.popular
+                          ? 'bg-blue-600 text-white'
+                          : 'bg-green-600 text-white'
+                      }`}>
+                        {plan.discount}
                       </div>
                     </div>
                   )}
 
                   {/* Header */}
-                  <div className="text-center mb-8">
-                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 ${
-                      plan.popular ? 'bg-vip-gold/20' : 'bg-gray-100'
+                  <div className="text-center mb-6 flex-grow">
+                    <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-4 ${
+                      plan.name === 'VIP ELITE' ? 'bg-vip-gold/20' : 
+                      plan.popular ? 'bg-blue-100' : 'bg-gray-100'
                     }`}>
-                      <plan.icon className={`w-8 h-8 ${
-                        plan.popular ? 'text-vip-gold' : 'text-gray-600'
+                      <plan.icon className={`w-6 h-6 ${
+                        plan.name === 'VIP ELITE' ? 'text-vip-gold' :
+                        plan.popular ? 'text-blue-600' : 'text-gray-600'
                       }`} />
                     </div>
                     
-                    <h3 className="text-2xl font-black text-gray-900 mb-2">{plan.name}</h3>
-                    <p className="text-gray-600 mb-6">{plan.subtitle}</p>
+                    <h3 className="text-lg font-black text-gray-900 mb-1">{plan.name}</h3>
+                    <p className="text-gray-600 text-sm mb-4">{plan.subtitle}</p>
                     
-                    <div className="mb-6">
-                      <span className="text-5xl font-black text-gray-900">€{plan.price}</span>
-                      <span className="text-gray-600">{plan.period}</span>
+                    <div className="mb-4">
+                      {plan.originalPrice && (
+                        <div className="text-sm text-gray-400 line-through">€{plan.originalPrice}/mes</div>
+                      )}
+                      <span className="text-3xl font-black text-gray-900">€{plan.price}</span>
+                      <span className="text-gray-600 text-sm">{plan.period}</span>
                     </div>
                     
-                    <p className="text-sm text-gray-600 leading-relaxed">{plan.description}</p>
+                    <div className="text-sm text-gray-600 mb-4">
+                      <div>{plan.duration}</div>
+                      <div className="font-bold text-gray-900">{plan.totalPrice} total</div>
+                    </div>
+                    
+                    <p className="text-xs text-gray-600 leading-relaxed">{plan.description}</p>
                   </div>
 
                   {/* Features */}
-                  <ul className="space-y-4 mb-8">
+                  <ul className="space-y-2 mb-6 flex-grow">
                     {plan.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center">
-                        {feature.included ? (
-                          <Check className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
-                        ) : (
-                          <X className="w-5 h-5 text-gray-300 mr-3 flex-shrink-0" />
-                        )}
-                        <span className={`text-sm ${
-                          feature.included ? 'text-gray-900' : 'text-gray-400'
-                        }`}>
-                          {feature.text}
-                        </span>
+                      <li key={featureIndex} className="flex items-start">
+                        <Check className="w-4 h-4 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                        <span className="text-xs text-gray-700">{feature}</span>
                       </li>
                     ))}
                   </ul>
 
                   {/* CTA */}
-                  <button className={`w-full py-4 rounded-xl font-bold text-lg transition-all duration-300 ${
-                    plan.popular
+                  <button className={`w-full py-3 rounded-xl font-bold text-sm transition-all duration-300 ${
+                    plan.name === 'VIP ELITE'
                       ? 'bg-vip-gold text-black hover:bg-yellow-400'
+                      : plan.popular
+                      ? 'bg-blue-600 text-white hover:bg-blue-700'
                       : 'bg-gray-900 text-white hover:bg-gray-800'
                   }`}>
                     {plan.cta}
@@ -204,43 +271,69 @@ const Memberships = () => {
             ))}
           </div>
 
+          {/* Comparison Table for Mobile */}
+          <div className="lg:hidden mb-16">
+            <div className="bg-white rounded-3xl p-6 border border-vip-gold/20">
+              <h3 className="text-xl font-black text-gray-900 mb-6 text-center">Comparación de Precios</h3>
+              <div className="space-y-4">
+                {plans.map((plan, index) => (
+                  <div key={index} className="flex justify-between items-center py-3 border-b border-gray-100 last:border-b-0">
+                    <div>
+                      <div className="font-bold text-gray-900">{plan.name}</div>
+                      <div className="text-sm text-gray-600">{plan.duration}</div>
+                    </div>
+                    <div className="text-right">
+                      <div className="font-bold text-gray-900">€{plan.price}/mes</div>
+                      <div className="text-sm text-gray-600">{plan.totalPrice} total</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Value Proposition */}
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            <div className="text-center">
+              <div className="bg-vip-gold/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Zap className="w-8 h-8 text-vip-gold" />
+              </div>
+              <h4 className="font-bold text-white mb-2">Resultados Garantizados</h4>
+              <p className="text-gray-400 text-sm">98% de tasa de éxito en todos nuestros planes</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="bg-vip-gold/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Users className="w-8 h-8 text-vip-gold" />
+              </div>
+              <h4 className="font-bold text-white mb-2">Comunidad Exclusiva</h4>
+              <p className="text-gray-400 text-sm">Acceso a nuestra comunidad de +500 miembros</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="bg-vip-gold/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Award className="w-8 h-8 text-vip-gold" />
+              </div>
+              <h4 className="font-bold text-white mb-2">Método Probado</h4>
+              <p className="text-gray-400 text-sm">15+ años de experiencia como IFBB Pro</p>
+            </div>
+          </div>
+
           {/* Guarantee Section */}
-          <div className="bg-black/50 backdrop-blur-sm border border-vip-gold/30 rounded-3xl p-12 text-center">
+          <div className="bg-black/50 backdrop-blur-sm border border-vip-gold/30 rounded-3xl p-8 text-center">
             <div className={`transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <div className="bg-vip-gold/20 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-8">
-                <Star className="w-10 h-10 text-vip-gold" />
+              <div className="bg-vip-gold/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Star className="w-8 h-8 text-vip-gold" />
               </div>
               
-              <h3 className="text-3xl font-black text-white mb-6">Garantía de Satisfacción 100%</h3>
-              <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-                Estoy tan seguro de que mi método funcionará para ti, que ofrezco una garantía completa 
-                de satisfacción de 30 días. Si no estás completamente satisfecho, te devuelvo el 100% de tu dinero.
+              <h3 className="text-2xl font-black text-white mb-4">Garantía de Satisfacción 30 Días</h3>
+              <p className="text-lg text-gray-300 mb-6 max-w-2xl mx-auto leading-relaxed">
+                Si no estás completamente satisfecho con tu progreso en los primeros 30 días, 
+                te devolvemos el 100% de tu dinero. Sin preguntas.
               </p>
               
-              <div className="grid md:grid-cols-3 gap-8 mt-12">
-                <div className="text-center">
-                  <div className="bg-vip-gold/10 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <Zap className="w-8 h-8 text-vip-gold" />
-                  </div>
-                  <h4 className="font-bold text-white mb-2">Resultados Rápidos</h4>
-                  <p className="text-gray-400 text-sm">Verás cambios en las primeras 2 semanas</p>
-                </div>
-                
-                <div className="text-center">
-                  <div className="bg-vip-gold/10 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <Users className="w-8 h-8 text-vip-gold" />
-                  </div>
-                  <h4 className="font-bold text-white mb-2">500+ Éxitos</h4>
-                  <p className="text-gray-400 text-sm">Más de 500 transformaciones exitosas</p>
-                </div>
-                
-                <div className="text-center">
-                  <div className="bg-vip-gold/10 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <Award className="w-8 h-8 text-vip-gold" />
-                  </div>
-                  <h4 className="font-bold text-white mb-2">98% Satisfacción</h4>
-                  <p className="text-gray-400 text-sm">Tasa de satisfacción comprobada</p>
-                </div>
+              <div className="text-sm text-gray-400">
+                * Aplica a todos los planes. Términos y condiciones disponibles.
               </div>
             </div>
           </div>
