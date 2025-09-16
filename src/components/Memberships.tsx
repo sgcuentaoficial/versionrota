@@ -22,7 +22,7 @@ const Memberships = () => {
     return () => observer.disconnect();
   }, []);
 
-  const plans = [
+  const regularPlans = [
     {
       name: "Básica",
       subtitle: "Mensual",
@@ -32,7 +32,6 @@ const Memberships = () => {
       duration: "1 mes",
       popular: false,
       icon: Target,
-      color: "gray",
       discount: null,
       features: [
         "Plan de entrenamiento personalizado",
@@ -51,7 +50,6 @@ const Memberships = () => {
       duration: "3 meses (254€ total)",
       popular: true,
       icon: Calendar,
-      color: "blue",
       discount: "5% OFF",
       features: [
         "Todo del plan Básico",
@@ -71,7 +69,6 @@ const Memberships = () => {
       duration: "6 meses (479€ total)",
       popular: false,
       icon: Gift,
-      color: "purple",
       discount: "10% OFF",
       features: [
         "Todo del plan Trimestral",
@@ -91,7 +88,6 @@ const Memberships = () => {
       duration: "12 meses (979€ total)",
       popular: false,
       icon: Award,
-      color: "green",
       discount: "1 MES GRATIS",
       features: [
         "Todo del plan Semestral",
@@ -101,62 +97,46 @@ const Memberships = () => {
         "Acceso a retiros exclusivos",
         "Certificado de finalización"
       ]
-    },
-    {
-      name: "VIP Elite",
-      subtitle: "Exclusivo",
-      price: "4.999",
-      originalPrice: null,
-      period: "/año",
-      duration: "12 meses completos",
-      popular: false,
-      vip: true,
-      icon: Crown,
-      color: "gold",
-      discount: "EXCLUSIVO",
-      features: [
-        "Acceso directo a Sergi 24/7",
-        "Llamadas 1:1 semanales",
-        "Programa 100% personalizado",
-        "Visita presencial (España)",
-        "Mentoría completa",
-        "Acceso a eventos VIP",
-        "Solo 12 plazas anuales"
-      ]
     }
   ];
 
-  const getCardStyles = (plan: any) => {
-    if (plan.vip) {
-      return "bg-gradient-to-br from-yellow-50 to-amber-50 border-4 border-gold shadow-2xl shadow-gold/30 ring-4 ring-gold/20 transform scale-105";
-    }
-    if (plan.popular) {
-      return "bg-gradient-to-br from-blue-50 to-indigo-50 border-4 border-blue-500 shadow-2xl shadow-blue-500/20 ring-4 ring-blue-500/20 transform scale-102";
-    }
-    return "bg-white border-2 border-gray-200 shadow-xl hover:shadow-2xl hover:border-gray-300";
+  const vipPlan = {
+    name: "VIP Elite",
+    subtitle: "Exclusivo",
+    price: "4.999",
+    period: "/año",
+    duration: "12 meses completos",
+    icon: Crown,
+    features: [
+      "Acceso directo a Sergi 24/7",
+      "Llamadas 1:1 semanales",
+      "Programa 100% personalizado",
+      "Visita presencial (España)",
+      "Mentoría completa",
+      "Acceso a eventos VIP",
+      "Solo 12 plazas anuales"
+    ]
   };
 
-  const getButtonStyles = (plan: any) => {
-    if (plan.vip) {
-      return "bg-gradient-to-r from-gold via-yellow-400 to-gold hover:from-yellow-400 hover:via-gold hover:to-yellow-400 text-black shadow-xl hover:shadow-gold/40 transform hover:scale-105";
-    }
+  const getRegularCardStyles = (plan: any) => {
     if (plan.popular) {
-      return "bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white shadow-xl hover:shadow-blue-500/40 transform hover:scale-105";
+      return "bg-white border-4 border-gray-800 shadow-2xl shadow-gray-800/20 transform scale-105";
     }
-    return "bg-gray-900 hover:bg-black text-white shadow-lg hover:shadow-xl transform hover:scale-105";
+    return "bg-white border-2 border-gray-200 shadow-xl hover:shadow-2xl hover:border-gray-400 transition-all duration-300";
+  };
+
+  const getRegularButtonStyles = (plan: any) => {
+    if (plan.popular) {
+      return "bg-gray-900 hover:bg-black text-white shadow-xl transform hover:scale-105 transition-all duration-300";
+    }
+    return "bg-gray-100 hover:bg-gray-200 text-gray-900 border-2 border-gray-300 hover:border-gray-400 shadow-lg transform hover:scale-105 transition-all duration-300";
   };
 
   const getDiscountBadgeStyles = (plan: any) => {
-    if (plan.vip) {
-      return "bg-gradient-to-r from-gold to-yellow-400 text-black";
-    }
     if (plan.popular) {
-      return "bg-gradient-to-r from-blue-600 to-blue-700 text-white";
+      return "bg-gray-900 text-white";
     }
-    if (plan.discount) {
-      return "bg-gradient-to-r from-green-600 to-green-700 text-white";
-    }
-    return "bg-gray-900 text-white";
+    return "bg-gray-700 text-white";
   };
 
   return (
@@ -164,7 +144,7 @@ const Memberships = () => {
       {/* Background */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 left-10 w-72 h-72 bg-gold rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gray-400 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -172,14 +152,14 @@ const Memberships = () => {
           
           {/* Header */}
           <div className="text-center mb-20">
-            <div className="inline-flex items-center bg-gradient-to-r from-gold/20 to-yellow-400/20 border-2 border-gold/40 rounded-full px-8 py-4 mb-8 shadow-lg">
+            <div className="inline-flex items-center bg-gold/10 border-2 border-gold/30 rounded-full px-8 py-4 mb-8 shadow-lg">
               <Sparkles className="w-6 h-6 text-gold mr-4" />
               <span className="text-gold font-black text-lg tracking-wider">PLANES DE MEMBRESÍA</span>
             </div>
             
             <h2 className="text-6xl lg:text-7xl font-black mb-8 text-gray-900 leading-tight">
               <span className="block">Elige tu</span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-yellow-500 to-gold">Transformación</span>
+              <span className="text-gold">Transformación</span>
             </h2>
             
             <p className="text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-medium">
@@ -188,9 +168,9 @@ const Memberships = () => {
             </p>
           </div>
 
-          {/* Plans Grid */}
-          <div className="grid lg:grid-cols-5 md:grid-cols-2 gap-8 mb-20">
-            {plans.map((plan, index) => (
+          {/* Regular Plans Grid - 4 columns vertical */}
+          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8 mb-16">
+            {regularPlans.map((plan, index) => (
               <div 
                 key={index}
                 className={`transition-all duration-700 ${
@@ -198,7 +178,7 @@ const Memberships = () => {
                 }`}
                 style={{ transitionDelay: `${index * 0.1}s` }}
               >
-                <div className={`relative h-full flex flex-col rounded-3xl p-8 transition-all duration-500 hover:scale-105 ${getCardStyles(plan)}`}>
+                <div className={`relative h-full flex flex-col rounded-3xl p-8 ${getRegularCardStyles(plan)}`}>
                   
                   {/* Discount Badge */}
                   {plan.discount && (
@@ -212,19 +192,9 @@ const Memberships = () => {
                   {/* Popular Badge */}
                   {plan.popular && (
                     <div className="absolute -top-4 right-4">
-                      <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-2 rounded-full font-bold text-xs shadow-lg flex items-center">
+                      <div className="bg-gray-900 text-white px-4 py-2 rounded-full font-bold text-xs shadow-lg flex items-center">
                         <Star className="w-4 h-4 mr-1 fill-current" />
-                        POPULAR
-                      </div>
-                    </div>
-                  )}
-
-                  {/* VIP Badge */}
-                  {plan.vip && (
-                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                      <div className="bg-gradient-to-r from-gold to-yellow-400 text-black px-6 py-2 rounded-full font-black text-sm shadow-xl flex items-center">
-                        <Crown className="w-4 h-4 mr-2" />
-                        EXCLUSIVO
+                        MÁS POPULAR
                       </div>
                     </div>
                   )}
@@ -232,20 +202,18 @@ const Memberships = () => {
                   {/* Plan Header */}
                   <div className="text-center mb-8">
                     <div className={`w-20 h-20 rounded-3xl flex items-center justify-center mx-auto mb-6 ${
-                      plan.vip 
-                        ? 'bg-gradient-to-br from-gold/30 to-yellow-400/30 border-2 border-gold/50'
-                        : plan.popular
-                        ? 'bg-gradient-to-br from-blue-100 to-blue-200 border-2 border-blue-300'
-                        : 'bg-gradient-to-br from-gray-100 to-gray-200 border-2 border-gray-300'
+                      plan.popular 
+                        ? 'bg-gray-100 border-2 border-gray-300'
+                        : 'bg-gray-50 border-2 border-gray-200'
                     }`}>
                       <plan.icon className={`w-10 h-10 ${
-                        plan.vip ? 'text-gold' : plan.popular ? 'text-blue-600' : 'text-gray-600'
+                        plan.popular ? 'text-gray-900' : 'text-gray-600'
                       }`} />
                     </div>
                     
                     <h3 className="text-2xl font-black text-gray-900 mb-2">{plan.name}</h3>
                     <p className={`font-bold mb-6 ${
-                      plan.vip ? 'text-gold' : plan.popular ? 'text-blue-600' : 'text-gray-600'
+                      plan.popular ? 'text-gray-900' : 'text-gray-600'
                     }`}>{plan.subtitle}</p>
                     
                     {/* Pricing */}
@@ -254,7 +222,7 @@ const Memberships = () => {
                         {plan.originalPrice && (
                           <span className="text-lg text-gray-400 line-through mr-2">€{plan.originalPrice}</span>
                         )}
-                        <span className={`text-4xl font-black ${plan.vip ? 'text-gold' : 'text-gray-900'}`}>€{plan.price}</span>
+                        <span className="text-4xl font-black text-gray-900">€{plan.price}</span>
                         <span className="text-gray-600 text-lg ml-1">{plan.period}</span>
                       </div>
                       <p className="text-sm text-gray-500 font-medium">{plan.duration}</p>
@@ -266,14 +234,12 @@ const Memberships = () => {
                     {plan.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-start">
                         <div className={`w-6 h-6 rounded-full flex items-center justify-center mr-3 flex-shrink-0 mt-0.5 ${
-                          plan.vip 
-                            ? 'bg-gold/20 border-2 border-gold/40' 
-                            : plan.popular
-                            ? 'bg-blue-100 border-2 border-blue-300'
+                          plan.popular 
+                            ? 'bg-gray-200 border-2 border-gray-400' 
                             : 'bg-gray-100 border-2 border-gray-300'
                         }`}>
                           <Check className={`w-4 h-4 ${
-                            plan.vip ? 'text-gold' : plan.popular ? 'text-blue-600' : 'text-gray-600'
+                            plan.popular ? 'text-gray-900' : 'text-gray-600'
                           }`} />
                         </div>
                         <span className="text-gray-700 font-medium leading-relaxed text-sm">{feature}</span>
@@ -282,8 +248,8 @@ const Memberships = () => {
                   </ul>
 
                   {/* CTA Button */}
-                  <button className={`w-full py-4 rounded-2xl font-bold text-lg transition-all duration-300 flex items-center justify-center group ${getButtonStyles(plan)}`}>
-                    <span>{plan.vip ? 'Solicitar Plaza VIP' : 'Seleccionar Plan'}</span>
+                  <button className={`w-full py-4 rounded-2xl font-bold text-lg flex items-center justify-center group ${getRegularButtonStyles(plan)}`}>
+                    <span>Seleccionar Plan</span>
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>
@@ -291,12 +257,83 @@ const Memberships = () => {
             ))}
           </div>
 
+          {/* VIP Elite Plan - Horizontal */}
+          <div className={`transition-all duration-700 delay-500 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}>
+            <div className="bg-gradient-to-r from-gold/10 via-gold/5 to-gold/10 border-4 border-gold rounded-3xl p-12 shadow-2xl shadow-gold/20 relative overflow-hidden">
+              
+              {/* VIP Badge */}
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                <div className="bg-gold text-black px-8 py-3 rounded-full font-black text-lg shadow-xl flex items-center">
+                  <Crown className="w-6 h-6 mr-2" />
+                  PLAN EXCLUSIVO
+                </div>
+              </div>
+
+              <div className="grid lg:grid-cols-3 gap-12 items-center mt-8">
+                
+                {/* Left - Plan Info */}
+                <div className="text-center lg:text-left">
+                  <div className="bg-gold/20 w-32 h-32 rounded-3xl flex items-center justify-center mx-auto lg:mx-0 mb-8 border-4 border-gold/40">
+                    <Crown className="w-16 h-16 text-gold" />
+                  </div>
+                  
+                  <h3 className="text-4xl font-black text-gray-900 mb-4">{vipPlan.name}</h3>
+                  <p className="text-gold font-bold text-xl mb-6">{vipPlan.subtitle}</p>
+                  
+                  {/* VIP Pricing */}
+                  <div className="mb-8">
+                    <div className="flex items-baseline justify-center lg:justify-start mb-2">
+                      <span className="text-6xl font-black text-gold">€{vipPlan.price}</span>
+                      <span className="text-gray-600 text-2xl ml-2">{vipPlan.period}</span>
+                    </div>
+                    <p className="text-lg text-gray-500 font-medium">{vipPlan.duration}</p>
+                  </div>
+
+                  {/* VIP CTA */}
+                  <button className="bg-gradient-to-r from-gold to-yellow-400 hover:from-yellow-400 hover:to-gold text-black px-12 py-6 rounded-2xl font-black text-xl shadow-2xl hover:shadow-gold/40 transform hover:scale-105 transition-all duration-300 flex items-center justify-center group mx-auto lg:mx-0">
+                    <span>Solicitar Plaza VIP</span>
+                    <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </div>
+
+                {/* Center - Features */}
+                <div className="lg:col-span-2">
+                  <h4 className="text-2xl font-black text-gray-900 mb-8 text-center">Beneficios Exclusivos VIP</h4>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {vipPlan.features.map((feature, index) => (
+                      <div key={index} className="flex items-start">
+                        <div className="bg-gold/20 w-8 h-8 rounded-full flex items-center justify-center mr-4 flex-shrink-0 mt-1 border-2 border-gold/40">
+                          <Check className="w-5 h-5 text-gold" />
+                        </div>
+                        <span className="text-gray-700 font-semibold leading-relaxed text-lg">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* VIP Guarantee */}
+                  <div className="mt-8 bg-white/50 rounded-2xl p-6 border-2 border-gold/30">
+                    <div className="flex items-center justify-center">
+                      <Star className="w-8 h-8 text-gold mr-4" />
+                      <div>
+                        <h5 className="font-black text-gray-900 text-xl">Garantía VIP Total</h5>
+                        <p className="text-gray-600 font-medium">60 días de garantía completa + seguimiento de por vida</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Value Proposition */}
-          <div className="grid md:grid-cols-3 gap-8 mb-20">
+          <div className="grid md:grid-cols-3 gap-8 mt-20 mb-20">
             {[
               { icon: Award, title: "Resultados Garantizados", desc: "98% de tasa de éxito comprobada", color: "text-gold" },
-              { icon: Users, title: "Comunidad Exclusiva", desc: "Acceso a +500 miembros exitosos", color: "text-blue-600" },
-              { icon: Zap, title: "Método Científico", desc: "15+ años de experiencia IFBB Pro", color: "text-purple-600" }
+              { icon: Users, title: "Comunidad Exclusiva", desc: "Acceso a +500 miembros exitosos", color: "text-gray-700" },
+              { icon: Zap, title: "Método Científico", desc: "15+ años de experiencia IFBB Pro", color: "text-gray-700" }
             ].map((item, index) => (
               <div key={index} className="text-center group">
                 <div className="bg-white w-24 h-24 rounded-3xl flex items-center justify-center mx-auto mb-6 border-2 border-gray-200 group-hover:shadow-2xl transition-all duration-300 group-hover:scale-110 group-hover:border-gray-300">
@@ -309,9 +346,9 @@ const Memberships = () => {
           </div>
 
           {/* Guarantee */}
-          <div className="bg-gradient-to-r from-gold/20 via-yellow-50 to-gold/20 border-4 border-gold/40 rounded-3xl p-12 text-center shadow-2xl">
+          <div className="bg-gold/10 border-4 border-gold/30 rounded-3xl p-12 text-center shadow-2xl">
             <div className={`transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <div className="bg-gradient-to-br from-gold/20 to-yellow-400/20 w-32 h-32 rounded-3xl flex items-center justify-center mx-auto mb-8 border-4 border-gold/40 shadow-xl">
+              <div className="bg-gold/20 w-32 h-32 rounded-3xl flex items-center justify-center mx-auto mb-8 border-4 border-gold/40 shadow-xl">
                 <Star className="w-16 h-16 text-gold" />
               </div>
               
