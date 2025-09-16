@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Crown, Star, ArrowRight, CheckCircle } from 'lucide-react';
+import { Crown, Star, ArrowRight, CheckCircle, Award, Trophy } from 'lucide-react';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -25,114 +25,140 @@ const Hero = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-800"
     >
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src="https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
+          src="https://images.pexels.com/photos/1229356/pexels-photo-1229356.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
           alt="Sergi Constance"
           className="w-full h-full object-cover"
           loading="eager"
           decoding="async"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/60 to-transparent"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20"></div>
       </div>
 
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-6xl mx-auto text-center">
+        <div className="max-w-7xl mx-auto">
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             
-            {/* VIP Badge */}
-            <div className="inline-flex items-center bg-vip-gold/10 backdrop-blur-sm border border-vip-gold/30 rounded-full px-8 py-4 mb-12">
-              <Crown className="w-6 h-6 text-vip-gold mr-4" />
-              <span className="text-vip-gold font-bold text-lg tracking-wider">COACHING VIP EXCLUSIVO</span>
-            </div>
-
-            {/* Main Headline */}
-            <h1 className="text-6xl lg:text-8xl font-black mb-12 leading-tight">
-              <span className="text-white block mb-4">Transforma tu</span>
-              <span className="text-vip-gold block mb-4">FÍSICO</span>
-              <span className="text-white block">para siempre</span>
-            </h1>
-
-            {/* Subheadline */}
-            <p className="text-2xl lg:text-3xl text-gray-300 mb-16 leading-relaxed max-w-4xl mx-auto font-light">
-              Coaching personalizado con <strong className="text-vip-gold font-bold">Sergi Constance</strong><br/>
-              IFBB Pro y Actor de Hollywood (Zeus en Justice League)
-            </p>
-
-            {/* Key Stats */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-16 max-w-4xl mx-auto">
-              <div className="text-center">
-                <div className="text-4xl lg:text-5xl font-black text-vip-gold mb-2">500+</div>
-                <div className="text-gray-300 font-medium">Transformaciones</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl lg:text-5xl font-black text-vip-gold mb-2">15+</div>
-                <div className="text-gray-300 font-medium">Años Pro</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl lg:text-5xl font-black text-vip-gold mb-2">98%</div>
-                <div className="text-gray-300 font-medium">Tasa Éxito</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl lg:text-5xl font-black text-vip-gold mb-2">12</div>
-                <div className="text-gray-300 font-medium">Plazas VIP</div>
-              </div>
-            </div>
-
-            {/* Social Proof */}
-            <div className="flex items-center justify-center mb-16">
-              <div className="flex -space-x-3 mr-6">
-                {[1,2,3,4,5].map((i) => (
-                  <img
-                    key={i}
-                    src={`https://images.pexels.com/photos/${1000000 + i}/pexels-photo-${1000000 + i}.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&fit=crop&crop=face`}
-                    alt={`Cliente ${i}`}
-                    className="w-16 h-16 rounded-full border-3 border-vip-gold object-cover"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                ))}
-              </div>
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              
+              {/* Left Column - Main Content */}
               <div className="text-left">
-                <div className="flex items-center mb-2">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-6 h-6 text-vip-gold fill-current" />
-                  ))}
-                  <span className="text-vip-gold font-bold ml-3 text-xl">5.0</span>
+                
+                {/* Professional Badge */}
+                <div className="inline-flex items-center bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-3 mb-8">
+                  <Award className="w-5 h-5 text-vip-gold mr-3" />
+                  <span className="text-white font-semibold text-sm tracking-wide">IFBB PRO • HOLLYWOOD ACTOR</span>
                 </div>
-                <p className="text-gray-300 text-lg">+500 transformaciones exitosas</p>
-              </div>
-            </div>
 
-            {/* Main CTA */}
-            <div className="mb-16">
-              <a 
-                href="#apply" 
-                className="inline-flex items-center bg-vip-gold text-black px-12 py-6 rounded-2xl font-black text-xl hover:bg-yellow-400 transition-all duration-300 group shadow-2xl hover:shadow-vip-gold/30 hover:scale-105"
-              >
-                SOLICITAR PLAZA VIP
-                <ArrowRight className="w-6 h-6 ml-4 group-hover:translate-x-2 transition-transform" />
-              </a>
-            </div>
+                {/* Main Headline */}
+                <h1 className="text-5xl lg:text-7xl font-black mb-8 leading-[0.9]">
+                  <span className="text-white block mb-2">Elite</span>
+                  <span className="text-vip-gold block mb-2">Transformation</span>
+                  <span className="text-white/90 block text-4xl lg:text-5xl font-light">Coaching</span>
+                </h1>
 
-            {/* Trust Indicators */}
-            <div className="flex flex-wrap justify-center items-center gap-8 text-gray-400">
-              <div className="flex items-center">
-                <CheckCircle className="w-5 h-5 text-vip-gold mr-2" />
-                <span>IFBB Pro Certificado</span>
+                {/* Professional Subheadline */}
+                <p className="text-xl lg:text-2xl text-gray-300 mb-12 leading-relaxed max-w-2xl font-light">
+                  Coaching personalizado de élite con <span className="text-vip-gold font-semibold">Sergi Constance</span>
+                  <br className="hidden lg:block" />
+                  <span className="text-white/80">IFBB Pro & Zeus en Justice League</span>
+                </p>
+
+                {/* Professional CTAs */}
+                <div className="flex flex-col sm:flex-row gap-4 mb-12">
+                  <a 
+                    href="#apply" 
+                    className="inline-flex items-center justify-center bg-vip-gold text-black px-8 py-4 rounded-xl font-bold text-lg hover:bg-yellow-400 transition-all duration-300 group shadow-xl hover:shadow-vip-gold/30"
+                  >
+                    Solicitar Consulta VIP
+                    <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform" />
+                  </a>
+                  
+                  <a 
+                    href="#method" 
+                    className="inline-flex items-center justify-center border-2 border-white/30 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white/10 hover:border-white/50 transition-all duration-300 backdrop-blur-sm"
+                  >
+                    Ver Método
+                  </a>
+                </div>
+
+                {/* Trust Indicators */}
+                <div className="flex flex-wrap gap-6 text-sm text-gray-400">
+                  <div className="flex items-center">
+                    <CheckCircle className="w-4 h-4 text-vip-gold mr-2" />
+                    <span>15+ años IFBB Pro</span>
+                  </div>
+                  <div className="flex items-center">
+                    <CheckCircle className="w-4 h-4 text-vip-gold mr-2" />
+                    <span>Actor de Hollywood</span>
+                  </div>
+                  <div className="flex items-center">
+                    <CheckCircle className="w-4 h-4 text-vip-gold mr-2" />
+                    <span>Garantía 30 días</span>
+                  </div>
+                </div>
               </div>
-              <div className="flex items-center">
-                <CheckCircle className="w-5 h-5 text-vip-gold mr-2" />
-                <span>Actor de Hollywood</span>
-              </div>
-              <div className="flex items-center">
-                <CheckCircle className="w-5 h-5 text-vip-gold mr-2" />
-                <span>Garantía 30 días</span>
+
+              {/* Right Column - Stats & Social Proof */}
+              <div className="text-center lg:text-right">
+                
+                {/* Key Stats */}
+                <div className="grid grid-cols-2 gap-8 mb-12">
+                  <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6">
+                    <div className="text-3xl lg:text-4xl font-black text-vip-gold mb-2">500+</div>
+                    <div className="text-gray-300 font-medium text-sm">Transformaciones</div>
+                  </div>
+                  <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6">
+                    <div className="text-3xl lg:text-4xl font-black text-vip-gold mb-2">15+</div>
+                    <div className="text-gray-300 font-medium text-sm">Años Pro</div>
+                  </div>
+                  <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6">
+                    <div className="text-3xl lg:text-4xl font-black text-vip-gold mb-2">98%</div>
+                    <div className="text-gray-300 font-medium text-sm">Tasa Éxito</div>
+                  </div>
+                  <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6">
+                    <div className="text-3xl lg:text-4xl font-black text-vip-gold mb-2">12</div>
+                    <div className="text-gray-300 font-medium text-sm">Plazas VIP</div>
+                  </div>
+                </div>
+
+                {/* Social Proof */}
+                <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6">
+                  <div className="flex items-center justify-center lg:justify-end mb-4">
+                    <div className="flex -space-x-2 mr-4">
+                      {[1,2,3,4].map((i) => (
+                        <img
+                          key={i}
+                          src={`https://images.pexels.com/photos/${1000000 + i}/pexels-photo-${1000000 + i}.jpeg?auto=compress&cs=tinysrgb&w=60&h=60&fit=crop&crop=face`}
+                          alt={`Cliente ${i}`}
+                          className="w-12 h-12 rounded-full border-2 border-vip-gold object-cover"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      ))}
+                    </div>
+                    <div className="text-left">
+                      <div className="flex items-center mb-1">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="w-4 h-4 text-vip-gold fill-current" />
+                        ))}
+                        <span className="text-vip-gold font-bold ml-2">5.0</span>
+                      </div>
+                      <p className="text-gray-300 text-sm">500+ clientes</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center justify-center lg:justify-end gap-4">
+                    <Trophy className="w-5 h-5 text-vip-gold" />
+                    <span className="text-white font-semibold text-sm">98% Tasa de Éxito</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -140,9 +166,9 @@ const Hero = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-8 h-12 border-2 border-vip-gold/50 rounded-full flex justify-center backdrop-blur-sm">
-          <div className="w-2 h-4 bg-vip-gold rounded-full mt-3 animate-pulse"></div>
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="w-6 h-10 border border-white/30 rounded-full flex justify-center backdrop-blur-sm">
+          <div className="w-1 h-3 bg-vip-gold rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
     </section>
