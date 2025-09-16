@@ -30,7 +30,7 @@ const Hero = () => {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src="https://images.pexels.com/photos/1229356/pexels-photo-1229356.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
+          src="https://sergiconstance-9fn0dyoiqm.live-website.com/wp-content/uploads/2025/09/Foto-14-12-19-15-39-12-scaled.jpg"
           alt="Sergi Constance"
           className="w-full h-full object-cover"
           loading="eager"
