@@ -107,6 +107,7 @@ const Method = () => {
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Un sistema científico de 4 pilares que ha transformado más de 500 vidas. 
               No es solo entrenamiento, es una transformación completa.
+              No es solo entrenamiento, es una transformación completa.
             </p>
           </div>
 

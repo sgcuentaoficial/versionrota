@@ -27,6 +27,7 @@ const Footer = () => {
               <p className="text-gray-300 mb-8 leading-relaxed max-w-md font-vip-subtitle">
                 Coaching VIP exclusivo para transformaciones reales. 
                 IFBB Pro, Actor de Hollywood, y mentor de más de 500 transformaciones exitosas.
+                IFBB Pro, Actor de Hollywood, y mentor de más de 500 transformaciones exitosas.
               </p>
 
               <div className="space-y-4">

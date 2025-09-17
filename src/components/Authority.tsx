@@ -80,6 +80,7 @@ const Authority = () => {
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               No soy solo otro coach. Soy un profesional con credenciales reales, 
               resultados comprobados y la experiencia de haber transformado más de 500 vidas.
+              resultados comprobados y la experiencia de haber transformado más de 500 vidas.
             </p>
           </div>
 

@@ -97,6 +97,7 @@ const FAQ = () => {
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Las respuestas a las preguntas más comunes sobre mi método de coaching 
               y cómo puede transformar tu vida.
+              y cómo puede transformar tu vida.
             </p>
           </div>
 

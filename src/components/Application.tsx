@@ -98,6 +98,7 @@ const Application = () => {
             <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
               Solo acepto 12 clientes VIP por trimestre para garantizar resultados excepcionales. 
               Completa esta solicitud para ser considerado.
+              Completa esta solicitud para ser considerado.
             </p>
 
             {/* Urgency Indicators */}

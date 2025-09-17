@@ -111,16 +111,16 @@ const Memberships = () => {
           <div className="text-center mb-20">
             <div className="inline-flex items-center bg-gold/10 border border-gold/30 rounded-full px-6 py-3 mb-8">
               <Sparkles className="w-5 h-5 text-gold mr-3" />
-              <span className="text-gold font-bold text-sm tracking-wider">{t('memberships.badge')}</span>
+              <span className="text-gold font-bold text-sm tracking-wider">PLANES DE MEMBRESÍA</span>
             </div>
             
             <h2 className="text-5xl lg:text-6xl font-black mb-8 text-gray-900 leading-tight">
-              <span className="block">{t('memberships.title.choose')}</span>
-              <span className="text-gold">{t('memberships.title.transformation')}</span>
+              <span className="block">Elige tu</span>
+              <span className="text-gold">Transformación</span>
             </h2>
             
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              {t('memberships.subtitle')}
+              Planes diseñados para diferentes objetivos y presupuestos. Todos incluyen mi método probado y garantía de resultados.
             </p>
           </div>
 
@@ -148,7 +148,7 @@ const Memberships = () => {
                     <div className="absolute -top-3 right-4 z-20">
                       <div className="bg-gold text-black px-3 py-1 rounded-full font-bold text-xs shadow-lg flex items-center">
                         <Star className="w-4 h-4 mr-1 fill-current" />
-                        {t('memberships.popular')}
+                        MÁS POPULAR
                       </div>
                     </div>
                   )}
@@ -219,7 +219,7 @@ const Memberships = () => {
                       ? 'bg-gold hover:bg-yellow-400 text-black shadow-lg transition-all duration-300'
                       : 'bg-gray-900 hover:bg-black text-white shadow-md transition-all duration-300'
                   }`}>
-                    <span>{t('memberships.select')}</span>
+                    <span>Seleccionar Plan</span>
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>
@@ -234,7 +234,7 @@ const Memberships = () => {
             <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 z-10">
               <div className="bg-gold text-black px-6 py-2 rounded-full font-black text-sm shadow-lg flex items-center">
                 <Crown className="w-6 h-6 mr-2" />
-                {t('memberships.exclusive')}
+                EXCLUSIVO
               </div>
             </div>
 
@@ -252,7 +252,7 @@ const Memberships = () => {
                 {/* VIP Call to Action */}
                 <div className="mb-8">
                   <div className="text-center lg:text-left">
-                    <h4 className="text-2xl lg:text-3xl font-black text-gray-900 mb-2">{t('hero.cta.primary')}</h4>
+                    <h4 className="text-2xl lg:text-3xl font-black text-gray-900 mb-2">Solicitar Consulta VIP</h4>
                     <p className="text-base lg:text-lg text-gray-600 font-medium">Agenda una llamada para conocer los detalles</p>
                   </div>
                 </div>
@@ -262,7 +262,7 @@ const Memberships = () => {
                   href="#apply"
                   className="inline-flex items-center bg-gradient-to-r from-gold to-yellow-400 hover:from-yellow-400 hover:to-gold text-black px-8 lg:px-12 py-4 lg:py-6 rounded-2xl font-black text-lg lg:text-xl shadow-xl transition-all duration-300 group"
                 >
-                  <span>{t('memberships.schedule')}</span>
+                  <span>Agendar Llamada</span>
                   <ArrowRight className="w-5 h-5 lg:w-6 lg:h-6 ml-3 group-hover:translate-x-1 transition-transform" />
                 </a>
               </div>
@@ -311,14 +311,13 @@ const Memberships = () => {
             </div>
             
             <h3 className="text-3xl lg:text-4xl font-black text-gray-900 mb-4 lg:mb-6">Garantía de Satisfacción</h3>
-            <h3 className="text-3xl lg:text-4xl font-black text-gray-900 mb-4 lg:mb-6">{t('memberships.guarantee.title')}</h3>
             <p className="text-lg lg:text-xl text-gray-700 mb-6 lg:mb-8 max-w-4xl mx-auto leading-relaxed font-medium">
-              {t('memberships.guarantee.text')} <span className="font-black text-gold text-xl lg:text-2xl">{t('memberships.guarantee.money')}</span>{t('memberships.guarantee.no')}
+              Si no estás completamente satisfecho con tu progreso en los primeros 30 días, te devolvemos el <span className="font-black text-gold text-xl lg:text-2xl">100% de tu dinero</span>. Sin preguntas.
             </p>
             
             <div className="inline-flex items-center bg-white/80 border border-gold/30 rounded-full px-6 py-3 shadow-lg">
               <Check className="w-5 h-5 text-gold mr-3" />
-              <span className="text-gray-700 font-bold text-base lg:text-lg">{t('memberships.guarantee.days')}</span>
+              <span className="text-gray-700 font-bold text-base lg:text-lg">30 días de garantía total</span>
             </div>
           </div>
         </div>
