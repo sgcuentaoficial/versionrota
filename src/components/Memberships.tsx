@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Crown, Star, Check, Target, Calendar, Gift, Award, ArrowRight, Sparkles } from 'lucide-react';
+import { Star, Check, Target, Calendar, Gift, Award, ArrowRight, Sparkles } from 'lucide-react';
 import { useLocationTranslation } from '../hooks/useLocationTranslation';
 
 const Memberships = () => {
@@ -233,7 +233,11 @@ const Memberships = () => {
             {/* VIP Badge */}
             <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 z-10">
               <div className="bg-gold text-black px-6 py-2 rounded-full font-black text-sm shadow-lg flex items-center">
-                <Crown className="w-6 h-6 mr-2" />
+                <img 
+                  src="/corona_belegend-removebg-preview copy.png" 
+                  alt="Corona VIP" 
+                  className="w-6 h-6 mr-2"
+                />
                 EXCLUSIVO
               </div>
             </div>
@@ -243,7 +247,11 @@ const Memberships = () => {
               {/* Left - Plan Info */}
               <div className="text-center lg:text-left">
                 <div className="bg-gold/20 w-24 h-24 lg:w-32 lg:h-32 rounded-3xl flex items-center justify-center mx-auto lg:mx-0 mb-6 border-2 border-gold/40">
-                  <Crown className="w-12 h-12 lg:w-16 lg:h-16 text-gold" />
+                  <img 
+                    src="/corona_belegend-removebg-preview copy.png" 
+                    alt="Corona VIP" 
+                    className="w-12 h-12 lg:w-16 lg:h-16"
+                  />
                 </div>
                 
                 <h3 className="text-3xl lg:text-4xl font-black text-gray-900 mb-3">VIP Elite</h3>

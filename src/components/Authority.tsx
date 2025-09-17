@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Crown, Trophy, Star, Award, Target, Users } from 'lucide-react';
+import { Trophy, Star, Award, Target, Users } from 'lucide-react';
 
 const Authority = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -68,7 +68,11 @@ const Authority = () => {
           {/* Header */}
           <div className="text-center mb-20">
             <div className="inline-flex items-center bg-gold/10 border border-gold/30 rounded-full px-6 py-3 mb-8">
-              <Crown className="w-5 h-5 text-gold mr-3" />
+              <img 
+                src="/corona_belegend-removebg-preview copy.png" 
+                alt="Corona VIP" 
+                className="w-5 h-5 mr-3"
+              />
               <span className="text-gold font-bold text-sm tracking-wider">AUTORIDAD MUNDIAL</span>
             </div>
             

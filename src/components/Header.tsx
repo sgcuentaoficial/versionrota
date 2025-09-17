@@ -26,7 +26,11 @@ const Header = () => {
           {/* VIP Logo */}
           <div className="flex items-center space-x-3 animate-vip-slide-in">
             <div className="bg-vip-gold p-2 rounded-lg">
-              <Crown className="w-6 h-6 text-black" />
+              <img 
+                src="/corona_belegend-removebg-preview copy.png" 
+                alt="Corona VIP" 
+                className="w-6 h-6"
+              />
             </div>
             <div>
               <span className={`text-xl font-vip-title ${

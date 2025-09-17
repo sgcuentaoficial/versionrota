@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Crown, Star, ArrowRight, CheckCircle, Award, Trophy } from 'lucide-react';
+import { Star, ArrowRight, CheckCircle, Award, Trophy } from 'lucide-react';
 import { useLocationTranslation } from '../hooks/useLocationTranslation';
 
 const Hero = () => {
