@@ -4,7 +4,6 @@ import Hero from './components/Hero';
 import Authority from './components/Authority';
 import Method from './components/Method';
 import Memberships from './components/Memberships';
-import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
 import Application from './components/Application';
 import Footer from './components/Footer';
@@ -19,7 +18,6 @@ function App() {
         <Authority />
         <Method />
         <Memberships />
-        <Testimonials />
         <FAQ />
         <Application />
       </main>
