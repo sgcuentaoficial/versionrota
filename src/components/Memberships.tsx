@@ -250,7 +250,7 @@ const Memberships = () => {
                   <img 
                     src="/corona_belegend-removebg-preview copy.png" 
                     alt="Corona VIP" 
-                    className="w-12 h-12 lg:w-16 lg:h-16"
+                    className="w-12 h-12 lg:w-16 lg:h-16 brightness-0"
                   />
                 </div>
                 
