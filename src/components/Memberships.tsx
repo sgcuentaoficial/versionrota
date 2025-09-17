@@ -124,19 +124,19 @@ const Memberships = () => {
           </div>
 
           {/* Regular Plans Grid - 4 columns vertical */}
-          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8 mb-16">
+          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-6 mb-20">
             {regularPlans.map((plan, index) => (
-              <div key={index} className="h-full flex flex-col">
+              <div key={index} className="relative">
                 <div className={`relative h-full flex flex-col rounded-3xl p-8 ${
                   plan.popular 
-                    ? 'bg-gray-900 border-4 border-gray-900 shadow-2xl transform scale-105' 
-                    : 'bg-white border-2 border-gray-200 shadow-xl hover:shadow-2xl hover:border-gray-400 transition-all duration-300'
+                    ? 'bg-gray-900 border-2 border-gold shadow-2xl transform scale-105 z-10' 
+                    : 'bg-white border-2 border-gray-200 shadow-lg hover:shadow-xl hover:border-gray-300 transition-all duration-300'
                 }`}>
                   
                   {/* Discount Badge */}
                   {plan.discount && (
-                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                      <div className="bg-gold text-black px-6 py-2 rounded-full font-black text-sm shadow-xl">
+                    <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-20">
+                      <div className="bg-gold text-black px-4 py-1 rounded-full font-bold text-xs shadow-lg">
                         {plan.discount}
                       </div>
                     </div>
@@ -144,8 +144,8 @@ const Memberships = () => {
 
                   {/* Popular Badge */}
                   {plan.popular && (
-                    <div className="absolute -top-4 right-4">
-                      <div className="bg-gold text-black px-4 py-2 rounded-full font-bold text-xs shadow-lg flex items-center">
+                    <div className="absolute -top-3 right-4 z-20">
+                      <div className="bg-gold text-black px-3 py-1 rounded-full font-bold text-xs shadow-lg flex items-center">
                         <Star className="w-4 h-4 mr-1 fill-current" />
                         MÁS POPULAR
                       </div>
@@ -154,35 +154,35 @@ const Memberships = () => {
 
                   {/* Plan Header */}
                   <div className="text-center mb-8">
-                    <div className={`w-20 h-20 rounded-3xl flex items-center justify-center mx-auto mb-6 ${
+                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 ${
                       plan.popular 
-                        ? 'bg-gold/20 border-2 border-gold/40'
+                        ? 'bg-gold/20'
                         : 'bg-gray-50 border-2 border-gray-200'
                     }`}>
-                      <plan.icon className={`w-10 h-10 ${
+                      <plan.icon className={`w-8 h-8 ${
                         plan.popular ? 'text-gold' : 'text-gray-600'
                       }`} />
                     </div>
                     
-                    <h3 className={`text-2xl font-black mb-2 ${
+                    <h3 className={`text-xl font-black mb-2 ${
                       plan.popular ? 'text-white' : 'text-gray-900'
                     }`}>{plan.name}</h3>
-                    <p className={`font-bold mb-6 ${
+                    <p className={`font-semibold mb-4 text-sm ${
                       plan.popular ? 'text-gold' : 'text-gray-600'
                     }`}>{plan.subtitle}</p>
                     
                     {/* Pricing */}
-                    <div className="mb-6">
+                    <div className="mb-4">
                       <div className="flex items-baseline justify-center mb-2">
                         {plan.originalPrice && (
-                          <span className={`text-lg line-through mr-2 ${
+                          <span className={`text-sm line-through mr-2 ${
                             plan.popular ? 'text-gray-400' : 'text-gray-400'
                           }`}>€{plan.originalPrice}</span>
                         )}
-                        <span className={`text-4xl font-black ${
+                        <span className={`text-3xl font-black ${
                           plan.popular ? 'text-white' : 'text-gray-900'
                         }`}>€{plan.price}</span>
-                        <span className={`text-lg ml-1 ${
+                        <span className={`text-sm ml-1 ${
                           plan.popular ? 'text-gray-300' : 'text-gray-600'
                         }`}>{plan.period}</span>
                       </div>
@@ -193,15 +193,15 @@ const Memberships = () => {
                   </div>
 
                   {/* Features */}
-                  <ul className="space-y-4 mb-8 flex-grow">
+                  <ul className="space-y-3 mb-8 flex-grow">
                     {plan.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-start">
-                        <div className={`w-6 h-6 rounded-full flex items-center justify-center mr-3 flex-shrink-0 mt-0.5 ${
+                        <div className={`w-5 h-5 rounded-full flex items-center justify-center mr-3 flex-shrink-0 mt-0.5 ${
                           plan.popular 
-                            ? 'bg-gold/20 border-2 border-gold/40' 
-                            : 'bg-gray-100 border-2 border-gray-300'
+                            ? 'bg-gold/20' 
+                            : 'bg-gray-100'
                         }`}>
-                          <Check className={`w-4 h-4 ${
+                          <Check className={`w-3 h-3 ${
                             plan.popular ? 'text-gold' : 'text-gray-600'
                           }`} />
                         </div>
@@ -215,8 +215,8 @@ const Memberships = () => {
                   {/* CTA Button */}
                   <button className={`w-full py-4 rounded-2xl font-bold text-lg flex items-center justify-center group ${
                     plan.popular 
-                      ? 'bg-gold hover:bg-yellow-400 text-black shadow-xl transform hover:scale-105 transition-all duration-300'
-                      : 'bg-gray-900 hover:bg-black text-white shadow-lg transform hover:scale-105 transition-all duration-300'
+                      ? 'bg-gold hover:bg-yellow-400 text-black shadow-lg transition-all duration-300'
+                      : 'bg-gray-900 hover:bg-black text-white shadow-md transition-all duration-300'
                   }`}>
                     <span>Seleccionar Plan</span>
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -227,51 +227,51 @@ const Memberships = () => {
           </div>
 
           {/* VIP Elite Plan - Horizontal */}
-          <div className="bg-gradient-to-r from-gold/10 via-gold/5 to-gold/10 border-4 border-gold rounded-3xl p-12 shadow-2xl shadow-gold/20 relative overflow-hidden">
+          <div className="bg-gradient-to-r from-gold/5 via-gold/10 to-gold/5 border-2 border-gold/30 rounded-3xl p-8 lg:p-12 shadow-xl relative overflow-hidden">
             
             {/* VIP Badge */}
-            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-              <div className="bg-gold text-black px-8 py-3 rounded-full font-black text-lg shadow-xl flex items-center">
+            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
+              <div className="bg-gold text-black px-6 py-2 rounded-full font-black text-sm shadow-lg flex items-center">
                 <Crown className="w-6 h-6 mr-2" />
                 PLAN EXCLUSIVO
               </div>
             </div>
 
-            <div className="grid lg:grid-cols-3 gap-12 items-center mt-8">
+            <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 items-center mt-6">
               
               {/* Left - Plan Info */}
               <div className="text-center lg:text-left">
-                <div className="bg-gold/20 w-32 h-32 rounded-3xl flex items-center justify-center mx-auto lg:mx-0 mb-8 border-4 border-gold/40">
-                  <Crown className="w-16 h-16 text-gold" />
+                <div className="bg-gold/20 w-24 h-24 lg:w-32 lg:h-32 rounded-3xl flex items-center justify-center mx-auto lg:mx-0 mb-6 border-2 border-gold/40">
+                  <Crown className="w-12 h-12 lg:w-16 lg:h-16 text-gold" />
                 </div>
                 
-                <h3 className="text-4xl font-black text-gray-900 mb-4">VIP Elite</h3>
-                <p className="text-gold font-bold text-xl mb-6">Exclusivo</p>
+                <h3 className="text-3xl lg:text-4xl font-black text-gray-900 mb-3">VIP Elite</h3>
+                <p className="text-gold font-bold text-lg mb-6">Exclusivo</p>
                 
                 {/* VIP Pricing */}
                 <div className="mb-8">
                   <div className="flex items-baseline justify-center lg:justify-start mb-2">
-                    <span className="text-6xl font-black text-gold">€4.999</span>
-                    <span className="text-gray-600 text-2xl ml-2">/año</span>
+                    <span className="text-4xl lg:text-6xl font-black text-gold">€4.999</span>
+                    <span className="text-gray-600 text-xl lg:text-2xl ml-2">/año</span>
                   </div>
-                  <p className="text-lg text-gray-500 font-medium">12 meses completos</p>
+                  <p className="text-base lg:text-lg text-gray-500 font-medium">12 meses completos</p>
                 </div>
 
                 {/* VIP CTA */}
                 <a 
                   href="#apply"
-                  className="inline-flex items-center bg-gradient-to-r from-gold to-yellow-400 hover:from-yellow-400 hover:to-gold text-black px-12 py-6 rounded-2xl font-black text-xl shadow-2xl hover:shadow-gold/40 transform hover:scale-105 transition-all duration-300 group"
+                  className="inline-flex items-center bg-gradient-to-r from-gold to-yellow-400 hover:from-yellow-400 hover:to-gold text-black px-8 lg:px-12 py-4 lg:py-6 rounded-2xl font-black text-lg lg:text-xl shadow-xl transition-all duration-300 group"
                 >
                   <span>Solicitar Plaza VIP</span>
-                  <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-5 h-5 lg:w-6 lg:h-6 ml-3 group-hover:translate-x-1 transition-transform" />
                 </a>
               </div>
 
               {/* Center - Features */}
               <div className="lg:col-span-2">
-                <h4 className="text-2xl font-black text-gray-900 mb-8 text-center">Beneficios Exclusivos VIP</h4>
+                <h4 className="text-xl lg:text-2xl font-black text-gray-900 mb-6 lg:mb-8 text-center lg:text-left">Beneficios Exclusivos VIP</h4>
                 
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid md:grid-cols-2 gap-4 lg:gap-6">
                   {[
                     "Acceso directo a Sergi 24/7",
                     "Llamadas 1:1 semanales",
@@ -282,21 +282,21 @@ const Memberships = () => {
                     "Solo 12 plazas anuales"
                   ].map((feature, index) => (
                     <div key={index} className="flex items-start">
-                      <div className="bg-gold/20 w-8 h-8 rounded-full flex items-center justify-center mr-4 flex-shrink-0 mt-1 border-2 border-gold/40">
-                        <Check className="w-5 h-5 text-gold" />
+                      <div className="bg-gold/20 w-6 h-6 rounded-full flex items-center justify-center mr-3 flex-shrink-0 mt-1">
+                        <Check className="w-4 h-4 text-gold" />
                       </div>
-                      <span className="text-gray-700 font-semibold leading-relaxed text-lg">{feature}</span>
+                      <span className="text-gray-700 font-semibold leading-relaxed text-sm lg:text-base">{feature}</span>
                     </div>
                   ))}
                 </div>
 
                 {/* VIP Guarantee */}
-                <div className="mt-8 bg-white/50 rounded-2xl p-6 border-2 border-gold/30">
+                <div className="mt-6 lg:mt-8 bg-white/50 rounded-2xl p-4 lg:p-6 border border-gold/30">
                   <div className="flex items-center justify-center">
-                    <Star className="w-8 h-8 text-gold mr-4" />
+                    <Star className="w-6 h-6 lg:w-8 lg:h-8 text-gold mr-3 lg:mr-4" />
                     <div>
-                      <h5 className="font-black text-gray-900 text-xl">Garantía VIP Total</h5>
-                      <p className="text-gray-600 font-medium">60 días de garantía completa + seguimiento de por vida</p>
+                      <h5 className="font-black text-gray-900 text-lg lg:text-xl">Garantía VIP Total</h5>
+                      <p className="text-gray-600 font-medium text-sm lg:text-base">60 días de garantía completa + seguimiento de por vida</p>
                     </div>
                   </div>
                 </div>
@@ -305,20 +305,20 @@ const Memberships = () => {
           </div>
 
           {/* Guarantee Section */}
-          <div className="bg-gold/10 border-4 border-gold/30 rounded-3xl p-12 text-center shadow-2xl mt-20">
-            <div className="bg-gold/20 w-32 h-32 rounded-3xl flex items-center justify-center mx-auto mb-8 border-4 border-gold/40 shadow-xl">
-              <Star className="w-16 h-16 text-gold" />
+          <div className="bg-gold/10 border-2 border-gold/30 rounded-3xl p-8 lg:p-12 text-center shadow-xl mt-16 lg:mt-20">
+            <div className="bg-gold/20 w-20 h-20 lg:w-24 lg:h-24 rounded-3xl flex items-center justify-center mx-auto mb-6 lg:mb-8 border-2 border-gold/40">
+              <Star className="w-10 h-10 lg:w-12 lg:h-12 text-gold" />
             </div>
             
-            <h3 className="text-5xl font-black text-gray-900 mb-6">Garantía de Satisfacción</h3>
-            <p className="text-2xl text-gray-700 mb-8 max-w-4xl mx-auto leading-relaxed font-medium">
+            <h3 className="text-3xl lg:text-4xl font-black text-gray-900 mb-4 lg:mb-6">Garantía de Satisfacción</h3>
+            <p className="text-lg lg:text-xl text-gray-700 mb-6 lg:mb-8 max-w-4xl mx-auto leading-relaxed font-medium">
               Si no estás completamente satisfecho con tu progreso en los primeros 30 días, 
-              te devolvemos el <span className="font-black text-gold text-3xl">100% de tu dinero</span>. Sin preguntas.
+              te devolvemos el <span className="font-black text-gold text-xl lg:text-2xl">100% de tu dinero</span>. Sin preguntas.
             </p>
             
-            <div className="inline-flex items-center bg-white/80 border-2 border-gold/30 rounded-full px-8 py-4 shadow-lg">
-              <Check className="w-6 h-6 text-gold mr-3" />
-              <span className="text-gray-700 font-bold text-lg">30 días de garantía total</span>
+            <div className="inline-flex items-center bg-white/80 border border-gold/30 rounded-full px-6 py-3 shadow-lg">
+              <Check className="w-5 h-5 text-gold mr-3" />
+              <span className="text-gray-700 font-bold text-base lg:text-lg">30 días de garantía total</span>
             </div>
           </div>
         </div>
