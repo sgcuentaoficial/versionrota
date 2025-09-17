@@ -217,7 +217,9 @@ const Method = () => {
                 Solo quedan 12 plazas disponibles para el programa VIP de este trimestre.
               </p>
               <a 
-                href="#apply" 
+                href="https://wa.me/34614428420?text=Hola%20Sergi,%20estoy%20interesado%20en%20el%20coaching%20VIP%20Elite.%20Me%20gustaría%20agendar%20una%20consulta%20para%20conocer%20más%20detalles."
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center bg-gold text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-gold-dark transition-all duration-300 group"
               >
                 SOLICITAR MI PLAZA VIP

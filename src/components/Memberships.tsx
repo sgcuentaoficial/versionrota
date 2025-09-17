@@ -214,14 +214,24 @@ const Memberships = () => {
                   </ul>
 
                   {/* CTA Button */}
-                  <button className={`w-full py-4 rounded-2xl font-bold text-lg flex items-center justify-center group ${
+                  <a 
+                    href={
+                      index === 0 ? "https://buy.stripe.com/test_3cIeVd6RGclpazLgrN5wI00" :
+                      index === 1 ? "https://buy.stripe.com/test_cNiaEX8ZO0CHbDP1wT5wI01" :
+                      index === 2 ? "https://buy.stripe.com/test_cNiaEXa3Sclp9vH6Rd5wI02" :
+                      "https://buy.stripe.com/test_cNidR9gsgdpt5fr8Zl5wI03"
+                    }
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`w-full py-4 rounded-2xl font-bold text-lg flex items-center justify-center group ${
                     plan.popular 
                       ? 'bg-gold hover:bg-yellow-400 text-black shadow-lg transition-all duration-300'
                       : 'bg-gray-900 hover:bg-black text-white shadow-md transition-all duration-300'
-                  }`}>
+                  }`}
+                  >
                     <span>Seleccionar Plan</span>
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </button>
+                  </a>
                 </div>
               </div>
             ))}
@@ -267,7 +277,9 @@ const Memberships = () => {
 
                 {/* VIP CTA */}
                 <a 
-                  href="#apply"
+                  href="https://wa.me/34614428420?text=Hola%20Sergi,%20estoy%20interesado%20en%20el%20coaching%20VIP%20Elite.%20Me%20gustaría%20agendar%20una%20consulta%20para%20conocer%20más%20detalles."
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center bg-gradient-to-r from-gold to-yellow-400 hover:from-yellow-400 hover:to-gold text-black px-8 lg:px-12 py-4 lg:py-6 rounded-2xl font-black text-lg lg:text-xl shadow-xl transition-all duration-300 group"
                 >
                   <span>Agendar Llamada</span>

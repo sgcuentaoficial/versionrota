@@ -256,7 +256,7 @@ const InternationalCovers = () => {
                   Únete a la élite del fitness.
                 </p>
                 <a 
-                  href="#memberships" 
+                  href="#memberships"
                   className="inline-flex items-center bg-gold text-black px-8 py-4 rounded-xl font-bold text-lg hover:bg-yellow-400 transition-all duration-300 group shadow-xl"
                 >
                   VER PLANES DE COACHING

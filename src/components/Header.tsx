@@ -48,7 +48,12 @@ const Header = () => {
 
           {/* Language Selector & VIP CTA */}
           <div className="flex items-center">
-            <a href="#apply" className="vip-button px-6 py-3 rounded-lg font-vip-accent text-sm">
+            <a 
+              href="https://wa.me/34614428420?text=Hola%20Sergi,%20estoy%20interesado%20en%20el%20coaching%20VIP%20Elite.%20Me%20gustaría%20agendar%20una%20consulta%20para%20conocer%20más%20detalles."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="vip-button px-6 py-3 rounded-lg font-vip-accent text-sm"
+            >
               SOLICITAR CONSULTA VIP
             </a>
           </div>
