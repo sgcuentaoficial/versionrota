@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Crown } from 'lucide-react';
+import LanguageSelector from './LanguageSelector';
+import { useLocationTranslation } from '../hooks/useLocationTranslation';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { t } = useLocationTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,15 +38,18 @@ const Header = () => {
               <div className={`text-xs font-vip-accent ${
                 isScrolled ? 'text-gray-300' : 'text-vip-gold'
               }`}>
-                VIP COACHING
+                {t('footer.coaching')}
               </div>
             </div>
           </div>
 
-          {/* VIP CTA */}
-          <a href="#apply" className="vip-button px-6 py-3 rounded-lg font-vip-accent text-sm">
-            ÚNETE AHORA
-          </a>
+          {/* Language Selector & VIP CTA */}
+          <div className="flex items-center space-x-4">
+            <LanguageSelector />
+            <a href="#apply" className="vip-button px-6 py-3 rounded-lg font-vip-accent text-sm">
+              {t('hero.cta.primary')}
+            </a>
+          </div>
         </div>
       </div>
     </header>
