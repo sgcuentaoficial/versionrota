@@ -54,16 +54,16 @@ const Hero = () => {
                 
                 {/* Main Headline */}
                 <h1 className="text-4xl md:text-5xl lg:text-7xl font-black mb-6 md:mb-8 leading-[0.9]">
-                  <span className="text-white block mb-1 md:mb-2">{t('hero.title.elite')}</span>
-                  <span className="text-vip-gold block mb-1 md:mb-2">{t('hero.title.transformation')}</span>
-                  <span className="text-white/90 block text-3xl md:text-4xl lg:text-5xl font-light">{t('hero.title.coaching')}</span>
+                  <span className="text-white block mb-1 md:mb-2">Elite</span>
+                  <span className="text-vip-gold block mb-1 md:mb-2">Transformation</span>
+                  <span className="text-white/90 block text-3xl md:text-4xl lg:text-5xl font-light">Coaching</span>
                 </h1>
 
                 {/* Professional Subheadline */}
                 <p className="text-lg md:text-xl lg:text-2xl text-gray-300 mb-8 md:mb-12 leading-relaxed max-w-2xl font-light">
-                  {t('hero.subtitle')} <span className="text-vip-gold font-semibold">Sergi Constance</span>
+                  Coaching personalizado de élite con <span className="text-vip-gold font-semibold">Sergi Constance</span>
                   <br className="hidden lg:block" />
-                  <span className="text-white/80">{t('hero.subtitle.actor')}</span>
+                  <span className="text-white/80">IFBB Pro & Zeus en Justice League</span>
                 </p>
 
                 {/* Professional CTAs */}
@@ -72,7 +72,7 @@ const Hero = () => {
                     href="#apply" 
                     className="inline-flex items-center justify-center bg-vip-gold text-black px-6 md:px-8 py-3 md:py-4 rounded-xl font-bold text-base md:text-lg hover:bg-yellow-400 transition-all duration-300 group shadow-xl hover:shadow-vip-gold/30"
                   >
-                    <span className="hidden sm:inline">{t('hero.cta.primary')}</span>
+                    <span className="hidden sm:inline">Solicitar Consulta VIP</span>
                     <span className="sm:hidden">VIP</span>
                     <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform" />
                   </a>
@@ -81,7 +81,7 @@ const Hero = () => {
                     href="#method" 
                     className="inline-flex items-center justify-center border-2 border-white/30 text-white px-6 md:px-8 py-3 md:py-4 rounded-xl font-semibold text-base md:text-lg hover:bg-white/10 hover:border-white/50 transition-all duration-300 backdrop-blur-sm"
                   >
-                    {t('hero.cta.secondary')}
+                    Ver Método
                   </a>
                 </div>
 
@@ -89,15 +89,15 @@ const Hero = () => {
                 <div className="flex flex-wrap gap-4 md:gap-6 text-xs md:text-sm text-gray-400">
                   <div className="flex items-center">
                     <CheckCircle className="w-4 h-4 text-vip-gold mr-2" />
-                    <span>{t('hero.trust.years')}</span>
+                    <span>15+ años IFBB Pro</span>
                   </div>
                   <div className="flex items-center">
                     <CheckCircle className="w-4 h-4 text-vip-gold mr-2" />
-                    <span>{t('hero.trust.actor')}</span>
+                    <span>Actor de Hollywood</span>
                   </div>
                   <div className="flex items-center">
                     <CheckCircle className="w-4 h-4 text-vip-gold mr-2" />
-                    <span>{t('hero.trust.guarantee')}</span>
+                    <span>Garantía 30 días</span>
                   </div>
                 </div>
               </div>
@@ -149,19 +149,19 @@ const Hero = () => {
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8 mb-8">
                 <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-4 lg:p-6 text-center">
                   <div className="text-2xl lg:text-4xl font-black text-vip-gold mb-2">500+</div>
-                  <div className="text-gray-300 font-medium text-sm">{t('stats.transformations')}</div>
+                  <div className="text-gray-300 font-medium text-sm">Transformaciones</div>
                 </div>
                 <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-4 lg:p-6 text-center">
                   <div className="text-2xl lg:text-4xl font-black text-vip-gold mb-2">15+</div>
-                  <div className="text-gray-300 font-medium text-sm">{t('stats.years')}</div>
+                  <div className="text-gray-300 font-medium text-sm">Años Pro</div>
                 </div>
                 <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-4 lg:p-6 text-center">
                   <div className="text-2xl lg:text-4xl font-black text-vip-gold mb-2">98%</div>
-                  <div className="text-gray-300 font-medium text-sm">{t('stats.success')}</div>
+                  <div className="text-gray-300 font-medium text-sm">Tasa Éxito</div>
                 </div>
                 <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-4 lg:p-6 text-center">
                   <div className="text-2xl lg:text-4xl font-black text-vip-gold mb-2">12</div>
-                  <div className="text-gray-300 font-medium text-sm">{t('stats.vip')}</div>
+                  <div className="text-gray-300 font-medium text-sm">Plazas VIP</div>
                 </div>
               </div>
 
@@ -189,13 +189,12 @@ const Hero = () => {
                         <span className="text-vip-gold font-bold ml-2">5.0</span>
                       </div>
                       <p className="text-gray-300 text-sm">500+ clientes</p>
-                      <p className="text-gray-300 text-sm">500+ {t('stats.clients')}</p>
                     </div>
                   </div>
                   
                   <div className="flex items-center justify-center gap-4">
                     <Trophy className="w-5 h-5 text-vip-gold" />
-                    <span className="text-white font-semibold text-sm">98% {t('stats.success')}</span>
+                    <span className="text-white font-semibold text-sm">98% Tasa Éxito</span>
                   </div>
                 </div>
               </div>
