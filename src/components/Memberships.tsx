@@ -103,7 +103,7 @@ const Memberships = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="py-32 bg-white relative overflow-hidden">
+    <section ref={sectionRef} id="memberships" className="py-32 bg-white relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-7xl mx-auto">
           

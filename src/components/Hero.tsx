@@ -69,9 +69,7 @@ const Hero = () => {
                 {/* Professional CTAs */}
                 <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mb-8 md:mb-12">
                   <a 
-                    href="https://wa.me/34614428420?text=Hola%20Sergi,%20estoy%20interesado%20en%20el%20coaching%20VIP%20Elite.%20Me%20gustaría%20agendar%20una%20consulta%20para%20conocer%20más%20detalles."
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="#memberships"
                     className="inline-flex items-center justify-center bg-vip-gold text-black px-6 md:px-8 py-3 md:py-4 rounded-xl font-bold text-base md:text-lg hover:bg-yellow-400 transition-all duration-300 group shadow-xl hover:shadow-vip-gold/30"
                   >
                     <span className="hidden sm:inline">Solicitar Consulta VIP</span>

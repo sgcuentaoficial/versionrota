@@ -239,10 +239,6 @@ const Application = () => {
                   <button
                     type="submit"
                     className="w-full bg-gold text-white py-4 rounded-xl font-bold text-lg hover:bg-gold-dark transition-all duration-300 flex items-center justify-center group"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      window.open("https://wa.me/34614428420?text=Hola%20Sergi,%20estoy%20interesado%20en%20el%20coaching%20VIP%20Elite.%20Me%20gustaría%20agendar%20una%20consulta%20para%20conocer%20más%20detalles.", "_blank");
-                    }}
                   >
                     ENVIAR SOLICITUD VIP
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
