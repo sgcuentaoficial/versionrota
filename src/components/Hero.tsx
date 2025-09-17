@@ -45,7 +45,7 @@ const Hero = () => {
         <div className="max-w-7xl mx-auto">
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-16">
               
               {/* Left Column - Main Content */}
               <div className="text-left">
@@ -106,39 +106,53 @@ const Hero = () => {
                 </div>
               </div>
 
-              {/* Right Column - Stats & Social Proof */}
+              {/* Right Column - Video */}
               <div className="text-center lg:text-right mt-8 lg:mt-0">
-                
-                {/* Key Stats */}
-                <div className="grid grid-cols-2 gap-4 md:gap-8 mb-8 md:mb-12">
-                  <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-4 md:p-6">
-                    <div className="text-2xl md:text-3xl lg:text-4xl font-black text-vip-gold mb-1 md:mb-2">500+</div>
-                    <div className="text-gray-300 font-medium text-xs md:text-sm">Transformaciones</div>
-                  </div>
-                  <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-4 md:p-6">
-                    <div className="text-2xl md:text-3xl lg:text-4xl font-black text-vip-gold mb-1 md:mb-2">15+</div>
-                    <div className="text-gray-300 font-medium text-xs md:text-sm">Años Pro</div>
-                  </div>
-                  <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-4 md:p-6">
-                    <div className="text-2xl md:text-3xl lg:text-4xl font-black text-vip-gold mb-1 md:mb-2">98%</div>
-                    <div className="text-gray-300 font-medium text-xs md:text-sm">Tasa Éxito</div>
-                  </div>
-                  <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-4 md:p-6">
-                    <div className="text-2xl md:text-3xl lg:text-4xl font-black text-vip-gold mb-1 md:mb-2">12</div>
-                    <div className="text-gray-300 font-medium text-xs md:text-sm">Plazas VIP</div>
-                  </div>
+                <div className="relative w-full h-0 pb-[56.25%] rounded-2xl overflow-hidden shadow-2xl">
+                  <iframe
+                    src="https://www.youtube.com/embed/UFDfl-9b2G8?start=251&autoplay=0&mute=0&controls=1&showinfo=0&rel=0&modestbranding=1"
+                    title="Sergi Constance - Transformación Elite"
+                    className="absolute top-0 left-0 w-full h-full"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
                 </div>
+              </div>
+            </div>
 
-                {/* Social Proof */}
-                <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-4 md:p-6">
-                  <div className="flex items-center justify-center lg:justify-end mb-4">
+            {/* Stats & Social Proof - Full Width Below */}
+            <div className="w-full">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8 mb-8">
+                <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-4 lg:p-6 text-center">
+                  <div className="text-2xl lg:text-4xl font-black text-vip-gold mb-2">500+</div>
+                  <div className="text-gray-300 font-medium text-sm">Transformaciones</div>
+                </div>
+                <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-4 lg:p-6 text-center">
+                  <div className="text-2xl lg:text-4xl font-black text-vip-gold mb-2">15+</div>
+                  <div className="text-gray-300 font-medium text-sm">Años Pro</div>
+                </div>
+                <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-4 lg:p-6 text-center">
+                  <div className="text-2xl lg:text-4xl font-black text-vip-gold mb-2">98%</div>
+                  <div className="text-gray-300 font-medium text-sm">Tasa Éxito</div>
+                </div>
+                <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-4 lg:p-6 text-center">
+                  <div className="text-2xl lg:text-4xl font-black text-vip-gold mb-2">12</div>
+                  <div className="text-gray-300 font-medium text-sm">Plazas VIP</div>
+                </div>
+              </div>
+
+              {/* Social Proof - Centered */}
+              <div className="flex justify-center">
+                <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 max-w-md">
+                  <div className="flex items-center justify-center mb-4">
                     <div className="flex -space-x-2 mr-4">
                       {[1,2,3,4].map((i) => (
                         <img
                           key={i}
                           src={`https://images.pexels.com/photos/${1000000 + i}/pexels-photo-${1000000 + i}.jpeg?auto=compress&cs=tinysrgb&w=60&h=60&fit=crop&crop=face`}
                           alt={`Cliente ${i}`}
-                          className="w-10 md:w-12 h-10 md:h-12 rounded-full border-2 border-vip-gold object-cover"
+                          className="w-12 h-12 rounded-full border-2 border-vip-gold object-cover"
                           loading="lazy"
                           decoding="async"
                         />
@@ -151,13 +165,13 @@ const Hero = () => {
                         ))}
                         <span className="text-vip-gold font-bold ml-2">5.0</span>
                       </div>
-                      <p className="text-gray-300 text-xs md:text-sm">500+ clientes</p>
+                      <p className="text-gray-300 text-sm">500+ clientes</p>
                     </div>
                   </div>
                   
-                  <div className="flex items-center justify-center lg:justify-end gap-4">
+                  <div className="flex items-center justify-center gap-4">
                     <Trophy className="w-5 h-5 text-vip-gold" />
-                    <span className="text-white font-semibold text-xs md:text-sm">98% Tasa de Éxito</span>
+                    <span className="text-white font-semibold text-sm">98% Tasa de Éxito</span>
                   </div>
                 </div>
               </div>
