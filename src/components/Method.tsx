@@ -105,8 +105,7 @@ const Method = () => {
             </h2>
             
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Un sistema científico de 4 pilares que ha transformado más de 500 vidas. 
-              No es solo entrenamiento, es una transformación completa.
+              Un sistema científico de 4 pilares desarrollado durante 15+ años como IFBB Pro. 
               No es solo entrenamiento, es una transformación completa.
             </p>
           </div>

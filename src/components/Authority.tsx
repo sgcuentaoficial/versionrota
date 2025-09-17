@@ -40,16 +40,16 @@ const Authority = () => {
     {
       icon: Trophy,
       title: "Coach de Elite",
-      subtitle: "500+ Transformaciones",
-      description: "98% de tasa de éxito ayudando a personas de todo el mundo a alcanzar su mejor versión física.",
-      stats: "98% tasa de éxito"
+      subtitle: "Coaching Personalizado",
+      description: "Método científico personalizado para ayudar a personas de todo el mundo a alcanzar su mejor versión física.",
+      stats: "Método probado"
     }
   ];
 
   const credentials = [
     { icon: Award, text: "Certificación IFBB Pro" },
     { icon: Target, text: "Especialista en Transformación Corporal" },
-    { icon: Users, text: "Mentor de 500+ Clientes" },
+    { icon: Users, text: "Coach Personalizado" },
     { icon: Star, text: "Actor Profesional de Hollywood" }
   ];
 
@@ -79,8 +79,7 @@ const Authority = () => {
             
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               No soy solo otro coach. Soy un profesional con credenciales reales, 
-              resultados comprobados y la experiencia de haber transformado más de 500 vidas.
-              resultados comprobados y la experiencia de haber transformado más de 500 vidas.
+              resultados comprobados y más de 15 años de experiencia como IFBB Pro.
             </p>
           </div>
 

@@ -54,7 +54,7 @@ const Application = () => {
     {
       icon: CheckCircle,
       title: "Método Probado",
-      description: "Sistema con 98% de tasa de éxito y más de 500 transformaciones"
+      description: "Sistema desarrollado durante 15+ años como IFBB Pro"
     },
     {
       icon: Star,

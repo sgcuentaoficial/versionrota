@@ -148,10 +148,6 @@ const Hero = () => {
             <div className="w-full">
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8 mb-8">
                 <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-4 lg:p-6 text-center">
-                  <div className="text-2xl lg:text-4xl font-black text-vip-gold mb-2">500+</div>
-                  <div className="text-gray-300 font-medium text-sm">Transformaciones</div>
-                </div>
-                <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-4 lg:p-6 text-center">
                   <div className="text-2xl lg:text-4xl font-black text-vip-gold mb-2">15+</div>
                   <div className="text-gray-300 font-medium text-sm">Años Pro</div>
                 </div>
@@ -162,6 +158,10 @@ const Hero = () => {
                 <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-4 lg:p-6 text-center">
                   <div className="text-2xl lg:text-4xl font-black text-vip-gold mb-2">12</div>
                   <div className="text-gray-300 font-medium text-sm">Plazas VIP</div>
+                </div>
+                <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-4 lg:p-6 text-center">
+                  <div className="text-2xl lg:text-4xl font-black text-vip-gold mb-2">VIP</div>
+                  <div className="text-gray-300 font-medium text-sm">Coaching</div>
                 </div>
               </div>
 
@@ -194,7 +194,7 @@ const Hero = () => {
                   
                   <div className="flex items-center justify-center gap-4">
                     <Trophy className="w-5 h-5 text-vip-gold" />
-                    <span className="text-white font-semibold text-sm">98% Tasa Éxito</span>
+                    <span className="text-white font-semibold text-sm">Coaching Elite</span>
                   </div>
                 </div>
               </div>
