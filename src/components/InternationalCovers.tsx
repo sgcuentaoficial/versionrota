@@ -35,32 +35,32 @@ const InternationalCovers = () => {
   const covers = [
     {
       url: "https://sergiconstance-9fn0dyoiqm.live-website.com/wp-content/uploads/2025/09/revista-6.jpg",
-      title: "Muscle & Fitness",
-      country: "Internacional",
-      year: "2024"
-    },
-    {
-      url: "https://sergiconstance-9fn0dyoiqm.live-website.com/wp-content/uploads/2025/09/revista-5.jpg",
-      title: "Fitness Magazine",
-      country: "Europa",
-      year: "2024"
-    },
-    {
-      url: "https://sergiconstance-9fn0dyoiqm.live-website.com/wp-content/uploads/2025/09/revista-4.jpg",
-      title: "Bodybuilding Elite",
+      title: "Muscular Development",
       country: "USA",
       year: "2023"
     },
     {
-      url: "https://sergiconstance-9fn0dyoiqm.live-website.com/wp-content/uploads/2025/09/revista-3.jpg",
+      url: "https://sergiconstance-9fn0dyoiqm.live-website.com/wp-content/uploads/2025/09/revista-5.jpg",
+      title: "Muscle & Fitness",
+      country: "Europa",
+      year: "2023"
+    },
+    {
+      url: "https://sergiconstance-9fn0dyoiqm.live-website.com/wp-content/uploads/2025/09/revista-4.jpg",
       title: "Iron Man Magazine",
       country: "Internacional",
       year: "2023"
     },
     {
-      url: "https://sergiconstance-9fn0dyoiqm.live-website.com/wp-content/uploads/2025/09/revista-2.jpg",
+      url: "https://sergiconstance-9fn0dyoiqm.live-website.com/wp-content/uploads/2025/09/revista-3.jpg",
       title: "Flex Magazine",
-      country: "Mundial",
+      country: "USA",
+      year: "2022"
+    },
+    {
+      url: "https://sergiconstance-9fn0dyoiqm.live-website.com/wp-content/uploads/2025/09/revista-2.jpg",
+      title: "Fitness RX",
+      country: "Internacional",
       year: "2022"
     }
   ];
