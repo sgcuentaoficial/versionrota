@@ -50,12 +50,6 @@ const Hero = () => {
               {/* Left Column - Main Content */}
               <div className="text-left">
                 
-                {/* Professional Badge */}
-                <div className="inline-flex items-center bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-4 md:px-6 py-2 md:py-3 mb-6 md:mb-8">
-                  <Award className="w-5 h-5 text-vip-gold mr-3" />
-                  <span className="text-white font-semibold text-xs md:text-sm tracking-wide">IFBB PRO • HOLLYWOOD ACTOR</span>
-                </div>
-
                 {/* Main Headline */}
                 <h1 className="text-4xl md:text-5xl lg:text-7xl font-black mb-6 md:mb-8 leading-[0.9]">
                   <span className="text-white block mb-1 md:mb-2">Elite</span>
@@ -135,6 +129,14 @@ const Hero = () => {
                         <path d="M8 5v14l11-7z"/>
                       </svg>
                     </div>
+                  </div>
+                </div>
+                
+                {/* Professional Badge - Below Video */}
+                <div className="flex justify-center mt-6">
+                  <div className="inline-flex items-center bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-4 md:px-6 py-2 md:py-3">
+                    <Award className="w-5 h-5 text-vip-gold mr-3" />
+                    <span className="text-white font-semibold text-xs md:text-sm tracking-wide">IFBB PRO • HOLLYWOOD ACTOR</span>
                   </div>
                 </div>
               </div>
