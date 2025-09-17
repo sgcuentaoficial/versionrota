@@ -41,8 +41,35 @@ const Application = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Aquí iría la lógica para enviar el formulario
-    console.log('Form submitted:', formData);
+    
+    // Crear mensaje para WhatsApp con todos los datos
+    const message = `Hola Sergi, soy ${formData.name} y estoy interesado en el coaching VIP Elite.
+
+📋 MIS DATOS:
+• Nombre: ${formData.name}
+• Edad: ${formData.age} años
+• Email: ${formData.email}
+• Teléfono: ${formData.phone}
+
+🏋️ EXPERIENCIA:
+• Nivel: ${formData.experience}
+
+🎯 OBJETIVOS:
+${formData.goals}
+
+⏰ COMPROMISO:
+• Disponibilidad: ${formData.commitment}
+
+💰 PRESUPUESTO:
+• Rango mensual: ${formData.budget}
+
+Me gustaría agendar una consulta para conocer más detalles del programa VIP.`;
+
+    // Codificar el mensaje para URL
+    const encodedMessage = encodeURIComponent(message);
+    
+    // Redirigir a WhatsApp
+    window.open(`https://wa.me/34614428420?text=${encodedMessage}`, '_blank');
   };
 
   const benefits = [
