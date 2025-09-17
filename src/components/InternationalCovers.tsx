@@ -126,7 +126,7 @@ const InternationalCovers = () => {
                 <div className="relative h-[600px] rounded-3xl overflow-hidden shadow-2xl group">
                   <img
                     src={covers[activeImage].url}
-                    alt={covers[activeImage].title}
+                    alt="Portada de revista internacional"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     loading="lazy"
                     decoding="async"
@@ -134,17 +134,6 @@ const InternationalCovers = () => {
                   
                   {/* Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                  
-                  {/* Cover Info */}
-                  <div className="absolute bottom-8 left-8 right-8">
-                    <div className="bg-black/50 backdrop-blur-md rounded-2xl p-6 border border-gold/30">
-                      <h3 className="text-2xl font-black text-white mb-2">{covers[activeImage].title}</h3>
-                      <div className="flex items-center justify-between">
-                        <span className="text-gold font-bold">{covers[activeImage].country}</span>
-                        <span className="text-gray-300">{covers[activeImage].year}</span>
-                      </div>
-                    </div>
-                  </div>
                 </div>
 
                 {/* Thumbnails */}
@@ -161,7 +150,7 @@ const InternationalCovers = () => {
                     >
                       <img
                         src={cover.url}
-                        alt={cover.title}
+                        alt="Portada de revista"
                         className="w-full h-full object-cover"
                         loading="lazy"
                         decoding="async"
