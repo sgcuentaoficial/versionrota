@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Crown, Star, Check, Target, Users, Award, Calendar, Gift, ArrowRight, Sparkles, Zap } from 'lucide-react';
+import { Crown, Star, Check, Target, Users, Award, Calendar, Gift, ArrowRight, Sparkles } from 'lucide-react';
 
 const Memberships = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -118,33 +118,13 @@ const Memberships = () => {
     ]
   };
 
-  const getRegularCardStyles = (plan: any) => {
-    if (plan.popular) {
-      return "bg-white border-4 border-gray-800 shadow-2xl shadow-gray-800/20 transform scale-105";
-    }
-    return "bg-white border-2 border-gray-200 shadow-xl hover:shadow-2xl hover:border-gray-400 transition-all duration-300";
-  };
-
-  const getRegularButtonStyles = (plan: any) => {
-    if (plan.popular) {
-      return "bg-gray-900 hover:bg-black text-white shadow-xl transform hover:scale-105 transition-all duration-300";
-    }
-    return "bg-gray-100 hover:bg-gray-200 text-gray-900 border-2 border-gray-300 hover:border-gray-400 shadow-lg transform hover:scale-105 transition-all duration-300";
-  };
-
-  const getDiscountBadgeStyles = (plan: any) => {
-    if (plan.popular) {
-      return "bg-gray-900 text-white";
-    }
-    return "bg-gray-700 text-white";
-  };
-
   return (
-    <section ref={sectionRef} className="py-32 bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden">
-      {/* Background */}
+    <section ref={sectionRef} className="py-32 bg-white relative overflow-hidden">
+      {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-gold rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gray-400 rounded-full blur-3xl"></div>
+        <div className="absolute inset-0" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+        }}></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -152,19 +132,19 @@ const Memberships = () => {
           
           {/* Header */}
           <div className="text-center mb-20">
-            <div className="inline-flex items-center bg-gold/10 border-2 border-gold/30 rounded-full px-8 py-4 mb-8 shadow-lg">
-              <Sparkles className="w-6 h-6 text-gold mr-4" />
-              <span className="text-gold font-black text-lg tracking-wider">PLANES DE MEMBRESÍA</span>
+            <div className="inline-flex items-center bg-gold/10 border border-gold/30 rounded-full px-6 py-3 mb-8">
+              <Sparkles className="w-5 h-5 text-gold mr-3" />
+              <span className="text-gold font-bold text-sm tracking-wider">PLANES DE MEMBRESÍA</span>
             </div>
             
-            <h2 className="text-6xl lg:text-7xl font-black mb-8 text-gray-900 leading-tight">
+            <h2 className="text-5xl lg:text-6xl font-black mb-8 text-gray-900 leading-tight">
               <span className="block">Elige tu</span>
               <span className="text-gold">Transformación</span>
             </h2>
             
-            <p className="text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-medium">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Planes diseñados para diferentes objetivos y presupuestos. 
-              <span className="text-gold font-bold"> Todos incluyen mi método probado y garantía de resultados.</span>
+              Todos incluyen mi método probado y garantía de resultados.
             </p>
           </div>
 
@@ -178,12 +158,16 @@ const Memberships = () => {
                 }`}
                 style={{ transitionDelay: `${index * 0.1}s` }}
               >
-                <div className={`relative h-full flex flex-col rounded-3xl p-8 ${getRegularCardStyles(plan)}`}>
+                <div className={`relative h-full flex flex-col rounded-3xl p-8 ${
+                  plan.popular 
+                    ? 'bg-white border-4 border-gray-900 shadow-2xl transform scale-105' 
+                    : 'bg-white border-2 border-gray-200 shadow-xl hover:shadow-2xl hover:border-gray-400 transition-all duration-300'
+                }`}>
                   
                   {/* Discount Badge */}
                   {plan.discount && (
                     <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                      <div className={`px-6 py-2 rounded-full font-black text-sm shadow-xl ${getDiscountBadgeStyles(plan)}`}>
+                      <div className="bg-gray-900 text-white px-6 py-2 rounded-full font-black text-sm shadow-xl">
                         {plan.discount}
                       </div>
                     </div>
@@ -248,7 +232,11 @@ const Memberships = () => {
                   </ul>
 
                   {/* CTA Button */}
-                  <button className={`w-full py-4 rounded-2xl font-bold text-lg flex items-center justify-center group ${getRegularButtonStyles(plan)}`}>
+                  <button className={`w-full py-4 rounded-2xl font-bold text-lg flex items-center justify-center group ${
+                    plan.popular 
+                      ? 'bg-gray-900 hover:bg-black text-white shadow-xl transform hover:scale-105 transition-all duration-300'
+                      : 'bg-gray-100 hover:bg-gray-200 text-gray-900 border-2 border-gray-300 hover:border-gray-400 shadow-lg transform hover:scale-105 transition-all duration-300'
+                  }`}>
                     <span>Seleccionar Plan</span>
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </button>
@@ -292,10 +280,13 @@ const Memberships = () => {
                   </div>
 
                   {/* VIP CTA */}
-                  <button className="bg-gradient-to-r from-gold to-yellow-400 hover:from-yellow-400 hover:to-gold text-black px-12 py-6 rounded-2xl font-black text-xl shadow-2xl hover:shadow-gold/40 transform hover:scale-105 transition-all duration-300 flex items-center justify-center group mx-auto lg:mx-0">
+                  <a 
+                    href="#apply"
+                    className="inline-flex items-center bg-gradient-to-r from-gold to-yellow-400 hover:from-yellow-400 hover:to-gold text-black px-12 py-6 rounded-2xl font-black text-xl shadow-2xl hover:shadow-gold/40 transform hover:scale-105 transition-all duration-300 group"
+                  >
                     <span>Solicitar Plaza VIP</span>
                     <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform" />
-                  </button>
+                  </a>
                 </div>
 
                 {/* Center - Features */}
@@ -328,25 +319,8 @@ const Memberships = () => {
             </div>
           </div>
 
-          {/* Value Proposition */}
-          <div className="grid md:grid-cols-3 gap-8 mt-20 mb-20">
-            {[
-              { icon: Award, title: "Resultados Garantizados", desc: "98% de tasa de éxito comprobada", color: "text-gold" },
-              { icon: Users, title: "Comunidad Exclusiva", desc: "Acceso a +500 miembros exitosos", color: "text-gray-700" },
-              { icon: Zap, title: "Método Científico", desc: "15+ años de experiencia IFBB Pro", color: "text-gray-700" }
-            ].map((item, index) => (
-              <div key={index} className="text-center group">
-                <div className="bg-white w-24 h-24 rounded-3xl flex items-center justify-center mx-auto mb-6 border-2 border-gray-200 group-hover:shadow-2xl transition-all duration-300 group-hover:scale-110 group-hover:border-gray-300">
-                  <item.icon className={`w-12 h-12 ${item.color}`} />
-                </div>
-                <h4 className="font-black text-gray-900 mb-3 text-xl">{item.title}</h4>
-                <p className="text-gray-600 leading-relaxed font-medium">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* Guarantee */}
-          <div className="bg-gold/10 border-4 border-gold/30 rounded-3xl p-12 text-center shadow-2xl">
+          {/* Guarantee Section */}
+          <div className="bg-gold/10 border-4 border-gold/30 rounded-3xl p-12 text-center shadow-2xl mt-20">
             <div className={`transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <div className="bg-gold/20 w-32 h-32 rounded-3xl flex items-center justify-center mx-auto mb-8 border-4 border-gold/40 shadow-xl">
                 <Star className="w-16 h-16 text-gold" />
