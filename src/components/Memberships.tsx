@@ -248,13 +248,12 @@ const Memberships = () => {
                 <h3 className="text-3xl lg:text-4xl font-black text-gray-900 mb-3">VIP Elite</h3>
                 <p className="text-gold font-bold text-lg mb-6">Exclusivo</p>
                 
-                {/* VIP Pricing */}
+                {/* VIP Call to Action */}
                 <div className="mb-8">
-                  <div className="flex items-baseline justify-center lg:justify-start mb-2">
-                    <span className="text-4xl lg:text-6xl font-black text-gold">€4.999</span>
-                    <span className="text-gray-600 text-xl lg:text-2xl ml-2">/año</span>
+                  <div className="text-center lg:text-left">
+                    <h4 className="text-2xl lg:text-3xl font-black text-gray-900 mb-2">Consulta Personalizada</h4>
+                    <p className="text-base lg:text-lg text-gray-600 font-medium">Agenda una llamada para conocer los detalles</p>
                   </div>
-                  <p className="text-base lg:text-lg text-gray-500 font-medium">12 meses completos</p>
                 </div>
 
                 {/* VIP CTA */}
@@ -262,7 +261,7 @@ const Memberships = () => {
                   href="#apply"
                   className="inline-flex items-center bg-gradient-to-r from-gold to-yellow-400 hover:from-yellow-400 hover:to-gold text-black px-8 lg:px-12 py-4 lg:py-6 rounded-2xl font-black text-lg lg:text-xl shadow-xl transition-all duration-300 group"
                 >
-                  <span>Solicitar Plaza VIP</span>
+                  <span>Agendar Llamada</span>
                   <ArrowRight className="w-5 h-5 lg:w-6 lg:h-6 ml-3 group-hover:translate-x-1 transition-transform" />
                 </a>
               </div>
