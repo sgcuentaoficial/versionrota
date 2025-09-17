@@ -108,15 +108,34 @@ const Hero = () => {
 
               {/* Right Column - Video */}
               <div className="text-center lg:text-right mt-8 lg:mt-0">
-                <div className="relative w-full h-0 pb-[56.25%] rounded-2xl overflow-hidden shadow-2xl">
+                <div className="relative w-full h-0 pb-[56.25%] rounded-2xl overflow-hidden shadow-2xl group">
                   <iframe
-                    src="https://www.youtube.com/embed/UFDfl-9b2G8?start=251&autoplay=0&mute=0&controls=1&showinfo=0&rel=0&modestbranding=1"
+                    src="https://www.youtube.com/embed/UFDfl-9b2G8?start=251&autoplay=1&mute=1&controls=0&showinfo=0&rel=0&modestbranding=1&loop=1&playlist=UFDfl-9b2G8&iv_load_policy=3&fs=0&disablekb=1&cc_load_policy=0&playsinline=1"
                     title="Sergi Constance - Transformación Elite"
                     className="absolute top-0 left-0 w-full h-full"
                     frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen
                   ></iframe>
+                  
+                  {/* Custom Video Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <div className="bg-black/50 backdrop-blur-sm rounded-lg p-3">
+                        <h3 className="text-white font-bold text-sm mb-1">Transformación Elite con Sergi Constance</h3>
+                        <p className="text-gray-300 text-xs">IFBB Pro & Actor de Hollywood</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Custom Play Button Overlay (appears when paused) */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                    <div className="bg-vip-gold/90 backdrop-blur-sm rounded-full p-4 shadow-xl">
+                      <svg className="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                      </svg>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
