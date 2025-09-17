@@ -110,7 +110,7 @@ const Hero = () => {
               <div className="text-center lg:text-right mt-8 lg:mt-0">
                 <div className="relative w-full h-0 pb-[56.25%] rounded-2xl overflow-hidden shadow-2xl group">
                   <iframe
-                    src="https://www.youtube.com/embed/UFDfl-9b2G8?start=251&autoplay=1&mute=1&controls=0&showinfo=0&rel=0&modestbranding=1&loop=1&playlist=UFDfl-9b2G8&iv_load_policy=3&fs=0&disablekb=1&cc_load_policy=0&playsinline=1"
+                    src="https://www.youtube.com/embed/UFDfl-9b2G8?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&modestbranding=1&loop=1&playlist=UFDfl-9b2G8&iv_load_policy=3&fs=0&disablekb=1&cc_load_policy=0&playsinline=1"
                     title="Sergi Constance - Transformación Elite"
                     className="absolute top-0 left-0 w-full h-full"
                     frameBorder="0"
