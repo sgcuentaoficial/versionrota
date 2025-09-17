@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Crown, Trophy, Star } from 'lucide-react';
+import { Mail, Phone, MapPin, Trophy, Star } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -16,7 +16,11 @@ const Footer = () => {
             <div className="lg:col-span-2">
               <div className="flex items-center space-x-3 mb-8">
                 <div className="bg-vip-gold p-3 rounded-lg">
-                  <Crown className="w-6 h-6 text-black" />
+                  <img 
+                    src="/corona_belegend-removebg-preview copy.png" 
+                    alt="Corona VIP" 
+                    className="w-6 h-6"
+                  />
                 </div>
                 <div>
                   <span className="text-2xl font-vip-title text-vip-gold">SERGI CONSTANCE</span>
@@ -84,7 +88,11 @@ const Footer = () => {
             </p>
             
             <div className="flex items-center mt-4 md:mt-0 vip-glass px-4 py-2 rounded-lg">
-              <Crown className="w-5 h-5 text-vip-gold mr-2" />
+              <img 
+                src="/corona_belegend-removebg-preview copy.png" 
+                alt="Corona VIP" 
+                className="w-5 h-5 mr-2"
+              />
               <span className="text-vip-gold font-vip-accent text-sm">
                 IFBB PRO • ZEUS • VIP COACH
               </span>
