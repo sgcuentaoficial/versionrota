@@ -45,7 +45,7 @@ const Header = () => {
           {/* Language Selector & VIP CTA */}
           <div className="flex items-center">
             <a href="#apply" className="vip-button px-6 py-3 rounded-lg font-vip-accent text-sm">
-              {t('hero.cta.primary')}
+              SOLICITAR CONSULTA VIP
             </a>
           </div>
         </div>
