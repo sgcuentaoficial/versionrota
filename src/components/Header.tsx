@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Crown } from 'lucide-react';
-import LanguageSelector from './LanguageSelector';
 import { useLocationTranslation } from '../hooks/useLocationTranslation';
 
 const Header = () => {
@@ -44,8 +43,7 @@ const Header = () => {
           </div>
 
           {/* Language Selector & VIP CTA */}
-          <div className="flex items-center space-x-4">
-            <LanguageSelector />
+          <div className="flex items-center">
             <a href="#apply" className="vip-button px-6 py-3 rounded-lg font-vip-accent text-sm">
               {t('hero.cta.primary')}
             </a>
