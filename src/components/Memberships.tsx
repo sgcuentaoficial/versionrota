@@ -230,14 +230,14 @@ const Memberships = () => {
           <div className="bg-gradient-to-r from-gold/5 via-gold/10 to-gold/5 border-2 border-gold/30 rounded-3xl p-8 lg:p-12 shadow-xl relative overflow-hidden">
             
             {/* VIP Badge */}
-            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
-              <div className="bg-gold text-black px-6 py-2 rounded-full font-black text-sm shadow-lg flex items-center">
+            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
+              <div className="bg-gradient-to-r from-gold to-yellow-400 text-black px-8 py-3 rounded-full font-black text-sm shadow-xl flex items-center border-2 border-gold/50">
                 <Crown className="w-6 h-6 mr-2" />
                 PLAN EXCLUSIVO
               </div>
             </div>
 
-            <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 items-center mt-6">
+            <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 items-center mt-8">
               
               {/* Left - Plan Info */}
               <div className="text-center lg:text-left">
