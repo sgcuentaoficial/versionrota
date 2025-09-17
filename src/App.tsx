@@ -9,6 +9,7 @@ import FAQ from './components/FAQ';
 import Application from './components/Application';
 import Footer from './components/Footer';
 import CookieConsent from './components/CookieConsent';
+import Chatbot from './components/Chatbot';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       </main>
       <Footer />
       <CookieConsent />
+      <Chatbot />
     </div>
   );
 }
