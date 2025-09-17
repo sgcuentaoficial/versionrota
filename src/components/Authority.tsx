@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Trophy, Star, Award, Target, Users } from 'lucide-react';
+import { Trophy, Star, Award, Target, Users, Crown } from 'lucide-react';
 
 const Authority = () => {
   const [isVisible, setIsVisible] = useState(false);
