@@ -246,11 +246,11 @@ const Memberships = () => {
               
               {/* Left - Plan Info */}
               <div className="text-center lg:text-left">
-                <div className="bg-gold/20 w-24 h-24 lg:w-32 lg:h-32 rounded-3xl flex items-center justify-center mx-auto lg:mx-0 mb-6 border-2 border-gold/40">
+                <div className="bg-black w-24 h-24 lg:w-32 lg:h-32 rounded-3xl flex items-center justify-center mx-auto lg:mx-0 mb-6 border-2 border-gold/40">
                   <img 
                     src="/corona_belegend-removebg-preview copy.png" 
                     alt="Corona VIP" 
-                    className="w-12 h-12 lg:w-16 lg:h-16 brightness-0"
+                    className="w-12 h-12 lg:w-16 lg:h-16 brightness-0 invert"
                   />
                 </div>
                 
