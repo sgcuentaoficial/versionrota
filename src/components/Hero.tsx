@@ -32,7 +32,7 @@ const Hero = () => {
         <img
           src="https://sergiconstance-9fn0dyoiqm.live-website.com/wp-content/uploads/2025/09/Foto-14-12-19-15-39-12-scaled.jpg"
           alt="Sergi Constance"
-          className="w-full h-full object-cover object-left-top"
+          className="w-full h-full object-cover object-left"
           loading="eager"
           decoding="async"
         />
