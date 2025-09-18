@@ -108,40 +108,105 @@ html, body {
   text-transform: uppercase;
 }
 
-/* Mobile-specific fixes */
-@media (max-width: 640px) {
-  .container {
-    padding-left: 1rem;
-    padding-right: 1rem;
+/* MOBILE FIXES - CRITICAL */
+@media (max-width: 768px) {
+  /* Force all elements to be visible */
+  * {
+    visibility: visible !important;
+    opacity: 1 !important;
   }
   
-  /* Mobile scroll improvements */
-  html {
-    scroll-padding-top: 80px;
+  /* Ensure proper display */
+  div, section, header, main, article, aside, nav, footer {
+    display: block !important;
   }
   
-  /* Mobile-friendly buttons */
-  button, .btn, a[role="button"] {
-    min-height: 48px;
-    min-width: 48px;
+  /* Force backgrounds to show */
+  .bg-white {
+    background-color: #ffffff !important;
   }
   
-  /* Ensure text is visible */
-  h1, h2, h3, h4, h5, h6, p, span, div {
-    color: inherit;
+  .bg-black {
+    background-color: #000000 !important;
   }
   
-  /* Fix for mobile text rendering */
+  .bg-gray-900 {
+    background-color: #111827 !important;
+  }
+  
+  .bg-gray-50 {
+    background-color: #f9fafb !important;
+  }
+  
+  /* Force text colors */
   .text-white {
     color: #ffffff !important;
+  }
+  
+  .text-black {
+    color: #000000 !important;
   }
   
   .text-gray-900 {
     color: #111827 !important;
   }
   
+  .text-gray-600 {
+    color: #4b5563 !important;
+  }
+  
   .text-gray-300 {
     color: #d1d5db !important;
+  }
+  
+  .text-vip-gold,
+  .text-gold {
+    color: #D4AF37 !important;
+  }
+  
+  /* Ensure proper sizing */
+  .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  
+  /* Fix heights */
+  .min-h-screen {
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+  }
+  
+  /* Mobile-friendly buttons */
+  button, .btn, a[role="button"], a {
+    min-height: 44px !important;
+    min-width: 44px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  
+  /* Fix positioning */
+  .fixed {
+    position: fixed !important;
+  }
+  
+  .relative {
+    position: relative !important;
+  }
+  
+  .absolute {
+    position: absolute !important;
+  }
+  
+  /* Ensure z-index works */
+  .z-50 {
+    z-index: 50 !important;
+  }
+  
+  .z-10 {
+    z-index: 10 !important;
   }
 }
 
@@ -172,39 +237,4 @@ html, body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--vip-gold-light);
-}
-
-/* Mobile debugging - ensure elements are visible */
-@media (max-width: 768px) {
-  * {
-    box-sizing: border-box;
-  }
-  
-  .min-h-screen {
-    min-height: 100vh;
-    min-height: 100dvh;
-  }
-  
-  /* Force visibility for mobile */
-  section, div, header, main {
-    display: block;
-    position: relative;
-  }
-  
-  /* Ensure backgrounds are visible */
-  .bg-white {
-    background-color: #ffffff !important;
-  }
-  
-  .bg-black {
-    background-color: #000000 !important;
-  }
-  
-  .bg-gray-900 {
-    background-color: #111827 !important;
-  }
-  
-  .bg-gray-50 {
-    background-color: #f9fafb !important;
-  }
 }

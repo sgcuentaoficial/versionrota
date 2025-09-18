@@ -19,7 +19,7 @@ import PoliticaReembolso from './pages/PoliticaReembolso';
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-white text-gray-900">
+      <div className="min-h-screen bg-white text-gray-900" style={{ minHeight: '100vh', width: '100%', overflow: 'visible' }}>
         <Routes>
           <Route path="/" element={
             <>

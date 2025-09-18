@@ -12,7 +12,7 @@ const Hero = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.1 }
     );
 
     if (sectionRef.current) {
@@ -25,7 +25,7 @@ const Hero = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-800 pt-16 sm:pt-20"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-800 pt-20"
       style={{ minHeight: '100vh' }}
     >
       {/* Background Image */}
@@ -44,7 +44,7 @@ const Hero = () => {
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10 py-8">
         <div className="max-w-7xl mx-auto">
-          <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="transition-all duration-1000 opacity-100 translate-y-0">
             
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-12 lg:mb-20">
               
@@ -52,33 +52,32 @@ const Hero = () => {
               <div className="text-center lg:text-left">
                 
                 {/* Main Headline */}
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black mb-6 sm:mb-8 leading-tight text-white">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-8 leading-tight text-white">
                   <span className="block mb-2">Elite</span>
                   <span className="text-vip-gold block mb-2">Transformation</span>
-                  <span className="text-white/90 block text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-light">Coaching</span>
+                  <span className="text-white/90 block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light">Coaching</span>
                 </h1>
 
                 {/* Professional Subheadline */}
-                <p className="text-base sm:text-lg md:text-xl lg:text-3xl text-gray-300 mb-6 sm:mb-8 lg:mb-12 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-light">
+                <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-300 mb-8 lg:mb-12 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-light">
                   Coaching personalizado de élite con <span className="text-vip-gold font-semibold">Sergi Constance</span>
                   <br />
                   <span className="text-white/80">IFBB Pro & Zeus en Justice League</span>
                 </p>
 
                 {/* Professional CTAs */}
-                <div className="flex flex-col sm:flex-row gap-4 mb-6 sm:mb-8 lg:mb-12 justify-center lg:justify-start">
+                <div className="flex flex-col sm:flex-row gap-4 mb-8 lg:mb-12 justify-center lg:justify-start">
                   <a 
                     href="#memberships"
-                    className="inline-flex items-center justify-center bg-vip-gold text-black px-6 sm:px-8 py-4 rounded-xl font-bold text-base sm:text-lg hover:bg-yellow-400 transition-all duration-300 group shadow-xl min-h-[56px]"
+                    className="inline-flex items-center justify-center bg-vip-gold text-black px-8 py-4 rounded-xl font-bold text-lg hover:bg-yellow-400 transition-all duration-300 group shadow-xl min-h-[56px]"
                   >
-                    <span className="hidden sm:inline">Solicitar Consulta VIP</span>
-                    <span className="sm:hidden">Consulta VIP</span>
+                    <span>Solicitar Consulta VIP</span>
                     <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform" />
                   </a>
                   
                   <a 
                     href="#method" 
-                    className="inline-flex items-center justify-center border-2 border-white/30 text-white px-6 sm:px-8 py-4 rounded-xl font-semibold text-base sm:text-lg hover:bg-white/10 hover:border-white/50 transition-all duration-300 backdrop-blur-sm min-h-[56px]"
+                    className="inline-flex items-center justify-center border-2 border-white/30 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white/10 hover:border-white/50 transition-all duration-300 backdrop-blur-sm min-h-[56px]"
                   >
                     Ver Método
                   </a>
@@ -117,9 +116,9 @@ const Hero = () => {
                   
                   {/* Professional Badge */}
                   <div className="flex justify-center mt-6">
-                    <div className="inline-flex items-center bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-4 sm:px-6 py-3">
-                      <Award className="w-5 sm:w-6 h-5 sm:h-6 text-vip-gold mr-3" />
-                      <span className="text-white font-semibold text-xs sm:text-sm tracking-wide">IFBB PRO • HOLLYWOOD</span>
+                    <div className="inline-flex items-center bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-3">
+                      <Award className="w-6 h-6 text-vip-gold mr-3" />
+                      <span className="text-white font-semibold text-sm tracking-wide">IFBB PRO • HOLLYWOOD</span>
                     </div>
                   </div>
                 </div>
@@ -128,28 +127,28 @@ const Hero = () => {
 
             {/* Stats & Social Proof */}
             <div className="w-full">
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-8 lg:mb-12">
-                <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-3 sm:p-4 lg:p-6 text-center">
-                  <div className="text-xl sm:text-2xl lg:text-4xl font-black text-vip-gold mb-2">15+</div>
-                  <div className="text-gray-300 font-medium text-xs sm:text-sm">Años Pro</div>
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+                <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 text-center">
+                  <div className="text-4xl font-black text-vip-gold mb-2">15+</div>
+                  <div className="text-gray-300 font-medium text-sm">Años Pro</div>
                 </div>
-                <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-3 sm:p-4 lg:p-6 text-center">
-                  <div className="text-xl sm:text-2xl lg:text-4xl font-black text-vip-gold mb-2">98%</div>
-                  <div className="text-gray-300 font-medium text-xs sm:text-sm">Tasa Éxito</div>
+                <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 text-center">
+                  <div className="text-4xl font-black text-vip-gold mb-2">98%</div>
+                  <div className="text-gray-300 font-medium text-sm">Tasa Éxito</div>
                 </div>
-                <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-3 sm:p-4 lg:p-6 text-center">
-                  <div className="text-xl sm:text-2xl lg:text-4xl font-black text-vip-gold mb-2">12</div>
-                  <div className="text-gray-300 font-medium text-xs sm:text-sm">Plazas VIP</div>
+                <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 text-center">
+                  <div className="text-4xl font-black text-vip-gold mb-2">12</div>
+                  <div className="text-gray-300 font-medium text-sm">Plazas VIP</div>
                 </div>
-                <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-3 sm:p-4 lg:p-6 text-center">
-                  <div className="text-xl sm:text-2xl lg:text-4xl font-black text-vip-gold mb-2">VIP</div>
-                  <div className="text-gray-300 font-medium text-xs sm:text-sm">Coaching</div>
+                <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 text-center">
+                  <div className="text-4xl font-black text-vip-gold mb-2">VIP</div>
+                  <div className="text-gray-300 font-medium text-sm">Coaching</div>
                 </div>
               </div>
 
               {/* Social Proof */}
               <div className="flex justify-center">
-                <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-4 sm:p-6 max-w-md w-full">
+                <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 max-w-md w-full">
                   <div className="flex items-center justify-center mb-4">
                     <div className="flex -space-x-2 mr-4">
                       {[1,2,3,4].map((i) => (
@@ -157,7 +156,7 @@ const Hero = () => {
                           key={i}
                           src={`https://images.pexels.com/photos/${1000000 + i}/pexels-photo-${1000000 + i}.jpeg?auto=compress&cs=tinysrgb&w=60&h=60&fit=crop&crop=face`}
                           alt={`Cliente ${i}`}
-                          className="w-10 sm:w-12 h-10 sm:h-12 rounded-full border-2 border-vip-gold object-cover"
+                          className="w-12 h-12 rounded-full border-2 border-vip-gold object-cover"
                           loading="lazy"
                           decoding="async"
                         />
@@ -166,17 +165,17 @@ const Hero = () => {
                     <div className="text-left">
                       <div className="flex items-center mb-1">
                         {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-3 sm:w-4 h-3 sm:h-4 text-vip-gold fill-current" />
+                          <Star key={i} className="w-4 h-4 text-vip-gold fill-current" />
                         ))}
-                        <span className="text-vip-gold font-bold ml-2 text-sm sm:text-base">5.0</span>
+                        <span className="text-vip-gold font-bold ml-2">5.0</span>
                       </div>
-                      <p className="text-gray-300 text-xs sm:text-sm">500+ clientes</p>
+                      <p className="text-gray-300 text-sm">500+ clientes</p>
                     </div>
                   </div>
                   
                   <div className="flex items-center justify-center gap-4">
-                    <Trophy className="w-5 sm:w-6 h-5 sm:h-6 text-vip-gold" />
-                    <span className="text-white font-semibold text-xs sm:text-sm">Coaching Elite</span>
+                    <Trophy className="w-6 h-6 text-vip-gold" />
+                    <span className="text-white font-semibold text-sm">Coaching Elite</span>
                   </div>
                 </div>
               </div>

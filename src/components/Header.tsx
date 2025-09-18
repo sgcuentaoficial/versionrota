@@ -18,19 +18,19 @@ const Header = () => {
         ? 'vip-glass border-b border-vip-gold/30' 
         : 'bg-transparent'
     }`}>
-      <div className="container mx-auto px-4 py-3 sm:py-4">
+      <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* VIP Logo */}
-          <div className="flex items-center space-x-2 sm:space-x-3">
-            <div className="bg-vip-gold p-1.5 sm:p-2 rounded-lg">
+          <div className="flex items-center space-x-3">
+            <div className="bg-vip-gold p-2 rounded-lg">
               <img 
                 src="/corona_belegend-removebg-preview copy.png" 
                 alt="Corona VIP" 
-                className="w-5 h-5 sm:w-6 sm:h-6"
+                className="w-6 h-6"
               />
             </div>
             <div>
-              <span className={`font-vip-title text-base sm:text-lg lg:text-xl ${
+              <span className={`font-vip-title text-xl ${
                 isScrolled ? 'text-vip-gold' : 'text-white'
               }`}>
                 SERGI CONSTANCE
@@ -47,7 +47,7 @@ const Header = () => {
           <div className="flex items-center">
             <a 
               href="#memberships"
-              className="vip-button px-3 sm:px-4 lg:px-6 py-2 sm:py-3 rounded-lg font-vip-accent text-xs sm:text-sm min-h-[44px] flex items-center justify-center"
+              className="vip-button px-6 py-3 rounded-lg font-vip-accent text-sm min-h-[48px] flex items-center justify-center"
             >
               <span className="hidden sm:inline">SOLICITAR CONSULTA VIP</span>
               <span className="sm:hidden">CONSULTA VIP</span>
