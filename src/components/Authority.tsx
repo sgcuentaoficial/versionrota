@@ -66,7 +66,7 @@ const Authority = () => {
         <div className={`max-w-7xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           
           {/* Header */}
-          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+          <div className="text-center mb-8 sm:mb-12 lg:mb-16">
             <div className="inline-flex items-center bg-gold/10 border border-gold/30 rounded-full px-6 py-3 mb-8">
               <img 
                 src="/corona_belegend-removebg-preview copy.png" 
@@ -76,19 +76,19 @@ const Authority = () => {
               <span className="text-gold font-bold text-sm tracking-wider">AUTORIDAD MUNDIAL</span>
             </div>
             
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6 sm:mb-8 text-gray-900 leading-tight">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 sm:mb-8 text-gray-900 leading-tight">
               <span className="block">¿Por qué</span>
               <span className="text-gold">Sergi Constance?</span>
             </h2>
             
-            <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
+            <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
               No soy solo otro coach. Soy un profesional con credenciales reales, 
               resultados comprobados y más de 15 años de experiencia como IFBB Pro.
             </p>
           </div>
 
           {/* Main Achievements Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12 mb-12 sm:mb-16 lg:mb-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12 mb-12 sm:mb-16 lg:mb-20">
             {achievements.map((achievement, index) => (
               <div 
                 key={index}
@@ -97,7 +97,7 @@ const Authority = () => {
                 }`}
                 style={{ transitionDelay: `${index * 0.2}s` }}
               >
-                <div className="bg-white border-2 border-gold/20 rounded-3xl p-8 hover:border-gold/50 hover:shadow-2xl transition-all duration-300 group">
+                <div className="bg-white border-2 border-gold/20 rounded-3xl p-6 sm:p-8 hover:border-gold/50 hover:shadow-2xl transition-all duration-300 group">
                   
                   {/* Icon */}
                   <div className="bg-gold/10 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-gold/20 transition-colors">
@@ -105,9 +105,9 @@ const Authority = () => {
                   </div>
                   
                   {/* Content */}
-                  <h3 className="text-2xl font-black text-gray-900 mb-2">{achievement.title}</h3>
+                  <h3 className="text-xl sm:text-2xl font-black text-gray-900 mb-2">{achievement.title}</h3>
                   <p className="text-gold font-bold mb-4">{achievement.subtitle}</p>
-                  <p className="text-gray-600 leading-relaxed mb-6">{achievement.description}</p>
+                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-6">{achievement.description}</p>
                   
                   {/* Stats */}
                   <div className="bg-gold/5 rounded-xl p-4 border border-gold/20">
@@ -119,15 +119,15 @@ const Authority = () => {
           </div>
 
           {/* Credentials Section */}
-          <div className="bg-gray-50 rounded-3xl p-12 border border-gold/20">
+          <div className="bg-gray-50 rounded-3xl p-6 sm:p-8 lg:p-12 border border-gold/20">
             <div className="text-center mb-12">
-              <h3 className="text-3xl font-black text-gray-900 mb-4">Credenciales y Certificaciones</h3>
-              <p className="text-gray-600 max-w-2xl mx-auto">
+              <h3 className="text-2xl sm:text-3xl font-black text-gray-900 mb-4">Credenciales y Certificaciones</h3>
+              <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
                 Mi experiencia está respaldada por años de formación, competición y resultados reales.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
               {credentials.map((credential, index) => (
                 <div 
                   key={index}
@@ -140,7 +140,7 @@ const Authority = () => {
                     <div className="bg-white w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-gold/20 group-hover:border-gold/50 transition-colors">
                       <credential.icon className="w-8 h-8 text-gold" />
                     </div>
-                    <p className="font-bold text-gray-900 text-sm">{credential.text}</p>
+                    <p className="font-bold text-gray-900 text-xs sm:text-sm text-center">{credential.text}</p>
                   </div>
                 </div>
               ))}
@@ -150,7 +150,7 @@ const Authority = () => {
           {/* Quote Section */}
           <div className="mt-20 text-center">
             <div className={`transition-all duration-1000 delay-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <blockquote className="text-2xl lg:text-3xl font-bold text-gray-900 mb-8 leading-relaxed max-w-4xl mx-auto">
+              <blockquote className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-8 leading-relaxed max-w-4xl mx-auto px-4">
                 "No se trata solo de entrenar duro. Se trata de entrenar <span className="text-gold">inteligente</span>, 
                 con un método probado y la mentalidad correcta."
               </blockquote>

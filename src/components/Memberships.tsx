@@ -108,24 +108,24 @@ const Memberships = () => {
         <div className="max-w-7xl mx-auto">
           
           {/* Header */}
-          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+          <div className="text-center mb-8 sm:mb-12 lg:mb-16">
             <div className="inline-flex items-center bg-gold/10 border border-gold/30 rounded-full px-6 py-3 mb-8">
               <Sparkles className="w-5 h-5 text-gold mr-3" />
               <span className="text-gold font-bold text-sm tracking-wider">PLANES DE MEMBRESÍA</span>
             </div>
             
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6 sm:mb-8 text-gray-900 leading-tight">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 sm:mb-8 text-gray-900 leading-tight">
               <span className="block">Elige tu</span>
               <span className="text-gold">Transformación</span>
             </h2>
             
-            <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
+            <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
               Planes diseñados para diferentes objetivos y presupuestos. Todos incluyen mi método probado y garantía de resultados.
             </p>
           </div>
 
           {/* Regular Plans Grid - 4 columns vertical */}
-         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16 lg:mb-20">
+         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12 lg:mb-16">
             {regularPlans.map((plan, index) => (
               <div key={index} className="relative">
                 <div className={`relative h-full flex flex-col rounded-3xl p-8 ${
@@ -165,7 +165,7 @@ const Memberships = () => {
                       }`} />
                     </div>
                     
-                    <h3 className={`text-xl font-black mb-2 ${
+                    <h3 className={`text-lg sm:text-xl font-black mb-2 ${
                       plan.popular ? 'text-white' : 'text-gray-900'
                     }`}>{plan.name}</h3>
                     <p className={`font-semibold mb-4 text-sm ${
@@ -187,7 +187,7 @@ const Memberships = () => {
                           plan.popular ? 'text-gray-300' : 'text-gray-600'
                         }`}>{plan.period}</span>
                       </div>
-                      <p className={`text-sm font-medium ${
+                      <p className={`text-xs sm:text-sm font-medium ${
                         plan.popular ? 'text-gray-300' : 'text-gray-500'
                       }`}>{plan.duration}</p>
                     </div>
@@ -223,7 +223,7 @@ const Memberships = () => {
                     }
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`w-full py-4 rounded-2xl font-bold text-lg flex items-center justify-center group ${
+                    className={`w-full py-4 rounded-2xl font-bold text-base sm:text-lg flex items-center justify-center group ${
                     plan.popular 
                       ? 'bg-gold hover:bg-yellow-400 text-black shadow-lg transition-all duration-300'
                       : 'bg-gray-900 hover:bg-black text-white shadow-md transition-all duration-300'
@@ -238,7 +238,7 @@ const Memberships = () => {
           </div>
 
           {/* VIP Elite Plan - Horizontal */}
-          <div className="bg-gradient-to-r from-gold/5 via-gold/10 to-gold/5 border-2 border-gold/30 rounded-3xl p-8 lg:p-12 shadow-xl relative overflow-visible mt-8">
+          <div className="bg-gradient-to-r from-gold/5 via-gold/10 to-gold/5 border-2 border-gold/30 rounded-3xl p-6 sm:p-8 lg:p-12 shadow-xl relative overflow-visible mt-8">
             
             {/* VIP Badge */}
             <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 z-10">
@@ -252,7 +252,7 @@ const Memberships = () => {
               </div>
             </div>
 
-            <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 items-center mt-4">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-center mt-4">
               
               {/* Left - Plan Info */}
               <div className="text-center lg:text-left">
@@ -264,14 +264,14 @@ const Memberships = () => {
                   />
                 </div>
                 
-                <h3 className="text-3xl lg:text-4xl font-black text-gray-900 mb-3">VIP Elite</h3>
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-gray-900 mb-3">VIP Elite</h3>
                 <p className="text-gold font-bold text-lg mb-6">{t('memberships.exclusive')}</p>
                 
                 {/* VIP Call to Action */}
                 <div className="mb-8">
                   <div className="text-center lg:text-left">
-                    <h4 className="text-2xl lg:text-3xl font-black text-gray-900 mb-2">Solicitar Consulta VIP</h4>
-                    <p className="text-base lg:text-lg text-gray-600 font-medium">Agenda una llamada para conocer los detalles</p>
+                    <h4 className="text-xl sm:text-2xl lg:text-3xl font-black text-gray-900 mb-2">Solicitar Consulta VIP</h4>
+                    <p className="text-sm sm:text-base lg:text-lg text-gray-600 font-medium">Agenda una llamada para conocer los detalles</p>
                   </div>
                 </div>
 
@@ -280,7 +280,7 @@ const Memberships = () => {
                   href="https://wa.me/34614428420?text=Hola%20Sergi,%20estoy%20interesado%20en%20el%20coaching%20VIP%20Elite.%20Me%20gustaría%20agendar%20una%20consulta%20para%20conocer%20más%20detalles."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center bg-gradient-to-r from-gold to-yellow-400 hover:from-yellow-400 hover:to-gold text-black px-8 lg:px-12 py-4 lg:py-6 rounded-2xl font-black text-lg lg:text-xl shadow-xl transition-all duration-300 group"
+                  className="inline-flex items-center bg-gradient-to-r from-gold to-yellow-400 hover:from-yellow-400 hover:to-gold text-black px-6 sm:px-8 lg:px-12 py-4 lg:py-6 rounded-2xl font-black text-base sm:text-lg lg:text-xl shadow-xl transition-all duration-300 group"
                 >
                   <span>Agendar Llamada</span>
                   <ArrowRight className="w-5 h-5 lg:w-6 lg:h-6 ml-3 group-hover:translate-x-1 transition-transform" />
@@ -289,9 +289,9 @@ const Memberships = () => {
 
               {/* Center - Features */}
               <div className="lg:col-span-2">
-                <h4 className="text-xl lg:text-2xl font-black text-gray-900 mb-6 lg:mb-8 text-center lg:text-left">Beneficios Exclusivos VIP</h4>
+                <h4 className="text-lg sm:text-xl lg:text-2xl font-black text-gray-900 mb-6 lg:mb-8 text-center lg:text-left">Beneficios Exclusivos VIP</h4>
                 
-                <div className="grid md:grid-cols-2 gap-4 lg:gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
                   {[
                     "Acceso directo a Sergi 24/7",
                     "Llamadas 1:1 semanales",
@@ -305,18 +305,18 @@ const Memberships = () => {
                       <div className="bg-gold/20 w-6 h-6 rounded-full flex items-center justify-center mr-3 flex-shrink-0 mt-1">
                         <Check className="w-4 h-4 text-gold" />
                       </div>
-                      <span className="text-gray-700 font-semibold leading-relaxed text-sm lg:text-base">{feature}</span>
+                      <span className="text-gray-700 font-semibold leading-relaxed text-xs sm:text-sm lg:text-base">{feature}</span>
                     </div>
                   ))}
                 </div>
 
                 {/* VIP Guarantee */}
-                <div className="mt-6 lg:mt-8 bg-white/50 rounded-2xl p-4 lg:p-6 border border-gold/30">
+                <div className="mt-6 lg:mt-8 bg-white/50 rounded-2xl p-4 sm:p-6 border border-gold/30">
                   <div className="flex items-center justify-center">
                     <Star className="w-6 h-6 lg:w-8 lg:h-8 text-gold mr-3 lg:mr-4" />
                     <div>
-                      <h5 className="font-black text-gray-900 text-lg lg:text-xl">Garantía VIP Total</h5>
-                      <p className="text-gray-600 font-medium text-sm lg:text-base">60 días de garantía completa + seguimiento de por vida</p>
+                      <h5 className="font-black text-gray-900 text-base sm:text-lg lg:text-xl">Garantía VIP Total</h5>
+                      <p className="text-gray-600 font-medium text-xs sm:text-sm lg:text-base">60 días de garantía completa + seguimiento de por vida</p>
                     </div>
                   </div>
                 </div>
@@ -325,19 +325,19 @@ const Memberships = () => {
           </div>
 
           {/* Guarantee Section */}
-          <div className="bg-gold/10 border-2 border-gold/30 rounded-3xl p-8 lg:p-12 text-center shadow-xl mt-16 lg:mt-20">
+          <div className="bg-gold/10 border-2 border-gold/30 rounded-3xl p-6 sm:p-8 lg:p-12 text-center shadow-xl mt-12 sm:mt-16 lg:mt-20">
             <div className="bg-gold/20 w-20 h-20 lg:w-24 lg:h-24 rounded-3xl flex items-center justify-center mx-auto mb-6 lg:mb-8 border-2 border-gold/40">
               <Star className="w-10 h-10 lg:w-12 lg:h-12 text-gold" />
             </div>
             
-            <h3 className="text-3xl lg:text-4xl font-black text-gray-900 mb-4 lg:mb-6">Garantía de Satisfacción</h3>
-            <p className="text-lg lg:text-xl text-gray-700 mb-6 lg:mb-8 max-w-4xl mx-auto leading-relaxed font-medium">
-              Si no estás completamente satisfecho con tu progreso en los primeros 30 días, te devolvemos el <span className="font-black text-gold text-xl lg:text-2xl">100% de tu dinero</span>. Sin preguntas.
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-gray-900 mb-4 lg:mb-6 px-4">Garantía de Satisfacción</h3>
+            <p className="text-base sm:text-lg lg:text-xl text-gray-700 mb-6 lg:mb-8 max-w-4xl mx-auto leading-relaxed font-medium px-4">
+              Si no estás completamente satisfecho con tu progreso en los primeros 30 días, te devolvemos el <span className="font-black text-gold text-lg sm:text-xl lg:text-2xl">100% de tu dinero</span>. Sin preguntas.
             </p>
             
             <div className="inline-flex items-center bg-white/80 border border-gold/30 rounded-full px-6 py-3 shadow-lg">
               <Check className="w-5 h-5 text-gold mr-3" />
-              <span className="text-gray-700 font-bold text-base lg:text-lg">30 días de garantía total</span>
+              <span className="text-gray-700 font-bold text-sm sm:text-base lg:text-lg">30 días de garantía total</span>
             </div>
           </div>
         </div>

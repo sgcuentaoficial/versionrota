@@ -111,7 +111,7 @@ Me gustaría agendar una consulta para conocer más detalles del programa VIP.`;
         <div className={`max-w-7xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           
           {/* Header */}
-          <div className="text-center mb-12 sm:mb-16">
+          <div className="text-center mb-8 sm:mb-12 lg:mb-16">
             <div className="inline-flex items-center bg-vip-gold/10 border border-vip-gold/30 rounded-full px-6 py-3 mb-8">
               <img 
                 src="/corona_belegend-removebg-preview copy.png" 
@@ -121,14 +121,13 @@ Me gustaría agendar una consulta para conocer más detalles del programa VIP.`;
               <span className="text-vip-gold font-bold text-sm tracking-wider">SOLICITUD VIP</span>
             </div>
             
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6 sm:mb-8 text-white leading-tight">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 sm:mb-8 text-white leading-tight">
               <span className="block">Solicita tu</span>
               <span className="text-vip-gold">Plaza VIP</span>
             </h2>
             
-            <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-6 sm:mb-8 px-4">
+            <p className="text-lg sm:text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-6 sm:mb-8 px-4">
               Solo acepto 12 clientes VIP por trimestre para garantizar resultados excepcionales. 
-              Completa esta solicitud para ser considerado.
               Completa esta solicitud para ser considerado.
             </p>
 
@@ -143,15 +142,15 @@ Me gustaría agendar una consulta para conocer más detalles del programa VIP.`;
             </div>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
             
             {/* Application Form */}
             <div className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-              <div className="bg-white rounded-3xl p-8 shadow-2xl">
-                <h3 className="text-2xl font-black text-gray-900 mb-6">Formulario de Solicitud</h3>
+              <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xl">
+                <h3 className="text-xl sm:text-2xl font-black text-gray-900 mb-6">Formulario de Solicitud</h3>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-bold text-gray-700 mb-2">Nombre Completo *</label>
                       <input
@@ -265,7 +264,7 @@ Me gustaría agendar una consulta para conocer más detalles del programa VIP.`;
 
                   <button
                     type="submit"
-                    className="w-full bg-gold text-white py-4 rounded-xl font-bold text-lg hover:bg-gold-dark transition-all duration-300 flex items-center justify-center group"
+                    className="w-full bg-gold text-white py-4 rounded-xl font-bold text-base sm:text-lg hover:bg-gold-dark transition-all duration-300 flex items-center justify-center group min-h-[56px]"
                   >
                     ENVIAR SOLICITUD VIP
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -282,8 +281,8 @@ Me gustaría agendar una consulta para conocer más detalles del programa VIP.`;
             <div className={`transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
               
               {/* What You Get */}
-              <div className="bg-black/50 backdrop-blur-sm border border-vip-gold/30 rounded-3xl p-8 mb-8">
-                <h3 className="text-2xl font-black text-white mb-6">Lo que obtienes como VIP:</h3>
+              <div className="bg-black/50 backdrop-blur-sm border border-vip-gold/30 rounded-3xl p-6 sm:p-8 mb-8">
+                <h3 className="text-xl sm:text-2xl font-black text-white mb-6">Lo que obtienes como VIP:</h3>
                 
                 <div className="space-y-6">
                   {benefits.map((benefit, index) => (
@@ -293,7 +292,7 @@ Me gustaría agendar una consulta para conocer más detalles del programa VIP.`;
                       </div>
                       <div>
                         <h4 className="font-bold text-white mb-2">{benefit.title}</h4>
-                        <p className="text-gray-300 text-sm leading-relaxed">{benefit.description}</p>
+                        <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">{benefit.description}</p>
                       </div>
                     </div>
                   ))}
@@ -301,25 +300,25 @@ Me gustaría agendar una consulta para conocer más detalles del programa VIP.`;
               </div>
 
               {/* Process */}
-              <div className="bg-white rounded-3xl p-8">
-                <h3 className="text-2xl font-black text-gray-900 mb-6">Proceso de Selección:</h3>
+              <div className="bg-white rounded-3xl p-6 sm:p-8">
+                <h3 className="text-xl sm:text-2xl font-black text-gray-900 mb-6">Proceso de Selección:</h3>
                 
                 <div className="space-y-4">
                   <div className="flex items-center">
                     <div className="bg-gold w-8 h-8 rounded-full flex items-center justify-center mr-4 text-white font-bold text-sm">1</div>
-                    <p className="text-gray-700">Envías tu solicitud</p>
+                    <p className="text-sm sm:text-base text-gray-700">Envías tu solicitud</p>
                   </div>
                   <div className="flex items-center">
                     <div className="bg-gold w-8 h-8 rounded-full flex items-center justify-center mr-4 text-white font-bold text-sm">2</div>
-                    <p className="text-gray-700">Revisión en 24-48 horas</p>
+                    <p className="text-sm sm:text-base text-gray-700">Revisión en 24-48 horas</p>
                   </div>
                   <div className="flex items-center">
                     <div className="bg-gold w-8 h-8 rounded-full flex items-center justify-center mr-4 text-white font-bold text-sm">3</div>
-                    <p className="text-gray-700">Consulta gratuita de 15 min</p>
+                    <p className="text-sm sm:text-base text-gray-700">Consulta gratuita de 15 min</p>
                   </div>
                   <div className="flex items-center">
                     <div className="bg-gold w-8 h-8 rounded-full flex items-center justify-center mr-4 text-white font-bold text-sm">4</div>
-                    <p className="text-gray-700">Inicio inmediato si eres seleccionado</p>
+                    <p className="text-sm sm:text-base text-gray-700">Inicio inmediato si eres seleccionado</p>
                   </div>
                 </div>
               </div>

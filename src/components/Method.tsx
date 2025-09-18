@@ -93,26 +93,26 @@ const Method = () => {
         <div className={`max-w-7xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           
           {/* Header */}
-          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+          <div className="text-center mb-8 sm:mb-12 lg:mb-16">
             <div className="inline-flex items-center bg-gold/10 border border-gold/30 rounded-full px-6 py-3 mb-8">
               <Target className="w-5 h-5 text-gold mr-3" />
               <span className="text-gold font-bold text-sm tracking-wider">MÉTODO EXCLUSIVO</span>
             </div>
             
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6 sm:mb-8 text-gray-900 leading-tight">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 sm:mb-8 text-gray-900 leading-tight">
               <span className="block">El Método</span>
               <span className="text-gold">Sergi Constance</span>
             </h2>
             
-            <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
+            <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
               Un sistema científico de 4 pilares desarrollado durante 15+ años como IFBB Pro. 
               No es solo entrenamiento, es una transformación completa.
             </p>
           </div>
 
           {/* Method Steps */}
-          <div className="mb-12 sm:mb-16 lg:mb-20">
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          <div className="mb-8 sm:mb-12 lg:mb-16">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
               {methodSteps.map((step, index) => (
                 <div 
                   key={index}
@@ -123,7 +123,7 @@ const Method = () => {
                   }`}
                   style={{ transitionDelay: `${index * 0.2}s` }}
                 >
-                  <div className={`bg-white rounded-3xl p-8 border-2 transition-all duration-500 ${
+                  <div className={`bg-white rounded-3xl p-6 sm:p-8 border-2 transition-all duration-500 ${
                     activeStep === index 
                       ? 'border-gold shadow-2xl shadow-gold/20' 
                       : 'border-gray-200 hover:border-gold/50'
@@ -144,9 +144,9 @@ const Method = () => {
                     </div>
                     
                     {/* Content */}
-                    <h3 className="text-xl font-black text-gray-900 mb-2">{step.title}</h3>
+                    <h3 className="text-lg sm:text-xl font-black text-gray-900 mb-2">{step.title}</h3>
                     <p className="text-gold font-bold text-sm mb-4">{step.subtitle}</p>
-                    <p className="text-gray-600 leading-relaxed mb-6">{step.description}</p>
+                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-6">{step.description}</p>
                     
                     {/* Features */}
                     <ul className="space-y-2">
@@ -178,15 +178,15 @@ const Method = () => {
           </div>
 
           {/* Supporting Pillars */}
-          <div className="bg-white rounded-3xl p-12 border border-gold/20 shadow-xl">
+          <div className="bg-white rounded-3xl p-6 sm:p-8 lg:p-12 border border-gold/20 shadow-xl">
             <div className="text-center mb-12">
-              <h3 className="text-3xl font-black text-gray-900 mb-4">Pilares de Soporte</h3>
-              <p className="text-gray-600 max-w-2xl mx-auto">
+              <h3 className="text-2xl sm:text-3xl font-black text-gray-900 mb-4">Pilares de Soporte</h3>
+              <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
                 Además del método principal, estos pilares garantizan tu éxito y transformación completa.
               </p>
             </div>
 
-            <div className="grid lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {pillars.map((pillar, index) => (
                 <div 
                   key={index}
@@ -199,8 +199,8 @@ const Method = () => {
                     <div className="bg-gold/10 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-gold/20 transition-colors">
                       <pillar.icon className="w-8 h-8 text-gold" />
                     </div>
-                    <h4 className="text-xl font-black text-gray-900 mb-4">{pillar.title}</h4>
-                    <p className="text-gray-600 leading-relaxed">{pillar.description}</p>
+                    <h4 className="text-lg sm:text-xl font-black text-gray-900 mb-4">{pillar.title}</h4>
+                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{pillar.description}</p>
                   </div>
                 </div>
               ))}
@@ -210,10 +210,10 @@ const Method = () => {
           {/* CTA Section */}
           <div className="mt-20 text-center">
             <div className={`transition-all duration-1000 delay-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <h3 className="text-3xl font-black text-gray-900 mb-6">
+              <h3 className="text-2xl sm:text-3xl font-black text-gray-900 mb-6 px-4">
                 ¿Listo para experimentar el método que funciona?
               </h3>
-              <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+              <p className="text-lg sm:text-xl text-gray-600 mb-8 max-w-2xl mx-auto px-4">
                 Solo quedan 12 plazas disponibles para el programa VIP de este trimestre.
               </p>
               <a 

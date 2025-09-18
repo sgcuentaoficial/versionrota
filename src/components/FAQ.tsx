@@ -80,12 +80,12 @@ const FAQ = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className={`max-w-4xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 mb-8">
+        <div className={`max-w-5xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6 sm:mb-8 px-4">
               Preguntas Frecuentes
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
               Las respuestas a las preguntas más comunes sobre mi método de coaching 
               y cómo puede transformar tu vida.
             </p>
@@ -106,9 +106,9 @@ const FAQ = () => {
                   {/* Question */}
                   <button
                     onClick={() => toggleFAQ(index)}
-                    className="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
+                    className="w-full px-4 sm:px-6 lg:px-8 py-4 sm:py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
                   >
-                    <h3 className="text-lg font-bold text-gray-900 pr-4">{faq.question}</h3>
+                    <h3 className="text-base sm:text-lg font-bold text-gray-900 pr-4">{faq.question}</h3>
                     <div className={`flex-shrink-0 w-8 h-8 rounded-full border-2 border-gold flex items-center justify-center transition-all duration-300 ${
                       openFAQ === index ? 'bg-gold rotate-180' : 'bg-white'
                     }`}>
@@ -124,9 +124,9 @@ const FAQ = () => {
                   <div className={`overflow-hidden transition-all duration-500 ${
                     openFAQ === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                   }`}>
-                    <div className="px-8 pb-6">
+                    <div className="px-4 sm:px-6 lg:px-8 pb-4 sm:pb-6">
                       <div className="border-t border-gray-100 pt-6">
-                        <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                        <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{faq.answer}</p>
                       </div>
                     </div>
                   </div>
@@ -138,15 +138,15 @@ const FAQ = () => {
           {/* Contact CTA */}
           <div className="mt-16 text-center">
             <div className={`transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <div className="bg-gray-50 rounded-3xl p-12 border border-gold/20">
-                <h3 className="text-3xl font-black text-gray-900 mb-6">¿Tienes más preguntas?</h3>
-                <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+              <div className="bg-gray-50 rounded-3xl p-6 sm:p-8 lg:p-12 border border-gold/20">
+                <h3 className="text-2xl sm:text-3xl font-black text-gray-900 mb-6 px-4">¿Tienes más preguntas?</h3>
+                <p className="text-lg sm:text-xl text-gray-600 mb-8 max-w-2xl mx-auto px-4">
                   Estoy aquí para resolver cualquier duda que tengas sobre mi método de coaching 
                   y cómo puede ayudarte a alcanzar tus objetivos.
                 </p>
                 <a 
                   href="mailto:coaching@sergiconstance.com" 
-                  className="inline-flex items-center bg-gold text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-gold-dark transition-all duration-300"
+                  className="inline-flex items-center bg-gold text-white px-6 sm:px-8 py-4 rounded-xl font-bold text-base sm:text-lg hover:bg-gold-dark transition-all duration-300"
                 >
                   Contactar Directamente
                 </a>
