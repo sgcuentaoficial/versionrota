@@ -12,7 +12,7 @@ const Authority = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.1 }
     );
 
     if (sectionRef.current) {
@@ -54,118 +54,93 @@ const Authority = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="py-16 sm:py-24 lg:py-32 bg-white relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }}></div>
-      </div>
-
-      <div className="container mx-auto px-4 relative z-10">
-        <div className={`max-w-7xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+    <section ref={sectionRef} id="authority" className="py-16 sm:py-20 lg:py-24 bg-white">
+      <div className="container mx-auto px-4">
+        <div className="max-w-6xl mx-auto">
           
           {/* Header */}
-          <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-            <div className="inline-flex items-center bg-gold/10 border border-gold/30 rounded-full px-6 py-3 mb-8">
+          <div className="text-center mb-12 lg:mb-16">
+            <div className="inline-flex items-center bg-gold/10 border border-gold/30 rounded-full px-4 py-2 mb-6">
               <img 
                 src="/corona_belegend-removebg-preview copy.png" 
                 alt="Corona VIP" 
-                className="w-5 h-5 mr-3"
+                className="w-4 h-4 mr-2"
               />
-              <span className="text-gold font-bold text-sm tracking-wider">AUTORIDAD MUNDIAL</span>
+              <span className="text-gold font-bold text-xs tracking-wider">AUTORIDAD MUNDIAL</span>
             </div>
             
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 sm:mb-8 text-gray-900 leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-6 text-gray-900 px-4">
               <span className="block">¿Por qué</span>
               <span className="text-gold">Sergi Constance?</span>
             </h2>
             
-            <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
               No soy solo otro coach. Soy un profesional con credenciales reales, 
               resultados comprobados y más de 15 años de experiencia como IFBB Pro.
             </p>
           </div>
 
           {/* Main Achievements Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12 mb-12 sm:mb-16 lg:mb-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12 lg:mb-16">
             {achievements.map((achievement, index) => (
-              <div 
-                key={index}
-                className={`transition-all duration-700 ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}
-                style={{ transitionDelay: `${index * 0.2}s` }}
-              >
-                <div className="bg-white border-2 border-gold/20 rounded-3xl p-6 sm:p-8 hover:border-gold/50 hover:shadow-2xl transition-all duration-300 group">
-                  
-                  {/* Icon */}
-                  <div className="bg-gold/10 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-gold/20 transition-colors">
-                    <achievement.icon className="w-8 h-8 text-gold" />
-                  </div>
-                  
-                  {/* Content */}
-                  <h3 className="text-xl sm:text-2xl font-black text-gray-900 mb-2">{achievement.title}</h3>
-                  <p className="text-gold font-bold mb-4">{achievement.subtitle}</p>
-                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-6">{achievement.description}</p>
-                  
-                  {/* Stats */}
-                  <div className="bg-gold/5 rounded-xl p-4 border border-gold/20">
-                    <p className="text-gold font-bold text-center">{achievement.stats}</p>
-                  </div>
+              <div key={index} className="bg-white border-2 border-gold/20 rounded-2xl p-6 hover:border-gold/50 hover:shadow-xl transition-all duration-300">
+                
+                {/* Icon */}
+                <div className="bg-gold/10 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
+                  <achievement.icon className="w-6 h-6 text-gold" />
+                </div>
+                
+                {/* Content */}
+                <h3 className="text-xl font-black text-gray-900 mb-2">{achievement.title}</h3>
+                <p className="text-gold font-bold mb-3">{achievement.subtitle}</p>
+                <p className="text-sm text-gray-600 mb-4">{achievement.description}</p>
+                
+                {/* Stats */}
+                <div className="bg-gold/5 rounded-lg p-3 border border-gold/20">
+                  <p className="text-gold font-bold text-center text-sm">{achievement.stats}</p>
                 </div>
               </div>
             ))}
           </div>
 
           {/* Credentials Section */}
-          <div className="bg-gray-50 rounded-3xl p-6 sm:p-8 lg:p-12 border border-gold/20">
-            <div className="text-center mb-12">
-              <h3 className="text-2xl sm:text-3xl font-black text-gray-900 mb-4">Credenciales y Certificaciones</h3>
-              <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
+          <div className="bg-gray-50 rounded-2xl p-6 lg:p-8 border border-gold/20">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-black text-gray-900 mb-3">Credenciales y Certificaciones</h3>
+              <p className="text-gray-600 max-w-2xl mx-auto px-4">
                 Mi experiencia está respaldada por años de formación, competición y resultados reales.
               </p>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
               {credentials.map((credential, index) => (
-                <div 
-                  key={index}
-                  className={`transition-all duration-500 ${
-                    isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
-                  }`}
-                  style={{ transitionDelay: `${0.8 + index * 0.1}s` }}
-                >
-                  <div className="text-center group">
-                    <div className="bg-white w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-gold/20 group-hover:border-gold/50 transition-colors">
-                      <credential.icon className="w-8 h-8 text-gold" />
-                    </div>
-                    <p className="font-bold text-gray-900 text-xs sm:text-sm text-center">{credential.text}</p>
+                <div key={index} className="text-center">
+                  <div className="bg-white w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3 border border-gold/20">
+                    <credential.icon className="w-6 h-6 text-gold" />
                   </div>
+                  <p className="font-bold text-gray-900 text-sm">{credential.text}</p>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Quote Section */}
-          <div className="mt-20 text-center">
-            <div className={`transition-all duration-1000 delay-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <blockquote className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-8 leading-relaxed max-w-4xl mx-auto px-4">
-                "No se trata solo de entrenar duro. Se trata de entrenar <span className="text-gold">inteligente</span>, 
-                con un método probado y la mentalidad correcta."
-              </blockquote>
-              <div className="flex items-center justify-center">
-                <img
-                  src="https://images.pexels.com/photos/1229356/pexels-photo-1229356.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&fit=crop&crop=face"
-                  alt="Sergi Constance"
-                  className="w-16 h-16 rounded-full border-2 border-gold mr-4 object-cover"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div className="text-left">
-                  <p className="font-bold text-gray-900">Sergi Constance</p>
-                  <p className="text-gold text-sm">IFBB Pro & Actor de Hollywood</p>
-                </div>
+          <div className="mt-16 text-center">
+            <blockquote className="text-xl lg:text-2xl font-bold text-gray-900 mb-6 max-w-4xl mx-auto px-4">
+              "No se trata solo de entrenar duro. Se trata de entrenar <span className="text-gold">inteligente</span>, 
+              con un método probado y la mentalidad correcta."
+            </blockquote>
+            <div className="flex items-center justify-center">
+              <img
+                src="https://images.pexels.com/photos/1229356/pexels-photo-1229356.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&fit=crop&crop=face"
+                alt="Sergi Constance"
+                className="w-12 h-12 rounded-full border-2 border-gold mr-3 object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+              <div className="text-left">
+                <p className="font-bold text-gray-900">Sergi Constance</p>
+                <p className="text-gold text-sm">IFBB Pro & Actor de Hollywood</p>
               </div>
             </div>
           </div>

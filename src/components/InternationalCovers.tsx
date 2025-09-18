@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Globe, Star, Award, Camera, Trophy, Crown } from 'lucide-react';
+import { Globe, Star, Award, Camera, Trophy } from 'lucide-react';
 
 const InternationalCovers = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -13,7 +13,7 @@ const InternationalCovers = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.1 }
     );
 
     if (sectionRef.current) {
@@ -34,34 +34,22 @@ const InternationalCovers = () => {
 
   const covers = [
     {
-      url: "https://sergiconstance-9fn0dyoiqm.live-website.com/wp-content/uploads/2025/09/revista-6.jpg",
+      url: "https://images.pexels.com/photos/1229356/pexels-photo-1229356.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&fit=crop",
       title: "Muscular Development",
       country: "USA",
       year: "2023"
     },
     {
-      url: "https://sergiconstance-9fn0dyoiqm.live-website.com/wp-content/uploads/2025/09/revista-5.jpg",
+      url: "https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&fit=crop",
       title: "Muscle & Fitness",
       country: "Europa",
       year: "2023"
     },
     {
-      url: "https://sergiconstance-9fn0dyoiqm.live-website.com/wp-content/uploads/2025/09/revista-4.jpg",
+      url: "https://images.pexels.com/photos/1431282/pexels-photo-1431282.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&fit=crop",
       title: "Iron Man Magazine",
       country: "Internacional",
       year: "2023"
-    },
-    {
-      url: "https://sergiconstance-9fn0dyoiqm.live-website.com/wp-content/uploads/2025/09/revista-3.jpg",
-      title: "Flex Magazine",
-      country: "USA",
-      year: "2022"
-    },
-    {
-      url: "https://sergiconstance-9fn0dyoiqm.live-website.com/wp-content/uploads/2025/09/revista-2.jpg",
-      title: "Fitness RX",
-      country: "Internacional",
-      year: "2022"
     }
   ];
 
@@ -84,67 +72,67 @@ const InternationalCovers = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="py-32 bg-gradient-to-br from-gray-900 via-black to-gray-800 relative overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-96 h-96 bg-gold/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-72 h-72 bg-gold/10 rounded-full blur-3xl"></div>
-      </div>
-
-      <div className="container mx-auto px-4 relative z-10">
-        <div className={`max-w-7xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+    <section ref={sectionRef} id="covers" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-gray-900 via-black to-gray-800">
+      <div className="container mx-auto px-4">
+        <div className="max-w-6xl mx-auto">
           
           {/* Header */}
-          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
-            <div className="inline-flex items-center bg-gold/10 border border-gold/30 rounded-full px-6 py-3 mb-8">
+          <div className="text-center mb-12 lg:mb-16">
+            <div className="inline-flex items-center bg-gold/10 border border-gold/30 rounded-full px-4 py-2 mb-6">
               <img 
                 src="/corona_belegend-removebg-preview copy.png" 
                 alt="Corona VIP" 
-                className="w-5 h-5 mr-3"
+                className="w-4 h-4 mr-2"
               />
-              <span className="text-gold font-bold text-sm tracking-wider">RECONOCIMIENTO MUNDIAL</span>
+              <span className="text-gold font-bold text-xs tracking-wider">RECONOCIMIENTO MUNDIAL</span>
             </div>
             
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 sm:mb-8 text-white leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-6 text-white px-4">
               <span className="block">Portadas</span>
               <span className="text-gold">Internacionales</span>
             </h2>
             
-            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
+            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-4">
               Reconocido mundialmente por las revistas más prestigiosas del fitness. 
               Mi experiencia y resultados hablan por sí solos.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-12 sm:mb-16 lg:mb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-12 lg:mb-16">
             
             {/* Magazine Covers Carousel */}
-            <div className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+            <div>
               <div className="relative">
                 
                 {/* Main Cover Display */}
-                <div className="relative h-[600px] rounded-3xl overflow-hidden shadow-2xl group">
+                <div className="relative h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
                   <img
                     src={covers[activeImage].url}
                     alt="Portada de revista internacional"
-                    className="w-full h-full object-cover transition-transform duration-700"
+                    className="w-full h-full object-cover"
                     loading="lazy"
                     decoding="async"
                   />
                   
                   {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                  
+                  {/* Cover Info */}
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <h3 className="text-lg font-bold">{covers[activeImage].title}</h3>
+                    <p className="text-sm text-gray-300">{covers[activeImage].country} • {covers[activeImage].year}</p>
+                  </div>
                 </div>
 
                 {/* Thumbnails */}
-                <div className="flex justify-center mt-6 sm:mt-8 space-x-2 sm:space-x-4">
+                <div className="flex justify-center mt-6 space-x-3">
                   {covers.map((cover, index) => (
                     <button
                       key={index}
                       onClick={() => setActiveImage(index)}
-                      className={`w-16 h-20 sm:w-20 sm:h-28 rounded-xl overflow-hidden border-2 transition-all duration-300 ${
+                      className={`w-12 h-16 rounded-lg overflow-hidden border-2 transition-all duration-300 ${
                         activeImage === index 
-                          ? 'border-gold shadow-lg shadow-gold/30 scale-110' 
+                          ? 'border-gold shadow-lg scale-110' 
                           : 'border-gray-600 hover:border-gold/50'
                       }`}
                     >
@@ -160,13 +148,13 @@ const InternationalCovers = () => {
                 </div>
 
                 {/* Progress Indicators */}
-                <div className="flex justify-center mt-6">
+                <div className="flex justify-center mt-4">
                   <div className="flex space-x-2">
                     {covers.map((_, index) => (
                       <div
                         key={index}
-                        className={`h-2 rounded-full transition-all duration-300 ${
-                          activeImage === index ? 'bg-gold w-8' : 'bg-gray-600 w-2'
+                        className={`h-1 rounded-full transition-all duration-300 ${
+                          activeImage === index ? 'bg-gold w-6' : 'bg-gray-600 w-1'
                         }`}
                       ></div>
                     ))}
@@ -176,54 +164,46 @@ const InternationalCovers = () => {
             </div>
 
             {/* Content */}
-            <div className={`transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+            <div>
               
               {/* Achievements */}
-              <div className="space-y-8 mb-12">
+              <div className="space-y-6 mb-8">
                 {achievements.map((achievement, index) => (
-                  <div 
-                    key={index}
-                    className={`transition-all duration-500 ${
-                      isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
-                    }`}
-                    style={{ transitionDelay: `${0.5 + index * 0.1}s` }}
-                  >
-                    <div className="flex items-start group">
-                      <div className="bg-gold/20 w-16 h-16 rounded-2xl flex items-center justify-center mr-6 flex-shrink-0 group-hover:bg-gold/30 transition-colors">
-                        <achievement.icon className="w-8 h-8 text-gold" />
-                      </div>
-                      <div>
-                        <h3 className="text-lg sm:text-xl font-black text-white mb-3">{achievement.title}</h3>
-                        <p className="text-sm sm:text-base text-gray-300 leading-relaxed">{achievement.description}</p>
-                      </div>
+                  <div key={index} className="flex items-start">
+                    <div className="bg-gold/20 w-12 h-12 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
+                      <achievement.icon className="w-6 h-6 text-gold" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-black text-white mb-2">{achievement.title}</h3>
+                      <p className="text-sm text-gray-300">{achievement.description}</p>
                     </div>
                   </div>
                 ))}
               </div>
 
               {/* Stats */}
-              <div className="bg-black/50 backdrop-blur-md border border-gold/30 rounded-3xl p-6 sm:p-8">
-                <h3 className="text-xl sm:text-2xl font-black text-white mb-6 text-center">Presencia Internacional</h3>
+              <div className="bg-black/50 backdrop-blur-md border border-gold/30 rounded-2xl p-6">
+                <h3 className="text-xl font-black text-white mb-4 text-center">Presencia Internacional</h3>
                 
-                <div className="grid grid-cols-3 gap-4 sm:gap-6 text-center">
+                <div className="grid grid-cols-3 gap-4 text-center">
                   <div>
-                    <div className="text-2xl sm:text-3xl font-black text-gold mb-2">15+</div>
-                    <div className="text-gray-300 text-xs sm:text-sm font-medium">Revistas</div>
+                    <div className="text-2xl font-black text-gold mb-1">15+</div>
+                    <div className="text-gray-300 text-xs font-medium">Revistas</div>
                   </div>
                   <div>
-                    <div className="text-2xl sm:text-3xl font-black text-gold mb-2">25+</div>
-                    <div className="text-gray-300 text-xs sm:text-sm font-medium">Portadas</div>
+                    <div className="text-2xl font-black text-gold mb-1">25+</div>
+                    <div className="text-gray-300 text-xs font-medium">Portadas</div>
                   </div>
                   <div>
-                    <div className="text-2xl sm:text-3xl font-black text-gold mb-2">10+</div>
-                    <div className="text-gray-300 text-xs sm:text-sm font-medium">Países</div>
+                    <div className="text-2xl font-black text-gold mb-1">10+</div>
+                    <div className="text-gray-300 text-xs font-medium">Países</div>
                   </div>
                 </div>
               </div>
 
               {/* Quote */}
-              <div className="mt-12">
-                <blockquote className="text-lg sm:text-xl text-gray-300 italic leading-relaxed mb-6">
+              <div className="mt-8">
+                <blockquote className="text-lg text-gray-300 italic mb-4">
                   "Ser reconocido por las revistas más prestigiosas del mundo no es casualidad. 
                   Es el resultado de años de dedicación, conocimiento y resultados reales."
                 </blockquote>
@@ -231,13 +211,13 @@ const InternationalCovers = () => {
                   <img
                     src="https://images.pexels.com/photos/1229356/pexels-photo-1229356.jpeg?auto=compress&cs=tinysrgb&w=60&h=60&fit=crop&crop=face"
                     alt="Sergi Constance"
-                    className="w-12 h-12 rounded-full border-2 border-gold mr-4 object-cover"
+                    className="w-10 h-10 rounded-full border-2 border-gold mr-3 object-cover"
                     loading="lazy"
                     decoding="async"
                   />
                   <div>
-                    <p className="font-bold text-white">Sergi Constance</p>
-                    <p className="text-gold text-xs sm:text-sm">IFBB Pro & Actor de Hollywood</p>
+                    <p className="font-bold text-white text-sm">Sergi Constance</p>
+                    <p className="text-gold text-xs">IFBB Pro & Actor de Hollywood</p>
                   </div>
                 </div>
               </div>
@@ -246,23 +226,21 @@ const InternationalCovers = () => {
 
           {/* Bottom CTA */}
           <div className="text-center">
-            <div className={`transition-all duration-1000 delay-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <div className="bg-gradient-to-r from-gold/10 via-gold/20 to-gold/10 border-2 border-gold/30 rounded-3xl p-6 sm:p-8 lg:p-12">
-                <h3 className="text-2xl sm:text-3xl font-black text-white mb-6 px-4">
-                  ¿Listo para entrenar con un profesional reconocido mundialmente?
-                </h3>
-                <p className="text-lg sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto px-4">
-                  Mi experiencia internacional y método probado están a tu disposición. 
-                  Únete a la élite del fitness.
-                </p>
-                <a 
-                  href="#memberships"
-                  className="inline-flex items-center bg-gold text-black px-6 sm:px-8 py-4 rounded-xl font-bold text-base sm:text-lg hover:bg-yellow-400 transition-all duration-300 group shadow-xl"
-                >
-                  VER PLANES DE COACHING
-                  <Star className="w-5 h-5 ml-2 group-hover:rotate-12 transition-transform" />
-                </a>
-              </div>
+            <div className="bg-gradient-to-r from-gold/10 via-gold/20 to-gold/10 border-2 border-gold/30 rounded-2xl p-6 lg:p-8">
+              <h3 className="text-2xl font-black text-white mb-4 px-4">
+                ¿Listo para entrenar con un profesional reconocido mundialmente?
+              </h3>
+              <p className="text-lg text-gray-300 mb-6 max-w-2xl mx-auto px-4">
+                Mi experiencia internacional y método probado están a tu disposición. 
+                Únete a la élite del fitness.
+              </p>
+              <a 
+                href="#memberships"
+                className="inline-flex items-center bg-gold text-black px-6 py-3 rounded-xl font-bold hover:bg-yellow-400 transition-all duration-300"
+              >
+                VER PLANES DE COACHING
+                <Star className="w-4 h-4 ml-2" />
+              </a>
             </div>
           </div>
         </div>

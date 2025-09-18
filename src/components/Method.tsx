@@ -13,7 +13,7 @@ const Method = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.1 }
     );
 
     if (sectionRef.current) {
@@ -82,94 +82,78 @@ const Method = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="py-16 sm:py-24 lg:py-32 bg-gray-50 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-gold rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gold rounded-full blur-3xl"></div>
-      </div>
-
-      <div className="container mx-auto px-4 relative z-10">
-        <div className={`max-w-7xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+    <section ref={sectionRef} id="method" className="py-16 sm:py-20 lg:py-24 bg-gray-50">
+      <div className="container mx-auto px-4">
+        <div className="max-w-6xl mx-auto">
           
           {/* Header */}
-          <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-            <div className="inline-flex items-center bg-gold/10 border border-gold/30 rounded-full px-6 py-3 mb-8">
-              <Target className="w-5 h-5 text-gold mr-3" />
-              <span className="text-gold font-bold text-sm tracking-wider">MÉTODO EXCLUSIVO</span>
+          <div className="text-center mb-12 lg:mb-16">
+            <div className="inline-flex items-center bg-gold/10 border border-gold/30 rounded-full px-4 py-2 mb-6">
+              <Target className="w-4 h-4 text-gold mr-2" />
+              <span className="text-gold font-bold text-xs tracking-wider">MÉTODO EXCLUSIVO</span>
             </div>
             
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 sm:mb-8 text-gray-900 leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-6 text-gray-900 px-4">
               <span className="block">El Método</span>
               <span className="text-gold">Sergi Constance</span>
             </h2>
             
-            <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
               Un sistema científico de 4 pilares desarrollado durante 15+ años como IFBB Pro. 
               No es solo entrenamiento, es una transformación completa.
             </p>
           </div>
 
           {/* Method Steps */}
-          <div className="mb-8 sm:mb-12 lg:mb-16">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          <div className="mb-12 lg:mb-16">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {methodSteps.map((step, index) => (
-                <div 
-                  key={index}
-                  className={`transition-all duration-700 ${
-                    isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                  } ${
-                    activeStep === index ? 'transform scale-105' : ''
-                  }`}
-                  style={{ transitionDelay: `${index * 0.2}s` }}
-                >
-                  <div className={`bg-white rounded-3xl p-6 sm:p-8 border-2 transition-all duration-500 ${
-                    activeStep === index 
-                      ? 'border-gold shadow-2xl shadow-gold/20' 
-                      : 'border-gray-200 hover:border-gold/50'
-                  }`}>
-                    
-                    {/* Step Number */}
-                    <div className="flex items-center justify-between mb-6">
-                      <div className={`w-12 h-12 rounded-2xl flex items-center justify-center transition-colors ${
-                        activeStep === index ? 'bg-gold text-white' : 'bg-gold/10 text-gold'
-                      }`}>
-                        <step.icon className="w-6 h-6" />
-                      </div>
-                      <div className={`text-2xl font-black transition-colors ${
-                        activeStep === index ? 'text-gold' : 'text-gray-300'
-                      }`}>
-                        0{index + 1}
-                      </div>
+                <div key={index} className={`bg-white rounded-2xl p-6 border-2 transition-all duration-500 ${
+                  activeStep === index 
+                    ? 'border-gold shadow-xl shadow-gold/20' 
+                    : 'border-gray-200 hover:border-gold/50'
+                }`}>
+                  
+                  {/* Step Number */}
+                  <div className="flex items-center justify-between mb-4">
+                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors ${
+                      activeStep === index ? 'bg-gold text-white' : 'bg-gold/10 text-gold'
+                    }`}>
+                      <step.icon className="w-5 h-5" />
                     </div>
-                    
-                    {/* Content */}
-                    <h3 className="text-lg sm:text-xl font-black text-gray-900 mb-2">{step.title}</h3>
-                    <p className="text-gold font-bold text-sm mb-4">{step.subtitle}</p>
-                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-6">{step.description}</p>
-                    
-                    {/* Features */}
-                    <ul className="space-y-2">
-                      {step.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-center text-sm text-gray-600">
-                          <CheckCircle className="w-4 h-4 text-gold mr-2 flex-shrink-0" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
+                    <div className={`text-xl font-black transition-colors ${
+                      activeStep === index ? 'text-gold' : 'text-gray-300'
+                    }`}>
+                      0{index + 1}
+                    </div>
                   </div>
+                  
+                  {/* Content */}
+                  <h3 className="text-lg font-black text-gray-900 mb-2">{step.title}</h3>
+                  <p className="text-gold font-bold text-sm mb-3">{step.subtitle}</p>
+                  <p className="text-sm text-gray-600 mb-4">{step.description}</p>
+                  
+                  {/* Features */}
+                  <ul className="space-y-2">
+                    {step.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-center text-xs text-gray-600">
+                        <CheckCircle className="w-3 h-3 text-gold mr-2 flex-shrink-0" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               ))}
             </div>
 
             {/* Progress Indicator */}
-            <div className="flex justify-center mt-12">
+            <div className="flex justify-center mt-8">
               <div className="flex space-x-2">
                 {methodSteps.map((_, index) => (
                   <div
                     key={index}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      activeStep === index ? 'bg-gold w-8' : 'bg-gray-300'
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      activeStep === index ? 'bg-gold w-6' : 'bg-gray-300'
                     }`}
                   ></div>
                 ))}
@@ -178,54 +162,44 @@ const Method = () => {
           </div>
 
           {/* Supporting Pillars */}
-          <div className="bg-white rounded-3xl p-6 sm:p-8 lg:p-12 border border-gold/20 shadow-xl">
-            <div className="text-center mb-12">
-              <h3 className="text-2xl sm:text-3xl font-black text-gray-900 mb-4">Pilares de Soporte</h3>
-              <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
+          <div className="bg-white rounded-2xl p-6 lg:p-8 border border-gold/20 shadow-lg">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-black text-gray-900 mb-3">Pilares de Soporte</h3>
+              <p className="text-gray-600 max-w-2xl mx-auto px-4">
                 Además del método principal, estos pilares garantizan tu éxito y transformación completa.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {pillars.map((pillar, index) => (
-                <div 
-                  key={index}
-                  className={`transition-all duration-500 ${
-                    isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
-                  }`}
-                  style={{ transitionDelay: `${0.8 + index * 0.1}s` }}
-                >
-                  <div className="text-center group">
-                    <div className="bg-gold/10 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-gold/20 transition-colors">
-                      <pillar.icon className="w-8 h-8 text-gold" />
-                    </div>
-                    <h4 className="text-lg sm:text-xl font-black text-gray-900 mb-4">{pillar.title}</h4>
-                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{pillar.description}</p>
+                <div key={index} className="text-center">
+                  <div className="bg-gold/10 w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <pillar.icon className="w-6 h-6 text-gold" />
                   </div>
+                  <h4 className="text-lg font-black text-gray-900 mb-3">{pillar.title}</h4>
+                  <p className="text-sm text-gray-600">{pillar.description}</p>
                 </div>
               ))}
             </div>
           </div>
 
           {/* CTA Section */}
-          <div className="mt-20 text-center">
-            <div className={`transition-all duration-1000 delay-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <h3 className="text-2xl sm:text-3xl font-black text-gray-900 mb-6 px-4">
-                ¿Listo para experimentar el método que funciona?
-              </h3>
-              <p className="text-lg sm:text-xl text-gray-600 mb-8 max-w-2xl mx-auto px-4">
-                Solo quedan 12 plazas disponibles para el programa VIP de este trimestre.
-              </p>
-              <a 
-                href="https://wa.me/34614428420?text=Hola%20Sergi,%20estoy%20interesado%20en%20el%20coaching%20VIP%20Elite.%20Me%20gustaría%20agendar%20una%20consulta%20para%20conocer%20más%20detalles."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center bg-gold text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-gold-dark transition-all duration-300 group"
-              >
-                SOLICITAR MI PLAZA VIP
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </a>
-            </div>
+          <div className="mt-16 text-center">
+            <h3 className="text-2xl font-black text-gray-900 mb-4 px-4">
+              ¿Listo para experimentar el método que funciona?
+            </h3>
+            <p className="text-lg text-gray-600 mb-6 max-w-2xl mx-auto px-4">
+              Solo quedan 12 plazas disponibles para el programa VIP de este trimestre.
+            </p>
+            <a 
+              href="https://wa.me/34614428420?text=Hola%20Sergi,%20estoy%20interesado%20en%20el%20coaching%20VIP%20Elite.%20Me%20gustaría%20agendar%20una%20consulta%20para%20conocer%20más%20detalles."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center bg-gold text-white px-6 py-3 rounded-xl font-bold hover:bg-gold-dark transition-all duration-300"
+            >
+              SOLICITAR MI PLAZA VIP
+              <ArrowRight className="w-4 h-4 ml-2" />
+            </a>
           </div>
         </div>
       </div>

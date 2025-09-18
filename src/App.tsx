@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import Authority from './components/Authority';
 import Method from './components/Method';
+import Testimonials from './components/Testimonials';
 import InternationalCovers from './components/InternationalCovers';
 import Memberships from './components/Memberships';
 import FAQ from './components/FAQ';
@@ -28,6 +29,7 @@ function App() {
                 <Hero />
                 <Authority />
                 <Method />
+                <Testimonials />
                 <InternationalCovers />
                 <Memberships />
                 <FAQ />
