@@ -82,25 +82,8 @@ const FAQ = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className={`max-w-4xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           
-          <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
-         <div className="text-center mb-12 sm:mb-16">
-            <div className="inline-flex items-center bg-gold/10 border border-gold/30 rounded-full px-6 py-3 mb-8">
-              <img 
-                src="/corona_belegend-removebg-preview copy.png" 
-                alt="Corona VIP" 
-                className="w-5 h-5 mr-3"
-              />
-              <span className="text-gold font-bold text-sm tracking-wider">PREGUNTAS FRECUENTES</span>
-            </div>
-            
-            <h2 className="text-5xl lg:text-6xl font-black mb-8 text-gray-900 leading-tight">
-              <span className="block">Resuelve tus</span>
-              <span className="text-gold">Dudas</span>
-            </h2>
-            
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Las respuestas a las preguntas más comunes sobre mi método de coaching 
-              y cómo puede transformar tu vida.
               y cómo puede transformar tu vida.
             </p>
           </div>
@@ -170,7 +153,6 @@ const FAQ = () => {
         </div>
       </div>
     </section>
-       <div className="space-y-3 sm:space-y-4">
 };
 
 export default FAQ;
