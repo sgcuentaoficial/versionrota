@@ -54,7 +54,7 @@ const Authority = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="py-32 bg-white relative overflow-hidden">
+    <section ref={sectionRef} className="py-16 sm:py-24 lg:py-32 bg-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -66,7 +66,7 @@ const Authority = () => {
         <div className={`max-w-7xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           
           {/* Header */}
-          <div className="text-center mb-20">
+          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
             <div className="inline-flex items-center bg-gold/10 border border-gold/30 rounded-full px-6 py-3 mb-8">
               <img 
                 src="/corona_belegend-removebg-preview copy.png" 
@@ -76,19 +76,19 @@ const Authority = () => {
               <span className="text-gold font-bold text-sm tracking-wider">AUTORIDAD MUNDIAL</span>
             </div>
             
-            <h2 className="text-5xl lg:text-6xl font-black mb-8 text-gray-900 leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6 sm:mb-8 text-gray-900 leading-tight">
               <span className="block">¿Por qué</span>
               <span className="text-gold">Sergi Constance?</span>
             </h2>
             
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
               No soy solo otro coach. Soy un profesional con credenciales reales, 
               resultados comprobados y más de 15 años de experiencia como IFBB Pro.
             </p>
           </div>
 
           {/* Main Achievements Grid */}
-          <div className="grid lg:grid-cols-3 gap-12 mb-20">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12 mb-12 sm:mb-16 lg:mb-20">
             {achievements.map((achievement, index) => (
               <div 
                 key={index}

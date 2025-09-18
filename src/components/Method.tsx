@@ -82,7 +82,7 @@ const Method = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="py-32 bg-gray-50 relative overflow-hidden">
+    <section ref={sectionRef} className="py-16 sm:py-24 lg:py-32 bg-gray-50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 left-10 w-72 h-72 bg-gold rounded-full blur-3xl"></div>
@@ -93,26 +93,26 @@ const Method = () => {
         <div className={`max-w-7xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           
           {/* Header */}
-          <div className="text-center mb-20">
+          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
             <div className="inline-flex items-center bg-gold/10 border border-gold/30 rounded-full px-6 py-3 mb-8">
               <Target className="w-5 h-5 text-gold mr-3" />
               <span className="text-gold font-bold text-sm tracking-wider">MÉTODO EXCLUSIVO</span>
             </div>
             
-            <h2 className="text-5xl lg:text-6xl font-black mb-8 text-gray-900 leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6 sm:mb-8 text-gray-900 leading-tight">
               <span className="block">El Método</span>
               <span className="text-gold">Sergi Constance</span>
             </h2>
             
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
               Un sistema científico de 4 pilares desarrollado durante 15+ años como IFBB Pro. 
               No es solo entrenamiento, es una transformación completa.
             </p>
           </div>
 
           {/* Method Steps */}
-          <div className="mb-20">
-            <div className="grid lg:grid-cols-4 gap-8">
+          <div className="mb-12 sm:mb-16 lg:mb-20">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
               {methodSteps.map((step, index) => (
                 <div 
                   key={index}

@@ -115,12 +115,6 @@ html, body {
     padding-right: 1rem;
   }
   
-  /* Fix viewport issues */
-  .fixed {
-    position: -webkit-sticky;
-    position: sticky;
-  }
-  
   /* Mobile scroll improvements */
   html {
     scroll-padding-top: 80px;
@@ -130,6 +124,24 @@ html, body {
   button, .btn, a[role="button"] {
     min-height: 48px;
     min-width: 48px;
+  }
+  
+  /* Ensure text is visible */
+  h1, h2, h3, h4, h5, h6, p, span, div {
+    color: inherit;
+  }
+  
+  /* Fix for mobile text rendering */
+  .text-white {
+    color: #ffffff !important;
+  }
+  
+  .text-gray-900 {
+    color: #111827 !important;
+  }
+  
+  .text-gray-300 {
+    color: #d1d5db !important;
   }
 }
 
@@ -160,4 +172,39 @@ html, body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--vip-gold-light);
+}
+
+/* Mobile debugging - ensure elements are visible */
+@media (max-width: 768px) {
+  * {
+    box-sizing: border-box;
+  }
+  
+  .min-h-screen {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+  
+  /* Force visibility for mobile */
+  section, div, header, main {
+    display: block;
+    position: relative;
+  }
+  
+  /* Ensure backgrounds are visible */
+  .bg-white {
+    background-color: #ffffff !important;
+  }
+  
+  .bg-black {
+    background-color: #000000 !important;
+  }
+  
+  .bg-gray-900 {
+    background-color: #111827 !important;
+  }
+  
+  .bg-gray-50 {
+    background-color: #f9fafb !important;
+  }
 }

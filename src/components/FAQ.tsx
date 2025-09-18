@@ -71,7 +71,7 @@ const FAQ = () => {
   };
 
   return (
-    <section ref={sectionRef} className="py-32 bg-white relative overflow-hidden">
+    <section ref={sectionRef} className="py-16 sm:py-24 lg:py-32 bg-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -82,8 +82,8 @@ const FAQ = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className={`max-w-4xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           
-          {/* Header */}
-          <div className="text-center mb-16">
+          <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
+         <div className="text-center mb-12 sm:mb-16">
             <div className="inline-flex items-center bg-gold/10 border border-gold/30 rounded-full px-6 py-3 mb-8">
               <img 
                 src="/corona_belegend-removebg-preview copy.png" 
@@ -170,7 +170,7 @@ const FAQ = () => {
         </div>
       </div>
     </section>
-  );
+       <div className="space-y-3 sm:space-y-4">
 };
 
 export default FAQ;
