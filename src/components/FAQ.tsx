@@ -81,7 +81,10 @@ const FAQ = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className={`max-w-4xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 mb-8">
+              Preguntas Frecuentes
+            </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Las respuestas a las preguntas más comunes sobre mi método de coaching 
               y cómo puede transformar tu vida.
@@ -153,6 +156,7 @@ const FAQ = () => {
         </div>
       </div>
     </section>
+  );
 };
 
 export default FAQ;
