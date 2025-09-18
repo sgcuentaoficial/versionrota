@@ -19,21 +19,10 @@ import PoliticaReembolso from './pages/PoliticaReembolso';
 function App() {
   return (
     <Router>
-      <div 
-        className="min-h-screen bg-white text-gray-900" 
-        style={{ 
-          minHeight: '100vh', 
-          width: '100%', 
-          overflow: 'visible',
-          display: 'block',
-          visibility: 'visible',
-          opacity: 1,
-          backgroundColor: '#ffffff'
-        }}
-      >
+      <div className="min-h-screen bg-white text-gray-900">
         <Routes>
           <Route path="/" element={
-            <>
+            <div>
               <Header />
               <main>
                 <Hero />
@@ -47,7 +36,7 @@ function App() {
               <Footer />
               <CookieConsent />
               <Chatbot />
-            </>
+            </div>
           } />
           <Route path="/politica-privacidad" element={<PoliticaPrivacidad />} />
           <Route path="/politica-cookies" element={<PoliticaCookies />} />
