@@ -97,7 +97,7 @@ Me gustaría agendar una consulta para conocer más detalles del programa VIP.`;
   ];
 
   return (
-    <section ref={sectionRef} id="apply" className="py-32 bg-gray-900 relative overflow-hidden">
+    <section ref={sectionRef} id="apply" className="py-16 sm:py-24 lg:py-32 bg-gray-900 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900"></div>
@@ -111,7 +111,7 @@ Me gustaría agendar una consulta para conocer más detalles del programa VIP.`;
         <div className={`max-w-7xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           
           {/* Header */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 sm:mb-16">
             <div className="inline-flex items-center bg-vip-gold/10 border border-vip-gold/30 rounded-full px-6 py-3 mb-8">
               <img 
                 src="/corona_belegend-removebg-preview copy.png" 
@@ -121,19 +121,19 @@ Me gustaría agendar una consulta para conocer más detalles del programa VIP.`;
               <span className="text-vip-gold font-bold text-sm tracking-wider">SOLICITUD VIP</span>
             </div>
             
-            <h2 className="text-5xl lg:text-6xl font-black mb-8 text-white leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6 sm:mb-8 text-white leading-tight">
               <span className="block">Solicita tu</span>
               <span className="text-vip-gold">Plaza VIP</span>
             </h2>
             
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-6 sm:mb-8 px-4">
               Solo acepto 12 clientes VIP por trimestre para garantizar resultados excepcionales. 
               Completa esta solicitud para ser considerado.
               Completa esta solicitud para ser considerado.
             </p>
 
             {/* Urgency Indicators */}
-            <div className="flex flex-wrap justify-center gap-6 mb-12">
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-6 mb-8 sm:mb-12">
               {urgencyFactors.map((factor, index) => (
                 <div key={index} className="flex items-center bg-black/50 backdrop-blur-sm border border-vip-gold/30 rounded-full px-4 py-2">
                   <factor.icon className={`w-4 h-4 mr-2 ${factor.color}`} />
