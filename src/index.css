@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Mobile-first optimizations */
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
 /* Custom CSS Variables */
 :root {
   --vip-gold: #D4AF37;
@@ -9,14 +26,10 @@
   --vip-gold-dark: #B8941F;
 }
 
-/* Performance Optimizations */
-* {
-  box-sizing: border-box;
-}
-
 img {
   max-width: 100%;
   height: auto;
+  display: block;
 }
 
 /* Font Loading Optimization */
@@ -25,6 +38,8 @@ img {
 body {
   font-family: 'Inter', sans-serif;
   font-display: swap;
+  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 /* Animation Performance */
@@ -35,6 +50,13 @@ body {
   will-change: transform, opacity, background-color;
 }
 
+/* Mobile viewport fixes */
+@supports (-webkit-touch-callout: none) {
+  .min-h-screen {
+    min-height: -webkit-fill-available;
+  }
+}
+
 /* Reduce motion for accessibility */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -43,6 +65,25 @@ body {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* Mobile-specific fixes */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Prevent horizontal scroll */
+  body {
+    overflow-x: hidden;
+  }
+  
+  /* Fix viewport issues */
+  .fixed {
+    position: -webkit-sticky;
+    position: sticky;
   }
 }
 
@@ -79,12 +120,20 @@ body {
   color: #000;
   font-weight: 700;
   transition: all 0.3s ease;
+  min-height: 44px;
+  min-width: 44px;
 }
 
 .vip-button:hover {
   background: linear-gradient(135deg, var(--vip-gold-light), var(--vip-gold));
   transform: translateY(-2px);
   box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+}
+
+@media (max-width: 640px) {
+  .vip-button:hover {
+    transform: none;
+  }
 }
 
 .vip-mesh {
@@ -148,6 +197,13 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Mobile scroll improvements */
+@media (max-width: 640px) {
+  html {
+    scroll-padding-top: 80px;
+  }
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
@@ -164,4 +220,21 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--vip-gold-light);
+}
+
+/* Mobile-specific utilities */
+@media (max-width: 640px) {
+  .text-responsive {
+    font-size: clamp(0.875rem, 2.5vw, 1rem);
+  }
+  
+  .heading-responsive {
+    font-size: clamp(1.5rem, 8vw, 3rem);
+  }
+  
+  .container-mobile {
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }

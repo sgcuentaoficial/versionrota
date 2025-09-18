@@ -236,7 +236,7 @@ const Chatbot = () => {
       <div className="fixed bottom-6 right-6 z-50">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`w-16 h-16 rounded-full shadow-2xl transition-all duration-300 flex items-center justify-center group ${
+          className={`w-16 h-16 rounded-full shadow-2xl transition-all duration-300 flex items-center justify-center group touch-manipulation ${
             isOpen 
               ? 'bg-gray-800 hover:bg-gray-700' 
               : 'bg-gradient-to-r from-gold to-yellow-400 hover:from-yellow-400 hover:to-gold'
@@ -258,7 +258,7 @@ const Chatbot = () => {
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-24 right-2 sm:right-6 w-[calc(100vw-1rem)] sm:w-96 h-[70vh] sm:h-[600px] max-w-sm sm:max-w-none bg-white rounded-2xl shadow-2xl border border-gray-200 z-50 flex flex-col overflow-hidden">
+        <div className="fixed bottom-24 right-4 w-[calc(100vw-2rem)] sm:w-96 h-[75vh] sm:h-[600px] max-w-none sm:max-w-md bg-white rounded-2xl shadow-2xl border border-gray-200 z-50 flex flex-col overflow-hidden">
           
           {/* Header */}
           <div className="bg-gradient-to-r from-gold to-yellow-400 p-4 flex items-center">
@@ -270,8 +270,8 @@ const Chatbot = () => {
               />
             </div>
             <div className="flex-1">
-              <h3 className="font-bold text-black text-sm sm:text-base">Asistente VIP</h3>
-              <p className="text-black/80 text-xs sm:text-sm">Sergi Constance Coaching</p>
+              <h3 className="font-bold text-black text-base">Asistente VIP</h3>
+              <p className="text-black/80 text-sm">Sergi Constance Coaching</p>
             </div>
             <div className="flex items-center">
               <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
@@ -280,7 +280,7 @@ const Chatbot = () => {
           </div>
 
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3 sm:space-y-4 bg-gray-50">
+          <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50 overscroll-contain">
             {messages.map((message) => (
               <div key={message.id} className={`flex ${message.isBot ? 'justify-start' : 'justify-end'}`}>
                 <div className={`max-w-[80%] ${message.isBot ? 'order-2' : 'order-1'}`}>
@@ -302,16 +302,16 @@ const Chatbot = () => {
                         ? 'bg-white border border-gray-200 text-gray-800' 
                         : 'bg-gold text-black'
                     }`}>
-                      <p className="text-xs sm:text-sm leading-relaxed whitespace-pre-line">{message.text}</p>
+                      <p className="text-sm leading-relaxed whitespace-pre-line">{message.text}</p>
                       
                       {/* Options */}
                       {message.options && (
-                        <div className="mt-2 sm:mt-3 space-y-2">
+                        <div className="mt-3 space-y-2">
                           {message.options.map((option, index) => (
                             <button
                               key={index}
                               onClick={() => handleOptionClick(option)}
-                              className="block w-full text-left px-2 sm:px-3 py-2 bg-gray-100 hover:bg-gold/20 rounded-lg text-xs sm:text-sm font-medium transition-colors border border-gray-200 hover:border-gold/30"
+                              className="block w-full text-left px-3 py-2 bg-gray-100 hover:bg-gold/20 rounded-lg text-sm font-medium transition-colors border border-gray-200 hover:border-gold/30 touch-manipulation"
                             >
                               {option}
                             </button>
@@ -351,7 +351,7 @@ const Chatbot = () => {
           </div>
 
           {/* Input */}
-          <div className="p-3 sm:p-4 border-t border-gray-200 bg-white">
+          <div className="p-4 border-t border-gray-200 bg-white">
             <div className="flex items-center space-x-2">
               <input
                 type="text"
@@ -359,39 +359,36 @@ const Chatbot = () => {
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder="Escribe tu pregunta..."
-                className="flex-1 px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-xl focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none text-xs sm:text-sm"
+                className="flex-1 px-4 py-3 border border-gray-300 rounded-xl focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none text-sm touch-manipulation"
               />
               <button
                 onClick={handleSendMessage}
                 disabled={!inputValue.trim()}
-                className="w-10 h-10 sm:w-12 sm:h-12 bg-gold hover:bg-yellow-400 disabled:bg-gray-300 rounded-xl flex items-center justify-center transition-colors"
+                className="w-12 h-12 bg-gold hover:bg-yellow-400 disabled:bg-gray-300 rounded-xl flex items-center justify-center transition-colors touch-manipulation"
               >
-                <Send className="w-4 h-4 sm:w-5 sm:h-5 text-black" />
+                <Send className="w-5 h-5 text-black" />
               </button>
             </div>
             
             {/* Quick Actions */}
-            <div className="flex flex-wrap gap-1 sm:gap-2 mt-2 sm:mt-3">
+            <div className="flex flex-wrap gap-2 mt-3">
               <button
                 onClick={() => handleOptionClick("📞 Agendar consulta VIP")}
-                className="px-2 sm:px-3 py-1 bg-gold/10 hover:bg-gold/20 text-gold text-xs font-medium rounded-full border border-gold/30 transition-colors"
+                className="px-3 py-2 bg-gold/10 hover:bg-gold/20 text-gold text-xs font-medium rounded-full border border-gold/30 transition-colors touch-manipulation"
               >
-                <span className="hidden sm:inline">📞 Consulta VIP</span>
-                <span className="sm:hidden">📞 VIP</span>
+                📞 Consulta VIP
               </button>
               <button
                 onClick={() => handleOptionClick("💰 Precios y planes")}
-                className="px-2 sm:px-3 py-1 bg-gold/10 hover:bg-gold/20 text-gold text-xs font-medium rounded-full border border-gold/30 transition-colors"
+                className="px-3 py-2 bg-gold/10 hover:bg-gold/20 text-gold text-xs font-medium rounded-full border border-gold/30 transition-colors touch-manipulation"
               >
-                <span className="hidden sm:inline">💰 Precios</span>
-                <span className="sm:hidden">💰</span>
+                💰 Precios
               </button>
               <button
                 onClick={() => handleOptionClick("📱 WhatsApp directo")}
-                className="px-2 sm:px-3 py-1 bg-gold/10 hover:bg-gold/20 text-gold text-xs font-medium rounded-full border border-gold/30 transition-colors"
+                className="px-3 py-2 bg-gold/10 hover:bg-gold/20 text-gold text-xs font-medium rounded-full border border-gold/30 transition-colors touch-manipulation"
               >
-                <span className="hidden sm:inline">📱 WhatsApp</span>
-                <span className="sm:hidden">📱</span>
+                📱 WhatsApp
               </button>
             </div>
           </div>
