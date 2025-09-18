@@ -71,10 +71,10 @@ const Footer = () => {
                 LEGAL
               </h4>
               <ul className="space-y-3">
-                <li><a href="/politica-privacidad" className="text-gray-300 hover:text-vip-gold transition-colors font-vip-subtitle">Política de Privacidad</a></li>
-                <li><a href="/politica-cookies" className="text-gray-300 hover:text-vip-gold transition-colors font-vip-subtitle">Política de Cookies</a></li>
-                <li><a href="/terminos-condiciones" className="text-gray-300 hover:text-vip-gold transition-colors font-vip-subtitle">Términos y Condiciones</a></li>
-                <li><a href="/politica-reembolso" className="text-gray-300 hover:text-vip-gold transition-colors font-vip-subtitle">Política de Reembolso</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); window.open('/politica-privacidad', '_blank'); }} className="text-gray-300 hover:text-vip-gold transition-colors font-vip-subtitle cursor-pointer">Política de Privacidad</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); window.open('/politica-cookies', '_blank'); }} className="text-gray-300 hover:text-vip-gold transition-colors font-vip-subtitle cursor-pointer">Política de Cookies</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); window.open('/terminos-condiciones', '_blank'); }} className="text-gray-300 hover:text-vip-gold transition-colors font-vip-subtitle cursor-pointer">Términos y Condiciones</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); window.open('/politica-reembolso', '_blank'); }} className="text-gray-300 hover:text-vip-gold transition-colors font-vip-subtitle cursor-pointer">Política de Reembolso</a></li>
               </ul>
             </div>
           </div>
