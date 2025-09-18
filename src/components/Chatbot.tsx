@@ -258,7 +258,7 @@ const Chatbot = () => {
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-24 right-4 w-[calc(100vw-2rem)] sm:w-96 h-[75vh] sm:h-[600px] max-w-none sm:max-w-md bg-white rounded-2xl shadow-2xl border border-gray-200 z-50 flex flex-col overflow-hidden">
+        <div className="fixed bottom-24 right-2 left-2 sm:right-4 sm:left-auto sm:w-96 h-[70vh] sm:h-[600px] max-w-none sm:max-w-md bg-white rounded-2xl shadow-2xl border border-gray-200 z-50 flex flex-col overflow-hidden">
           
           {/* Header */}
           <div className="bg-gradient-to-r from-gold to-yellow-400 p-4 flex items-center">
@@ -280,10 +280,10 @@ const Chatbot = () => {
           </div>
 
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50 overscroll-contain">
+          <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3 sm:space-y-4 bg-gray-50 overscroll-contain">
             {messages.map((message) => (
               <div key={message.id} className={`flex ${message.isBot ? 'justify-start' : 'justify-end'}`}>
-                <div className={`max-w-[80%] ${message.isBot ? 'order-2' : 'order-1'}`}>
+                <div className={`max-w-[85%] sm:max-w-[80%] ${message.isBot ? 'order-2' : 'order-1'}`}>
                   
                   {/* Avatar */}
                   <div className={`flex items-end space-x-2 ${message.isBot ? '' : 'flex-row-reverse space-x-reverse'}`}>
@@ -299,7 +299,7 @@ const Chatbot = () => {
                     
                     <div className={`rounded-2xl px-4 py-3 ${
                       message.isBot 
-                        ? 'bg-white border border-gray-200 text-gray-800' 
+                        ? 'bg-white border border-gray-200 text-gray-800'
                         : 'bg-gold text-black'
                     }`}>
                       <p className="text-sm leading-relaxed whitespace-pre-line">{message.text}</p>
@@ -311,7 +311,7 @@ const Chatbot = () => {
                             <button
                               key={index}
                               onClick={() => handleOptionClick(option)}
-                              className="block w-full text-left px-3 py-2 bg-gray-100 hover:bg-gold/20 rounded-lg text-sm font-medium transition-colors border border-gray-200 hover:border-gold/30 touch-manipulation"
+                              className="block w-full text-left px-3 py-2 bg-gray-100 hover:bg-gold/20 rounded-lg text-xs sm:text-sm font-medium transition-colors border border-gray-200 hover:border-gold/30 min-h-[44px] flex items-center"
                             >
                               {option}
                             </button>
@@ -322,7 +322,7 @@ const Chatbot = () => {
                   </div>
                   
                   {/* Timestamp */}
-                  <p className={`text-xs text-gray-500 mt-1 ${message.isBot ? 'ml-10' : 'mr-10 text-right'}`}>
+                  <p className={`text-xs text-gray-500 mt-1 ${message.isBot ? 'ml-8 sm:ml-10' : 'mr-8 sm:mr-10 text-right'}`}>
                     {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                   </p>
                 </div>
@@ -351,7 +351,7 @@ const Chatbot = () => {
           </div>
 
           {/* Input */}
-          <div className="p-4 border-t border-gray-200 bg-white">
+          <div className="p-3 sm:p-4 border-t border-gray-200 bg-white">
             <div className="flex items-center space-x-2">
               <input
                 type="text"
@@ -359,7 +359,7 @@ const Chatbot = () => {
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder="Escribe tu pregunta..."
-                className="flex-1 px-4 py-3 border border-gray-300 rounded-xl focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none text-sm touch-manipulation"
+                className="flex-1 px-3 sm:px-4 py-3 border border-gray-300 rounded-xl focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none text-sm min-h-[48px]"
               />
               <button
                 onClick={handleSendMessage}
@@ -374,19 +374,19 @@ const Chatbot = () => {
             <div className="flex flex-wrap gap-2 mt-3">
               <button
                 onClick={() => handleOptionClick("📞 Agendar consulta VIP")}
-                className="px-3 py-2 bg-gold/10 hover:bg-gold/20 text-gold text-xs font-medium rounded-full border border-gold/30 transition-colors touch-manipulation"
+                className="px-3 py-2 bg-gold/10 hover:bg-gold/20 text-gold text-xs font-medium rounded-full border border-gold/30 transition-colors min-h-[36px] flex items-center"
               >
                 📞 Consulta VIP
               </button>
               <button
                 onClick={() => handleOptionClick("💰 Precios y planes")}
-                className="px-3 py-2 bg-gold/10 hover:bg-gold/20 text-gold text-xs font-medium rounded-full border border-gold/30 transition-colors touch-manipulation"
+                className="px-3 py-2 bg-gold/10 hover:bg-gold/20 text-gold text-xs font-medium rounded-full border border-gold/30 transition-colors min-h-[36px] flex items-center"
               >
                 💰 Precios
               </button>
               <button
                 onClick={() => handleOptionClick("📱 WhatsApp directo")}
-                className="px-3 py-2 bg-gold/10 hover:bg-gold/20 text-gold text-xs font-medium rounded-full border border-gold/30 transition-colors touch-manipulation"
+                className="px-3 py-2 bg-gold/10 hover:bg-gold/20 text-gold text-xs font-medium rounded-full border border-gold/30 transition-colors min-h-[36px] flex items-center"
               >
                 📱 WhatsApp
               </button>

@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Crown } from 'lucide-react';
-import { useLocationTranslation } from '../hooks/useLocationTranslation';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const { t } = useLocationTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,7 +21,7 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* VIP Logo */}
-          <div className="flex items-center space-x-2 sm:space-x-3 animate-vip-slide-in">
+          <div className="flex items-center space-x-3">
             <div className="bg-vip-gold p-2 rounded-lg">
               <img 
                 src="/corona_belegend-removebg-preview copy.png" 
@@ -33,24 +30,24 @@ const Header = () => {
               />
             </div>
             <div>
-              <span className={`text-xl font-vip-title ${
+              <span className={`font-vip-title text-lg lg:text-xl ${
                 isScrolled ? 'text-vip-gold' : 'text-white'
-              } text-lg sm:text-xl`}>
+              }`}>
                 SERGI CONSTANCE
               </span>
               <div className={`text-xs font-vip-accent ${
                 isScrolled ? 'text-gray-300' : 'text-vip-gold'
               }`}>
-                {t('footer.coaching')}
+                VIP COACHING
               </div>
             </div>
           </div>
 
-          {/* Language Selector & VIP CTA */}
+          {/* VIP CTA */}
           <div className="flex items-center">
             <a 
               href="#memberships"
-              className="vip-button px-4 sm:px-6 py-3 rounded-lg font-vip-accent text-sm"
+              className="vip-button px-4 lg:px-6 py-3 rounded-lg font-vip-accent text-sm"
             >
               <span className="hidden sm:inline">SOLICITAR CONSULTA VIP</span>
               <span className="sm:hidden">CONSULTA VIP</span>
