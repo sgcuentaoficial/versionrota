@@ -132,7 +132,7 @@ const Authority = () => {
             </blockquote>
             <div className="flex items-center justify-center">
               <img
-                src="https://images.pexels.com/photos/1229356/pexels-photo-1229356.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&fit=crop&crop=face"
+                src="https://sergiconstance-9fn0dyoiqm.live-website.com/wp-content/uploads/2025/09/Foto-14-12-19-15-39-12-scaled.jpg"
                 alt="Sergi Constance"
                 className="w-12 h-12 rounded-full border-2 border-gold mr-3 object-cover"
                 loading="lazy"
