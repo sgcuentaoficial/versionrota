@@ -1,8 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { ArrowRight, CheckCircle, Clock, Users, Star } from 'lucide-react';
+import React, { useState } from 'react';
+import { ArrowRight, CheckCircle, Clock, Users, Star, Crown } from 'lucide-react';
 
 const Application = () => {
-  const [isVisible, setIsVisible] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -13,24 +12,6 @@ const Application = () => {
     commitment: '',
     budget: ''
   });
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.3 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -74,7 +55,7 @@ Me gustaría agendar una consulta para conocer más detalles del programa VIP.`;
 
   const benefits = [
     {
-      icon: () => <img src="/corona_belegend-removebg-preview copy.png" alt="Corona VIP" className="w-6 h-6" />,
+      icon: Crown,
       title: "Acceso Directo a Sergi",
       description: "Llamadas personales semanales y soporte prioritario 24/7"
     },
@@ -97,7 +78,7 @@ Me gustaría agendar una consulta para conocer más detalles del programa VIP.`;
   ];
 
   return (
-    <section ref={sectionRef} id="apply" className="py-16 sm:py-24 lg:py-32 bg-gray-900 relative overflow-hidden">
+    <section id="apply" className="py-16 sm:py-24 lg:py-32 bg-gray-900 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900"></div>
@@ -108,7 +89,7 @@ Me gustaría agendar una consulta para conocer más detalles del programa VIP.`;
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className={`max-w-7xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className="max-w-7xl mx-auto">
           
           {/* Header */}
           <div className="text-center mb-8 sm:mb-12 lg:mb-16">
@@ -145,7 +126,7 @@ Me gustaría agendar una consulta para conocer más detalles del programa VIP.`;
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
             
             {/* Application Form */}
-            <div className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+            <div>
               <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xl">
                 <h3 className="text-xl sm:text-2xl font-black text-gray-900 mb-6">Formulario de Solicitud</h3>
                 
@@ -278,7 +259,7 @@ Me gustaría agendar una consulta para conocer más detalles del programa VIP.`;
             </div>
 
             {/* Benefits & Social Proof */}
-            <div className={`transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+            <div>
               
               {/* What You Get */}
               <div className="bg-black/50 backdrop-blur-sm border border-vip-gold/30 rounded-3xl p-6 sm:p-8 mb-8">
