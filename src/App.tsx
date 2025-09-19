@@ -29,7 +29,6 @@ function App() {
                 <Hero />
                 <Authority />
                 <Method />
-                <Testimonials />
                 <InternationalCovers />
                 <Memberships />
                 <FAQ />
