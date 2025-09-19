@@ -34,22 +34,34 @@ const InternationalCovers = () => {
 
   const covers = [
     {
-      url: "https://images.pexels.com/photos/1229356/pexels-photo-1229356.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&fit=crop",
-      title: "Muscular Development",
-      country: "USA",
-      year: "2023"
+      url: "/revistas/revista 1.jpg",
+      title: "Men's Health",
+      country: "España",
+      year: "2024"
     },
     {
-      url: "https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&fit=crop",
+      url: "/revistas/revista 2.jpg",
       title: "Muscle & Fitness",
-      country: "Europa",
-      year: "2023"
+      country: "USA",
+      year: "2024"
     },
     {
-      url: "https://images.pexels.com/photos/1431282/pexels-photo-1431282.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&fit=crop",
+      url: "/revistas/revista 3.jpg",
       title: "Iron Man Magazine",
       country: "Internacional",
-      year: "2023"
+      year: "2024"
+    },
+    {
+      url: "/revistas/revista 4.jpg",
+      title: "Muscular Development",
+      country: "USA",
+      year: "2024"
+    },
+    {
+      url: "/revistas/revista 5.jpg",
+      title: "Flex Magazine",
+      country: "Europa",
+      year: "2024"
     }
   ];
 
