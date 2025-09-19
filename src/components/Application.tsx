@@ -93,18 +93,18 @@ Me gustaría agendar una consulta para conocer más detalles del programa VIP.`;
           
           {/* Header */}
           <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-            <div className="inline-flex items-center bg-vip-gold/10 border border-vip-gold/30 rounded-full px-6 py-3 mb-8">
+            <div className="inline-flex items-center bg-gold/10 border border-gold/30 rounded-full px-6 py-3 mb-8">
               <img 
                 src="/corona_belegend-removebg-preview copy.png" 
                 alt="Corona VIP" 
                 className="w-5 h-5 mr-3"
               />
-              <span className="text-vip-gold font-bold text-sm tracking-wider">SOLICITUD VIP</span>
+              <span className="text-gold font-bold text-sm tracking-wider">SOLICITUD VIP</span>
             </div>
             
             <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 sm:mb-8 text-white leading-tight">
               <span className="block">Solicita tu</span>
-              <span className="text-vip-gold">Plaza VIP</span>
+              <span className="text-gold">Plaza VIP</span>
             </h2>
             
             <p className="text-lg sm:text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-6 sm:mb-8 px-4">
@@ -115,7 +115,7 @@ Me gustaría agendar una consulta para conocer más detalles del programa VIP.`;
             {/* Urgency Indicators */}
             <div className="flex flex-wrap justify-center gap-3 sm:gap-6 mb-8 sm:mb-12">
               {urgencyFactors.map((factor, index) => (
-                <div key={index} className="flex items-center bg-black/50 backdrop-blur-sm border border-vip-gold/30 rounded-full px-4 py-2">
+                <div key={index} className="flex items-center bg-black/50 backdrop-blur-sm border border-gold/30 rounded-full px-4 py-2">
                   <factor.icon className={`w-4 h-4 mr-2 ${factor.color}`} />
                   <span className="text-white text-sm font-medium">{factor.text}</span>
                 </div>
@@ -262,14 +262,14 @@ Me gustaría agendar una consulta para conocer más detalles del programa VIP.`;
             <div>
               
               {/* What You Get */}
-              <div className="bg-black/50 backdrop-blur-sm border border-vip-gold/30 rounded-3xl p-6 sm:p-8 mb-8">
+              <div className="bg-black/50 backdrop-blur-sm border border-gold/30 rounded-3xl p-6 sm:p-8 mb-8">
                 <h3 className="text-xl sm:text-2xl font-black text-white mb-6">Lo que obtienes como VIP:</h3>
                 
                 <div className="space-y-6">
                   {benefits.map((benefit, index) => (
                     <div key={index} className="flex items-start">
-                      <div className="bg-vip-gold/20 w-12 h-12 rounded-2xl flex items-center justify-center mr-4 flex-shrink-0">
-                        <benefit.icon className="w-6 h-6 text-vip-gold" />
+                      <div className="bg-gold/20 w-12 h-12 rounded-2xl flex items-center justify-center mr-4 flex-shrink-0">
+                        <benefit.icon className="w-6 h-6 text-gold" />
                       </div>
                       <div>
                         <h4 className="font-bold text-white mb-2">{benefit.title}</h4>
