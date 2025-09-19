@@ -145,7 +145,9 @@ const FAQ = () => {
                   y cómo puede ayudarte a alcanzar tus objetivos.
                 </p>
                 <a 
-                  href="mailto:coaching@sergiconstance.com" 
+                  href="https://wa.me/34614428420?text=Hola%20Sergi,%20tengo%20algunas%20preguntas%20sobre%20tu%20método%20de%20coaching.%20Me%20gustaría%20resolver%20mis%20dudas."
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center bg-gold text-white px-6 sm:px-8 py-4 rounded-xl font-bold text-base sm:text-lg hover:bg-gold-dark transition-all duration-300"
                 >
                   Contactar Directamente
