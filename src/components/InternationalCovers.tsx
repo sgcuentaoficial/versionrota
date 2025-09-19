@@ -117,11 +117,11 @@ const InternationalCovers = () => {
               <div className="relative">
                 
                 {/* Main Cover Display */}
-                <div className="relative h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+                <div className="relative aspect-[3/4] max-h-[500px] rounded-2xl overflow-hidden shadow-2xl">
                   <img
                     src={covers[activeImage].url}
                     alt="Portada de revista internacional"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain bg-gray-800"
                     loading="lazy"
                     decoding="async"
                   />
@@ -151,7 +151,7 @@ const InternationalCovers = () => {
                       <img
                         src={cover.url}
                         alt="Portada de revista"
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-contain bg-gray-700"
                         loading="lazy"
                         decoding="async"
                       />
